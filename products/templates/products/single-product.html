@@ -27,13 +27,16 @@
                     <br><br>
                    <h5 class="singleProject__subtitle">Location: </h5>
                    <a href="https://www.google.com/maps/place/Rugerero/"> RUBAVU </a>
+                     <br><br>
+                   <h5 class="singleProject__subtitle">Initial Price: &nbsp; <b>{{product.name.price}} Rwf</b> </h5>
+                   <a href="#"> View Trends </a>
 
                 </div>
 
 
             </div>
             <div class="column column--2of3">
-                <img id="myModalImg" alt="{{product.title}}" class="singleProject__preview"  src="{{ product.imageURL }}" alt="portfolio thumbnail" />
+                <img id="myModalImg" alt="{{product.name.name}}" class="singleProject__preview"  src="{{ product.imageURL }}" alt="portfolio thumbnail" />
                 
                
 
@@ -51,7 +54,7 @@
 
 
 
-                <h2 class="singleProject__title">{{product.title}}</h2>
+                <h2 class="singleProject__title">{{product.name.name}}</h2>
                 <h3 class="singleProject__subtitle">About the Product</h3>
                 <div class="singleProject__info">
                     {{product.description}}

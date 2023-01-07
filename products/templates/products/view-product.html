@@ -25,42 +25,7 @@
             </div>
         </div>
     </section>
-    <!-- Search Result: DevList -->
-    <section class="productsList">
-        <div class="container" >
-            <div class="grid grid--three">
-
-                {% for product in products %}
-                <div class="column">
-                    <div class="card product">
-                        <a href="{% url 'product' product.id %}" class="product">
-                            <img class="product__thumbnail" src="{{product.imageURL}}" alt="Product thumbnail" />
-                            <div class="card__body">
-                                <h3 class="product__title">{{product.title}}</h3>
-                                <p><a class="product__author" href="{% url 'user-profile' product.owner.id %}">By
-                                        {{product.owner.name}}</a>
-                                </p>
-                                <p class="product--rating">
-                                    <span style="font-weight: bold;">{{product.vote_ratio}}%</span> Positive
-                                    Feedback ({{product.vote_total}}) Vote{{product.vote_total|pluralize:"s"}}
-                                </p>
-                                <div class="product__tags">
-                                    {% for payment in product.payments.all %}
-                                    <span class="tag tag--pill tag--main">
-                                        <small>{{payment}}</small>
-                                    </span>
-                                    {% endfor %}
-
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </section>
+        {% include 'products/card.html' %}
 
     {% include 'pagination.html' with queryset=products custom_range=custom_range %}
 
