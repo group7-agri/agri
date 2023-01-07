@@ -97,3 +97,28 @@ class Payment(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class SingleProduct(models.Model):
+    PRODUCT_TYPE = (
+        ('Tea','Icyayi'),
+        ( 'Coffee','Ikawa'),
+        ('Cassava','Imyumbati'),
+        ( 'Sweet Potato','Ibijumba'),
+        ( 'Irish Potato','Ibirayi'),
+        ('Maize','Ibigori'),
+        ( 'Beans','Ibishyimbo'),
+    ) 
+    UNITY_TYPE = (
+        ('Kg','Kilograms'),
+        ( 'Lt','Litres'),
+        ('Tray','Trays'),
+        ( 'Species','Species'),
+    )
+    name = models.CharField(max_length=200, choices=PRODUCT_TYPE, default="Ibirayi")
+    price = models.IntegerField(null=True, blank=True, default=0)
+    unity = models.CharField(null=True,max_length=200, choices=UNITY_TYPE,blank=True, default="Kg")
+    
+    def __str__(self):
+        return self.name
