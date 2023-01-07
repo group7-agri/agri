@@ -1,0 +1,96 @@
+{% load static %}
+
+<!-- Header Section -->
+<header class="header">
+  <div class="container container--narrow">
+    <a href="{% url 'feedback' %}" class="header__logo">
+    {% comment %} <a href="{% url 'profiles' %}" class="header__logo"> {% endcomment %}
+       <img src="{% static 'images/logo.png' %} " class="logo" alt="YieldSearch Logo" /> 
+
+       <img src="{% static 'images/favicon.png' %} " class="mobile-logo" alt="YieldSearch Logo" /> 
+       
+      {% comment %}<strong><p style="font-weight:1000; color:white; font-size:24px">Logo</p></strong>{% endcomment %}
+    </a>
+
+    <nav class="header__nav">
+      {% comment %} <input type="checkbox" id="responsive-menu" />
+      <label for="responsive-menu" class="toggle-menu">
+        <span>Menu</span>
+        <div class="toggle-menu__lines"></div>
+      </label>
+       {% endcomment %}
+      <ul class="header__menu">
+          {% url 'profiles' as url %}
+        <li class="header__menuItem {% if request.path == url %}active{% endif %}">
+          <a href="{% url 'profiles' %}" >Merchants</a>
+        </li>
+        {% url 'products' as url1 %}
+        <li class="header__menuItem {% if request.path == url1 %}active{% endif %}">
+          <a href="{% url 'products' %}">Yields</a>
+        </li>
+
+        {% if request.user.is_authenticated %}
+         {% url 'inbox' as url2 %}
+        <li class="header__menuItem {% if request.path == url2 %}active{% endif %}">
+          <a href="{% url 'inbox' %}" ><i class="icon-envelope-alt icon"></i><p class="badge"> </p></a></li>
+          
+        <li class="header__menuItem">
+          <a href="{% url 'inbox' %}"><i class="icon-bell icon"></i></a></li>
+        
+          {% url 'account' as url4 %}
+        <li class="header__menuItem {% if request.path == url4 %}active{% endif %}">
+          <a href="{% url 'account' %}">Account</a>
+        </li>  
+        {% url 'logout' as url5 %}
+        <li class="header__menuItem {% if request.path == url5 %}active{% endif %}">
+          <a href="{% url 'logout' %}" class="btn btn--sub ">Logout</a>
+        </li>
+        {% else %}
+        <li class="header__menuItem">
+          <a href="{% url 'login' %}" class="btn btn--sub ">Login/Sign Up</a>
+        </li>
+        {% endif %}
+      </ul>
+
+
+      <div class="mobile__menu" id="responsive-menu">
+          
+        
+        {% url 'profiles' as url %}
+        <span class="mobile__menuItem {% if request.path == url %}active{% endif %}">
+          <a href="{% url 'profiles' %}" ><i class="icon-group icon"></i></i></a>
+        </span>
+
+        {% url 'products' as url1 %}
+        <span class="mobile__menuItem {% if request.path == url1 %}active{% endif %}">
+          <a href="{% url 'products' %}"><i class="icon-shopping-cart icon"></i></a>
+        </span>
+
+        {% if request.user.is_authenticated %}
+         {% url 'inbox' as url2 %}
+        <span class="mobile__menuItem {% if request.path == url2 %}active{% endif %}">
+          <a href="{% url 'inbox' %}" ><i class="icon-envelope-alt icon"></i><p class="badge"> </p></a></span>
+          
+        <span class="mobile__menuItem">
+          <a href="{% url 'inbox' %}"><i class="icon-bell icon"></i></a></span>
+        
+          {% url 'account' as url4 %}
+        <span class="mobile__menuItem {% if request.path == url4 %}active{% endif %}">
+          <a href="{% url 'account' %}"><i class="icon-gear icon"></i></a>
+        </span>  
+        {% url 'logout' as url5 %}
+        <span class="mobile__menuItem log {% if request.path == url5 %}active{% endif %}">
+          <a href="{% url 'logout' %}"><i class="icon-off icon " onclick="return confirm('Are you sure you want to log out?');"></i></a>
+        </span>
+        {% else %}
+        <span class="mobile__menuItem">
+          <a href="{% url 'login' %}" class="btn btn--sub">Login/Sign Up</a>
+        </span>
+        {% endif %}
+      </div>
+
+    </nav>
+  </div>
+</header>
+
+

@@ -1,0 +1,134 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<!-- Main Section -->
+<main class="products">
+    
+    <!-- Search Result: DevList -->
+    <section class="productsList">
+        <div class="container" >
+            
+                
+                <!-- The Modal -->
+            <div id="myModalForm" class="modalForm" style="display:block;">
+
+                <!-- Modal content -->
+                
+                <div class="modal-contentForm">
+                    <form action="#" class="form">
+                        <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text">Product Name: </label>
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="text"
+                            name="text"
+                            value = "{{product.title}}"
+                            placeholder="Enter your full name" readonly
+                        />
+                        </div>
+                                <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text">Full Name: </label>
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="text"
+                            name="text"
+                            value = "{{product.owner.name}}" readonly
+                        />
+                        </div>
+                                <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text">Quantity Available: </label>
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="number"
+                            name="text"
+                            value = "{{product.quantity}}" readonly
+                        />
+                        </div>
+                         <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text"> Quantity you need: </label>
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="number"
+                            name="text"
+                            value = "" 
+                        />
+                        </div>
+
+                     
+
+                    
+                        <!-- Textarea -->
+                        <div class="form__field">
+                        <label for="formInput#textarea">Message: </label>
+                        <textarea
+                            class="input input--textarea"
+                            name="message"
+                            id="formInput#textarea"
+                            placeholder="Write something awesome..."
+                        ></textarea>
+                        </div>
+
+                        <!-- Input:Submit / Input:Reset  -->
+                        
+                        <div class="form__field form__field--action center">
+                        <input class="btn btn--sub--outline" type="reset" value="Reset" />
+                        <input class="btn btn--sub" type="submit" value="Submit" />
+                        </div>
+                        </form>
+                        
+                <script>
+                        // Get the modal
+                        var modal = document.getElementById("myModalForm");
+
+                        // Get the button that opens the modal
+                        var btn = document.getElementById("{{product.id}}");
+
+                        // Get the <span> element that closes the modal
+                        var span = document.getElementsByClassName("closeForm")[0];
+
+                        // When the user clicks the button, open the modal 
+                        btn.onclick = function() {
+                        modal.style.display = "block";
+                        }
+
+                        // When the user clicks on <span> (x), close the modal
+                        span.onclick = function() {
+                        modal.style.display = "none";
+                        }
+
+                        // When the user clicks anywhere outside of the modal, close it
+                        window.onclick = function(event) {
+                        if (event.target == modal) {
+                            modal.style.display = "none";
+                        }
+                        }
+                </script>
+                                    
+
+
+
+            
+        </div>
+    </section>
+
+
+
+
+</main>
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}{% endblock footer %}

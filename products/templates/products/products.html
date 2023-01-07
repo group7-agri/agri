@@ -1,0 +1,120 @@
+{% extends 'main.html' %}
+{% block content %}
+
+{% load humanize %}
+<!-- Main Section -->
+<main class="products">
+    <section class="hero-section text-center">
+        <div class="container container--narrow">
+            <div class="hero-section__box">
+                <h2>Search for <span>Yield</span></h2>
+            </div>
+
+            <div class="hero-section__search">
+                <form id='searchForm' class="form" action="{% url 'products' %}" method="get">
+                    <div class="form__field">
+                        <label for="formInput#search">Search By Yield </label>
+                        <input class="input input--text white" id="formInput" type="text" name="search_query"
+                            placeholder="Search by Yield Title" value="{{search_query}}" />
+                    </div>
+
+                    <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- Search Result: DevList -->
+    <section class="productsList">
+        <div class="container" >
+            <div class="grid grid--three" id="MyData">
+
+                {% if products %}
+                {% for product in products %}
+                <div class="column" id="MyRow">
+                    <div class="card product" id="Data">
+                        <a href="{% url 'product' product.id %}" class="product">
+                            <img class="product__thumbnail" src="{{product.imageURL}}" alt="Product thumbnail" /></a>
+                            <div class="card__body">
+                                <h3 class="product__title">{{product.title}}</h3>
+                                <p><a href="{% url 'user-profile' product.owner.id %}">By
+                                        {{product.owner.name}}</a>
+                                </p>
+                                <span class="product__author"> Uploaded: {{product.created|naturaltime }} </span>
+                                
+                                <table class="table">
+                                    <tr>
+                                        <td>Available: </td>
+                                        <td>{{product.quantity}} {{product.unity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Price: </td>
+                                        <td>{{product.price}} Rwf</td>
+                                    </tr>
+                                </table
+                                
+                                
+                                <p class="product--rating">
+                                    <span style="font-weight: bold;">{{product.vote_ratio}}%</span> Positive
+                                    Feedback ({{product.vote_total}}) Vote{{product.vote_total|pluralize:"s"}}
+                                </p>
+                                <br>
+                                
+                                <div class="product__tags" id="{{product.id}}">
+                                    {% if product.quantity > 0 %}
+                                    <button class="btn btn--sub btn--lg buy">
+                                        <small><a style="color:#fff;" href=" {% url 'checkout-product' product.id %}">ASK</a></small>
+                                        </button>
+                                    {% else %}
+                                    <button class="btn btn--sub btn--lg buy" disabled><small>OUT OF STOCK</small></button>
+                                    {% endif %}
+                                        
+                                </div>
+
+                                   
+
+
+
+                            </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% else %}
+
+                
+                <p id="no-data">No Data</p>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+{% comment %}     
+<img id="myImg" src="{% static 'images/' %}" alt="Snow" style="width:100%;max-width:300px">
+
+<!-- The Modal -->
+<div id="myModalImage" class="modalImage">
+  <span class="closeImage">&times;</span>
+  <img class="modal-contentImage" id="img01">
+  <div id="captionImage"></div>
+</div> {% endcomment %}
+
+
+    {% include 'pagination.html' with queryset=products custom_range=custom_range %}
+
+</main>
+
+
+
+
+{% endblock %}
+
+
+{% block footer %}{% endblock footer %}

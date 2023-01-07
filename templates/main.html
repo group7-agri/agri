@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+{% load static %}
+{% load humanize %}
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href=" {% static 'images/favicon.png' %} " type="image/x-icon" />
+    <!-- Icon - IconMonster -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"
+    />
+    <link href="{% static 'styles/font-awesome/css/font-awesome.css' %}" rel="stylesheet">
+    <!-- Mumble UI -->
+    <link rel="stylesheet" href="{% static 'uikit/styles/uikit.css' %}" />
+    <!-- Dev Search UI -->
+    <link rel="stylesheet" href="{% static 'styles/app.css' %}" />
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
+
+    <title>Yield Search - Get the yield from Farmer and Rancher!</title>
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+
+    <!-- {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+            {% endfor %}
+    </ul>
+    {% endif %} -->
+
+    {% if messages %} {% for message in messages %}
+    <div class="alert  alert--{{message.tags}}">
+      <p class="alert__message">{{message}}</p>
+      <button class="alert__close">x</button>
+    </div>
+
+    {% endfor %} {% endif %} {% block content %} 
+    
+    
+    {% endblock content %}
+    
+               
+
+    {% block footer %} 
+    {% include 'footer.html' %}
+
+    {% endblock footer %}
+
+    {% block script %}
+  <script src="{% static 'uikit/app.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+
+<script>
+  $(document).ready(function(){
+
+      setInterval(function(){
+          $.ajax({
+              type:'GET',
+              url: "{% url 'inboxAjax' %}",
+              success: function(response){
+
+                  $(".badge").empty();
+                  
+                  
+                  var count =  response.unreadCount;
+                  if(count==0){
+                    $(".badge").css("display:none;")
+                  }
+                  else{
+                   $(".badge").text(count);
+                   $(".badge").css("padding:4px");
+                  }
+                  
+
+              },
+              error: function(response){
+                  alert("cant retrieve data")
+              }
+          });
+
+      },1000);
+  });
+
+
+
+  
+  //ACCOUNT SEARCH
+
+    $("#Search").on("keyup", function(){
+      var value = $(this).val();
+      console.log(value);
+      $("table tr").each(function(e){
+        if(e !== -1){
+          $go = $(this)
+
+          $go.find('td').each(function(){
+            var id = $(this).text();
+
+            if(id.indexOf(value) !==0 && id.toLowerCase().indexOf(value.toLowerCase()) < 0){
+              $go.hide();
+              
+
+            }
+            else {
+              $go.show();
+              return false;
+            }
+          });
+        }
+        var isNone = $("#MyTable tr:not('.chk-th'):visible");
+
+        if(isNone.length == 0){
+          $("#no-result").text("No result Found").show();
+
+        }
+        else {
+          $("#no-result").text("No result Found").hide();
+
+        }
+      })
+    })
+
+
+
+    //PROFILES AND PRODUCT SEARCH
+    $("#formInput").on("keyup", function(){
+      var value = $(this).val();
+      console.log(value);
+      $("#MyData #MyRow").each(function(e){
+        if(e !== -1){
+          $go = $(this)
+
+          $go.find('#Data').each(function(){
+            var id = $(this).text();
+
+            if(id.indexOf(value) !==0 && id.toLowerCase().indexOf(value.toLowerCase()) < 0){
+              $go.hide();
+
+            }
+            else {
+              $go.show();
+              return false;
+            }
+          });
+        }
+        var isNone = $("#MyData #MyRow:not('#MyRow'):visible");
+
+        if(isNone.length == 0){
+          $("#no-result").text("No result Found").show();
+
+        }
+        else {
+          $("#no-result").text("No result Found").hide();
+
+        }
+      })
+    })
+
+
+
+</script>
+
+    {% endblock script %}
+  </body>
+  </html>

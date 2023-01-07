@@ -1,0 +1,152 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% block content %}
+
+<!-- Main Section -->
+<main class="settingsPage profile my-md">
+  <div class="container">
+    <div class="layout">
+      <div class="column column--1of3">
+        <div class="card text-center">
+          <div class="card__body dev">
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i>
+              Edit</a>
+            <img class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" />
+            <h2 class="dev__name">{{profile.name}}</h2>
+            <p class="dev__title">{{profile.short_into}}</p>
+            <p class="dev__location">Based in {{profile.location}}</p>
+
+            <ul class="dev__social">
+              {% if profile.social_github %}
+              <li>
+                <a title="Github" href="{{profile.social_github}}" target="_blank"><i class="im im-github"></i></a>
+              </li>
+              {% endif %}
+
+
+              {% if profile.social_twitter %}
+              <li>
+                <a title="Twitter" href="{{profile.social_twitter}}" target="_blank"><i class="im im-twitter"></i></a>
+              </li>
+              {% endif %}
+
+              {% if profile.social_linkedin %}
+              <li>
+                <a title="LinkedIn" href="{{profile.social_linkedin}}" target="_blank"><i
+                    class="im im-linkedin"></i></a>
+              </li>
+              {% endif %}
+
+              {% if profile.social_website %}
+              <li>
+                <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i
+                    class="im im-globe"></i></a>
+              </li>
+              {% endif %}
+
+            </ul>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="column column--2of3">
+        <div class="devInfo">
+          <h3 class="devInfo__title settings__title">About Me <input type="text" placeholder="Search ..." class="input-search" id="Search"/></h3>
+          <p class="devInfo__about">{{profile.bio}}</p>
+        </div>
+      
+        
+
+        <div class="settings">
+          <h3 class="settings__title">Training</h3> 
+          <a class="tag tag--pill tag--sub settings__btn tag--lg" style="background:#9f9fc3; color:#000;" href="{% url 'create-training' %}"><i
+              class="im im-plus"></i> Add Training</a>
+        </div>
+
+        <table class="settings__table"  id="MyTable">
+          {% if trainings %}
+          {% for training in trainings %}
+         
+          <tr class="chk-th">
+            <td class="settings__thumbnail">
+              {% comment %} <a href="{{training.imageURL}}"><img src="{{training.imageURL}}" alt="Training Thumbnail" /></a> {% endcomment %}
+            <a href="{{training.imageURL}}"><img src=" {% static 'images/certificates/certificate.png' %} "  style="height: 8rem;" alt="Training Thumbnail" /></a>
+            </td>
+            <td class="settings__tableInfo" >
+              <a href="#">{{training.trainer}}</a> &nbsp; <span class="black"> Completed: {{training.completed}}</span><br><br>
+              <p>{{training.description|slice:"100"}}</p>
+            </td>
+            <td class="settings__tableActions">
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-training' training.id %}"><i
+                  class="im im-edit"></i> Edit</a>
+              <a class="tag tag--pill tag--main settings__btn"
+                href="{% url 'delete-training' training.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                Delete</a>
+            </td>
+          </tr>
+          {% endfor %}
+
+          {% else %}
+
+
+                <p id="no-data">No Data</p>
+          {% endif %}
+          
+        </table>
+        
+
+        
+
+
+
+            <div class="settings">
+          <h3 class="settings__title">Products</h3>
+              {% if profile.account == 'Farmer' %}
+
+          <a class="tag tag--pill tag--sub settings__btn tag--lg" style="background:#9f9fc3; color:#000;" href="{% url 'create-product' %}"><i
+              class="im im-plus"></i> Add Product</a>
+              {% endif %}
+        </div>
+
+        <table class="settings__table" id="MyTable">
+          {% if products %}
+          {% for product in products %}
+          <tr class="chk-th">
+            <td class="settings__thumbnail">
+              <a href="{% url 'product' product.id %}"><img src="{{product.imageURL}}" alt="Product Thumbnail" /></a>
+            </td>
+            <td class="settings__tableInfo">
+              <a href="{% url 'product' product.id %}">{{product.title}}</a>
+              <p>{{product.description|slice:"150"}}</p>
+            </td>
+            
+            {% if profile.account == 'Farmer' %}
+            <td class="settings__tableActions">
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-product' product.id %}"><i
+                  class="im im-edit"></i> Edit</a>
+              <a class="tag tag--pill tag--main settings__btn"
+                href="{% url 'delete-product'  product.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                Delete</a>
+            </td>
+            {% endif %}
+          </tr>
+          {% endfor %}
+          {% else %}
+          
+                <p id="no-data">No Data</p>
+          {% endif %}
+         
+
+        </table>
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+
