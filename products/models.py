@@ -7,27 +7,13 @@ from users.models import Profile
 
 
 class Product(models.Model):
-    PRODUCT_TYPE = (
-        ('Tea','Icyayi'),
-        ( 'Coffee','Ikawa'),
-        ('Cassava','Imyumbati'),
-        ( 'Sweet Potato','Ibijumba'),
-        ( 'Irish Potato','Ibirayi'),
-        ('Maize','Ibigori'),
-        ( 'Beans','Ibishyimbo'),
-    ) 
-    UNITY_TYPE = (
-        ('Kg','Kilograms'),
-        ( 'Lt','Litres'),
-        ('Tray','Trays'),
-        ( 'Species','Species'),
-    )
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
-    title = models.CharField(max_length=200, choices=PRODUCT_TYPE, default="Ibirayi")
+    name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=200, null=True, blank=True, default="Ibirayi")
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     quantity = models.IntegerField(null=True, blank=True, default=0)
-    unity = models.CharField(null=True,max_length=200, choices=UNITY_TYPE,blank=True, default="Kg")
+    unity = models.CharField(null=True,max_length=200, blank=True, default="Kg")
     price = models.IntegerField(null=True, blank=True, default=0)
     location = models.CharField(max_length=100, null=True, blank=True)
     payments = models.ManyToManyField('Payment', blank=True)
@@ -38,10 +24,10 @@ class Product(models.Model):
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
 
     def __str__(self):
-        return self.title
+        return self.name.name
 
     class Meta:
-        ordering = ['-vote_ratio', '-vote_total', 'title']
+        ordering = ['-vote_ratio', '-vote_total', 'name']
 
     @property
     def imageURL(self):
@@ -98,27 +84,18 @@ class Payment(models.Model):
     def __str__(self):
         return self.name
 
-
-
 class SingleProduct(models.Model):
-    PRODUCT_TYPE = (
-        ('Tea','Icyayi'),
-        ( 'Coffee','Ikawa'),
-        ('Cassava','Imyumbati'),
-        ( 'Sweet Potato','Ibijumba'),
-        ( 'Irish Potato','Ibirayi'),
-        ('Maize','Ibigori'),
-        ( 'Beans','Ibishyimbo'),
-    ) 
-    UNITY_TYPE = (
-        ('Kg','Kilograms'),
-        ( 'Lt','Litres'),
-        ('Tray','Trays'),
-        ( 'Species','Species'),
-    )
-    name = models.CharField(max_length=200, choices=PRODUCT_TYPE, default="Ibirayi")
+
+    name = models.CharField(max_length=200, null=True, blank=True, default="Ibirayi")
     price = models.IntegerField(null=True, blank=True, default=0)
-    unity = models.CharField(null=True,max_length=200, choices=UNITY_TYPE,blank=True, default="Kg")
+    unity = models.CharField(max_length=200, null=True, blank=True, default="Kilogram")
     
+    created = models.DateTimeField(auto_now_add=True)
+    id = models.UUIDField(default=uuid.uuid4, unique=True,
+                          primary_key=True, editable=False)
+
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name_plural = "Single Product"
