@@ -12,4 +12,6 @@ urlpatterns = [
 
     path('delete-product/<str:pk>/', views.deleteProduct, name="delete-product"),
     path('checkout-product/<str:pk>/', views.checkOutProduct, name="checkout-product"),
+    path('checkout/<str:pk>/', views.processOrder, name="process-order"),
+
 ]

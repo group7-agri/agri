@@ -277,6 +277,11 @@ textarea{
   padding-left: auto;
   text-align: center;
   padding-right: auto;
+  cursor:auto;
+  color: #000;
+  font-weight: bold;
+  width: 300px;
+  max-width: 100%;
 }
 
 /* MODAL IMAGE */

@@ -49,15 +49,24 @@
                         </div>
                                 <!-- Input:Text -->
                         <div class="form__field">
-                        <label for="formInput#text"> {{product.name.unity}} Available: </label>
+                        <label for="formInput#text"> Unity Price: </label>
                         <input
                             class="input input--text"
                             id="formInput#text"
                             type="text"
                             name="text"
-                            value = "{{product.quantity}}" readonly
+                            value = "{{product.name.price}}" readonly
                         />
                         </div>
+
+                     <label for="formInput#text"> Payements Accepted </label><br>
+                    {% for payment in product.payments.all|slice:'3' %}
+                    <span class="tag tag--pill tag--main">
+                        <small>{{payment}}</small>
+                    </span>
+                
+                    {% endfor %}<br><br>
+
         </div>
       </div>
 
@@ -65,7 +74,8 @@
          
         
         <!-- FORM STARTS HERE-->
-                    <form action="#" class="form">
+                    <form action="{% url 'process-order' product.owner.id %}" class="form" method="POST">
+                        {% csrf_token %}
                         <!-- Input:Text -->
                         <div class="form__field">
                         <input  class="input input--text" id="formInput#text"type="text"
@@ -73,7 +83,14 @@
                             hidden readonly
                         />
                         </div>
-                                <!-- Input:Text -->
+                        <!-- Input:Text -->
+                        <div class="form__field">
+                        <input  class="input input--text" id="formInput#text"type="text"
+                            name="productId"value = "{{product.id}}"
+                            hidden readonly
+                        />
+                        </div>
+                                {% comment %} <!-- Input:Text -->
                         <div class="form__field">
                         <input
                             class="input input--text"
@@ -81,14 +98,8 @@
                             type="text" name="seller"
                             value = "{{product.owner.name}}" hidden readonly
                         />
-                        </div>
-                                <!-- Input:Text -->
-                        <div class="form__field">
-                        <input class="input input--text" id="formInput#text"
-                            type="number" name="TotalQuantity"
-                            value = "{{product.quantity}}" hidden readonly
-                        />
-                        </div>
+                        </div> {% endcomment %}
+                              
 
                         <!-- TODO: THIS IS DISPLAYED FROM HERE-->
 
@@ -96,20 +107,37 @@
                         <div class="form__field">
                             <label for="formInput#text"> Future Use:  
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="radio" class="radio" name="choice" value="Resell"> Resell 
+                                <input type="radio" class="radio" name="choice" value="Resell" required> Resell 
                                 &nbsp;&nbsp;&nbsp;&nbsp;or &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="radio" class="radio" name="choice" value="Consuming"> Consuming
+                                <input type="radio" class="radio" name="choice" value="Consuming" required> Consuming
                                 
                             </label>
-                            <br>
 
-                        <label for="formInput#text"> Initial Price: </label>
                         <input
                             class="input input--text"
                             id="formInput#text"
                             type="number"
                             name="price"
-                            value = "{{product.name.price}}" 
+                            value = "{{product.name.price}}" readonly hidden 
+                        />
+                        
+
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="text"
+                            name="unity"
+                            value = "{{product.name.unity}}" readonly hidden 
+                        />
+
+                        
+
+                              <!-- Input:Text -->
+                        <div class="form__field">
+                             <label for="formInput#text"> {{product.name.unity}} Available: </label>
+                        <input class="input input--text" id="formInput#text"
+                            type="number" name="TotalQuantity"
+                            value = "{{product.quantity}}"  readonly
                         />
                         </div>
 
@@ -119,6 +147,7 @@
                         <input
                             class="input input--text"
                             id="formInput#text"
+                            placeholder = " < =  {{product.quantity}}"
                             type="number" required
                             name="quantityNeeded"
                             value = "" 
@@ -144,7 +173,7 @@
                         <label for="formInput#textarea">Requet Message: </label>
                         <textarea
                             class="input input--textarea"
-                            name="request"
+                            name="reason"
                             id="formInput#textarea"
                             placeholder="Write something awesome..."
                         ></textarea>

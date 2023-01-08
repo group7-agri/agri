@@ -3,10 +3,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Product, Payment, SingleProduct, Review
+from .models import Product,Order, Payment, SingleProduct, Review
 from .forms import ProductForm, ReviewForm
 from .utils import searchProducts, paginateProducts
+from django.views.decorators.csrf import csrf_exempt
 from django import template
+from users.models import Profile
 from django.utils.timesince import timesince
 
 def products(request):
@@ -108,8 +110,71 @@ def deleteProduct(request, pk):
 
 
 
+@login_required(login_url="login")
+def processOrder(request, pk):
+
+
+    #DATA 
+    buyer = request.user.profile
+    seller = Profile.objects.get(id=pk)
+    
+    productId = ''
+
+    print(seller)
+    
+
+    if request.method == 'POST':
+        productName = request.POST['productName']
+        productId = request.POST['productId']
+        price = request.POST['price']
+        unity = request.POST['unity']
+        totalQunatity = int(request.POST['TotalQuantity'])
+        needQuantity = int(request.POST['quantityNeeded'])
+
+        quantity = totalQunatity - needQuantity
+        location = request.POST['location']
+        reason = request.POST['reason']
+
+        #CHOICE MADE
+        status = request.POST['choice']
+
+
+        if quantity >=0:
+            order = Order.objects.create(
+            seller=seller,
+            buyer=buyer,
+            productName=productName,
+            price=price,
+            unity=unity,
+            quantity=needQuantity,
+            location=location,
+            request=reason)
+
+            obj = order.save()
+            
+            if obj is None:
+                messages.success(request, 'Your order sent successfully!')
+                return redirect('products')
+            else:
+                messages.error(request, 'Error for inserting order')
+                return redirect('checkout-product',pk=productId)
+
+        else :
+            messages.error(request, 'You are asking more than available')
+            return redirect('checkout-product',pk=productId)
+
+    else:
+        messages.info(request, 'something went wrong!!')
+        return redirect('checkout-product',pk=productId)
+     
+
+
+
 register = template.Library()
 
 @register.filter
 def naturaltime(value):
     return timesince(value)
+
+
+

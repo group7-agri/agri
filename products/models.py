@@ -14,6 +14,7 @@ class Product(models.Model):
     quantity = models.IntegerField(null=True, blank=True, default=0)
     location = models.CharField(max_length=100, null=True, blank=True)
     payments = models.ManyToManyField('Payment', blank=True)
+    instock = models.BooleanField(blank=True, null=True, default=True)
     vote_total = models.IntegerField(default=0, null=True, blank=True)
     vote_ratio = models.IntegerField(default=0, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
@@ -105,15 +106,15 @@ class Order(models.Model):
         ( 'Pending','Pending'),
     )
     seller = models.ForeignKey(
-        Profile, on_delete=models.SET_NULL, null=True, blank=True)
+        Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="seller")
     buyer = models.ForeignKey(
-        Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="buyer")
+        Profile, on_delete=models.SET_NULL, null=True, blank=True)
         
     productName = models.CharField(max_length=200, null=True, blank=True)
     price = models.CharField(max_length=200, null=True, blank=True, verbose_name="Initial Price")
     status = models.CharField(max_length=200, choices=STATUS, default="Pending", null=True, blank=True)
     unity = models.CharField(max_length=200, null=True, blank=True)
-    quantity = models.CharField(max_length=200, null=True, blank=True)
+    quantity = models.CharField(max_length=200, null=True, blank=True, verbose_name="Quantity Purchased")
     location = models.CharField(max_length=200, null=True, blank=True)
     request = models.TextField(null=True, blank=True)
     response = models.TextField(null=True, blank=True)
