@@ -13,7 +13,7 @@ class Product(models.Model):
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     quantity = models.IntegerField(null=True, blank=True, default=0)
     location = models.CharField(max_length=100, null=True, blank=True)
-    payments = models.ManyToManyField('Payment', blank=True)
+    payments = models.ManyToManyField('Payment', blank=True, default="In Hand")
     instock = models.BooleanField(blank=True, null=True, default=True)
     vote_total = models.IntegerField(default=0, null=True, blank=True)
     vote_ratio = models.IntegerField(default=0, null=True, blank=True)

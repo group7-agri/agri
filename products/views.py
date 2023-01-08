@@ -119,24 +119,26 @@ def processOrder(request, pk):
     seller = Profile.objects.get(id=pk)
     
     productId = ''
+    SingleId = ''
 
-    print(seller)
     
 
     if request.method == 'POST':
         productName = request.POST['productName']
         productId = request.POST['productId']
         price = request.POST['price']
+        SingleId = request.POST['SingleId']
         unity = request.POST['unity']
-        totalQunatity = int(request.POST['TotalQuantity'])
+        totalQuantity = int(request.POST['TotalQuantity'])
         needQuantity = int(request.POST['quantityNeeded'])
 
-        quantity = totalQunatity - needQuantity
+        quantity = totalQuantity - needQuantity
         location = request.POST['location']
         reason = request.POST['reason']
 
+
         #CHOICE MADE
-        status = request.POST['choice']
+        choice = request.POST['choice']
 
 
         if quantity >=0:
@@ -151,6 +153,28 @@ def processOrder(request, pk):
             request=reason)
 
             obj = order.save()
+                    # Get the instance of the model that you want to update
+            prod = Product.objects.get(id=productId)
+            item = SingleProduct.objects.get(id=SingleId)
+
+            # Update the field values of the model instance
+            prod.quantity = quantity
+
+            # Save the changes to the database
+            prod.save()
+
+
+            if choice == 'Resell':
+                newProd = Product.objects.create(
+                    owner=buyer,
+                    name=item.id,
+                    featured_image = prod.featured_image,
+                    description=prod.description,
+                    quantity=needQuantity,
+                    location=location
+                )
+                newProd.save()
+
             
             if obj is None:
                 messages.success(request, 'Your order sent successfully!')
@@ -160,7 +184,7 @@ def processOrder(request, pk):
                 return redirect('checkout-product',pk=productId)
 
         else :
-            messages.error(request, 'You are asking more than available')
+            messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
             return redirect('checkout-product',pk=productId)
 
     else:
