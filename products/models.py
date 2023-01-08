@@ -100,21 +100,31 @@ class SingleProduct(models.Model):
     class Meta:
         verbose_name_plural = "Single Product"
 
-class Orders(models.Model):
-
-    name = models.CharField(max_length=200, null=True, blank=True, default="Ibirayi")
-    price = models.IntegerField(null=True, blank=True, default=0)
-    unity = models.CharField(max_length=200, null=True, blank=True, default="Kilogram")
-    
+class Order(models.Model):
+    STATUS = (
+        ('Confirmed','Confirmed'),
+        ('Delivered','Rancher'),
+        ( 'Rejected','Rejected'),
+    )
+    seller = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, null=True, blank=True)
+    buyer = models.ForeignKey(
+        Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="buyer")
+        
+    name = models.CharField(max_length=200, null=True, blank=True)
+    price = models.CharField(max_length=200, null=True, blank=True)
+    status = models.CharField(max_length=200, choices=STATUS, null=True, blank=True)
+    unity = models.CharField(max_length=200, null=True, blank=True)
+    quantity = models.CharField(max_length=200, null=True, blank=True)
+    request = models.TextField()
+    reply = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
 
     def __str__(self):
         return self.name
-
-    class Meta:
-        verbose_name_plural = "Single Product"
+        
 
 
 
