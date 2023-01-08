@@ -9,12 +9,9 @@ from users.models import Profile
 class Product(models.Model):
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
     name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True)
-    title = models.CharField(max_length=200, null=True, blank=True, default="Ibirayi")
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     quantity = models.IntegerField(null=True, blank=True, default=0)
-    unity = models.CharField(null=True,max_length=200, blank=True, default="Kg")
-    price = models.IntegerField(null=True, blank=True, default=0)
     location = models.CharField(max_length=100, null=True, blank=True)
     payments = models.ManyToManyField('Payment', blank=True)
     vote_total = models.IntegerField(default=0, null=True, blank=True)

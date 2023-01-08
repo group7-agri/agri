@@ -7,12 +7,12 @@ from .models import Product, Review
 class ProductForm(ModelForm):
     class Meta:
         model = Product
-        fields = ['title','name', 'featured_image', 'description','quantity','unity','price','location', 'payments']
+        fields = ['name', 'featured_image', 'description','quantity','location', 'payments']
         
         labels = {
-            'quantity': 'Quantity ',
+            
             'name': 'Product Name',
-            'price' : 'Initial Price(Rwf)'
+            'quantity': 'Quantiy (in Kilogram, Litre....)',
         }
 
         widgets = {
