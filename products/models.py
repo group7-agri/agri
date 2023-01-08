@@ -103,17 +103,18 @@ class SingleProduct(models.Model):
 class Order(models.Model):
     STATUS = (
         ('Confirmed','Confirmed'),
-        ('Delivered','Rancher'),
-        ( 'Rejected','Rejected'),
+        ('Delivered','Delivered'),
+        ( 'Declined','Declined'),
+        ( 'Pending','Pending'),
     )
     seller = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True)
     buyer = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="buyer")
         
-    name = models.CharField(max_length=200, null=True, blank=True)
-    price = models.CharField(max_length=200, null=True, blank=True)
-    status = models.CharField(max_length=200, choices=STATUS, null=True, blank=True)
+    productName = models.CharField(max_length=200, null=True, blank=True)
+    price = models.CharField(max_length=200, null=True, blank=True, verbose_name="Initial Price")
+    status = models.CharField(max_length=200, choices=STATUS, default="Pending", null=True, blank=True)
     unity = models.CharField(max_length=200, null=True, blank=True)
     quantity = models.CharField(max_length=200, null=True, blank=True)
     location = models.CharField(max_length=200, null=True, blank=True)
@@ -124,7 +125,7 @@ class Order(models.Model):
                           primary_key=True, editable=False)
 
     def __str__(self):
-        return self.name
+        return self.productName
         
 
 
