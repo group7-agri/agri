@@ -3,21 +3,28 @@
 
 
 <!-- Main Section -->
-<main class="products">
-    
-    <!-- Search Result: DevList -->
-    <section class="productsList">
-        <div class="container" >
-            
-                
-                <!-- The Modal -->
-            <div id="myModalForm" class="modalForm" style="display:block;">
+<main class="settingsPage profile my-md opacBg">
+  <div class="container ">
+    <div class="layout">
+        
+      <div class="column column--1of3">
+        <div class="card text-center info">
+            <h4> Product Info</h4>
+            <hr>
+            <br>
+           <img id="myModalImg" style="width:100%;max-width:300px" alt="{{product.name.name}}" class="singleProject__preview"  src="{{ product.imageURL }}" alt="portfolio thumbnail" />
+              <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
 
-                <!-- Modal content -->
-                
-                <div class="modal-contentForm">
-                    <form action="#" class="form">
-                        <!-- Input:Text -->
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage" style="color:#000;"></div>
+                        </div>
+
+                        </div>
+                                 <!-- Input:Text -->
                         <div class="form__field">
                         <label for="formInput#text">Product Name: </label>
                         <input
@@ -31,7 +38,7 @@
                         </div>
                                 <!-- Input:Text -->
                         <div class="form__field">
-                        <label for="formInput#text">Full Name: </label>
+                        <label for="formInput#text">Owner's Name: </label>
                         <input
                             class="input input--text"
                             id="formInput#text"
@@ -42,23 +49,89 @@
                         </div>
                                 <!-- Input:Text -->
                         <div class="form__field">
-                        <label for="formInput#text">Quantity Available: </label>
+                        <label for="formInput#text"> {{product.name.unity}} Available: </label>
                         <input
                             class="input input--text"
                             id="formInput#text"
-                            type="number"
+                            type="text"
                             name="text"
                             value = "{{product.quantity}}" readonly
                         />
                         </div>
+        </div>
+      </div>
+
+      <div class="column column--2of3 modal-contentForm">
+         
+        
+        <!-- FORM STARTS HERE-->
+                    <form action="#" class="form">
+                        <!-- Input:Text -->
+                        <div class="form__field">
+                        <input  class="input input--text" id="formInput#text"type="text"
+                            name="productName"value = "{{product.name.name}}"
+                            hidden readonly
+                        />
+                        </div>
+                                <!-- Input:Text -->
+                        <div class="form__field">
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="text" name="seller"
+                            value = "{{product.owner.name}}" hidden readonly
+                        />
+                        </div>
+                                <!-- Input:Text -->
+                        <div class="form__field">
+                        <input class="input input--text" id="formInput#text"
+                            type="number" name="TotalQuantity"
+                            value = "{{product.quantity}}" hidden readonly
+                        />
+                        </div>
+
+                        <!-- TODO: THIS IS DISPLAYED FROM HERE-->
+
                          <!-- Input:Text -->
                         <div class="form__field">
-                        <label for="formInput#text"> Quantity you need: </label>
+                            <label for="formInput#text"> Future Use:  
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" class="radio" name="choice" value="Resell"> Resell 
+                                &nbsp;&nbsp;&nbsp;&nbsp;or &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" class="radio" name="choice" value="Consuming"> Consuming
+                                
+                            </label>
+                            <br>
+
+                        <label for="formInput#text"> Initial Price: </label>
                         <input
                             class="input input--text"
                             id="formInput#text"
                             type="number"
-                            name="text"
+                            name="price"
+                            value = "{{product.name.price}}" 
+                        />
+                        </div>
+
+                      <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text">  {{product.name.unity}} you need: </label>
+                        <input
+                            class="input input--text"
+                            id="formInput#text"
+                            type="number" required
+                            name="quantityNeeded"
+                            value = "" 
+                        />
+                        </div>
+                        <!-- Input:Text -->
+                        <div class="form__field">
+                        <label for="formInput#text"> Location: </label>
+                        <input
+                            class="input input--text" required
+                            id="formInput#text" placeholder="Eg. KN-14AVE......."
+                            type="text"
+                            name="location"
                             value = "" 
                         />
                         </div>
@@ -68,10 +141,10 @@
                     
                         <!-- Textarea -->
                         <div class="form__field">
-                        <label for="formInput#textarea">Message: </label>
+                        <label for="formInput#textarea">Requet Message: </label>
                         <textarea
                             class="input input--textarea"
-                            name="message"
+                            name="request"
                             id="formInput#textarea"
                             placeholder="Write something awesome..."
                         ></textarea>
@@ -80,51 +153,17 @@
                         <!-- Input:Submit / Input:Reset  -->
                         
                         <div class="form__field form__field--action center">
-                        <input class="btn btn--sub--outline" type="reset" value="Reset" />
-                        <input class="btn btn--sub" type="submit" value="Submit" />
+                            <input class="btn btn--sub--outline" type="reset" value="Reset" />
+                            <input class="btn btn--sub" type="submit" value="Submit" />
                         </div>
                         </form>
-                        
-                <script>
-                        // Get the modal
-                        var modal = document.getElementById("myModalForm");
+                
+            {% comment %} </div>                        {% endcomment %}
 
-                        // Get the button that opens the modal
-                        var btn = document.getElementById("{{product.id}}");
-
-                        // Get the <span> element that closes the modal
-                        var span = document.getElementsByClassName("closeForm")[0];
-
-                        // When the user clicks the button, open the modal 
-                        btn.onclick = function() {
-                        modal.style.display = "block";
-                        }
-
-                        // When the user clicks on <span> (x), close the modal
-                        span.onclick = function() {
-                        modal.style.display = "none";
-                        }
-
-                        // When the user clicks anywhere outside of the modal, close it
-                        window.onclick = function(event) {
-                        if (event.target == modal) {
-                            modal.style.display = "none";
-                        }
-                        }
-                </script>
-                                    
-
-
-
-            
-        </div>
-    </section>
-
-
-
-
+      </div>
+    </div>
+  </div>
 </main>
-
 
 
 

@@ -8,11 +8,13 @@
   opacity: 0.65; 
   cursor: not-allowed;
 }
-.singleProject__subtitle{
-  color: #000;
-}
+
 :root{
-  --color-text: #4b4b4b;
+  --color-text: #373636;
+}
+
+h5 .singleProject__subtitle{
+  color: var(--color-text);
 }
 
 .message__body{
@@ -264,8 +266,18 @@ textarea{
   text-decoration: none;
   cursor: pointer;
 }
-  
 
+.opacBg{
+  margin: 0;
+  padding: 1.2rem 0;
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.info input.input[type='text']{
+  padding-left: auto;
+  text-align: center;
+  padding-right: auto;
+}
 
 /* MODAL IMAGE */
 
@@ -274,7 +286,9 @@ textarea{
   cursor: pointer;
   transition: 0.3s;
 }
-
+.radio{
+  padding-left: 1.3rem;
+}
 #myModalImg:hover {opacity: 0.7;}
 /* The Modal (background) */
 .modalImage {
