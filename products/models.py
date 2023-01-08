@@ -116,6 +116,7 @@ class Order(models.Model):
     status = models.CharField(max_length=200, choices=STATUS, null=True, blank=True)
     unity = models.CharField(max_length=200, null=True, blank=True)
     quantity = models.CharField(max_length=200, null=True, blank=True)
+    location = models.CharField(max_length=200, null=True, blank=True)
     request = models.TextField()
     reply = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
