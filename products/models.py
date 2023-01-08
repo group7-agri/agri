@@ -25,7 +25,7 @@ class Product(models.Model):
         return self.name.name
 
     class Meta:
-        ordering = ['-vote_ratio', '-vote_total', 'name']
+        ordering = ['-vote_ratio', '-vote_total', '-created']
 
     @property
     def imageURL(self):

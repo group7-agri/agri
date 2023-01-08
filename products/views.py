@@ -152,44 +152,53 @@ def processOrder(request, pk):
             location=location,
             request=reason)
 
-            obj = order.save()
+            
                     # Get the instance of the model that you want to update
             prod = Product.objects.get(id=productId)
-            item = SingleProduct.objects.get(id=SingleId)
+            identity = SingleProduct.objects.get(name=productName)
+
+
+
 
             # Update the field values of the model instance
             prod.quantity = quantity
 
             # Save the changes to the database
-            prod.save()
-
-
+            
+         
+            
             if choice == 'Resell':
                 newProd = Product.objects.create(
                     owner=buyer,
-                    name=item.id,
+                    name=identity,
                     featured_image = prod.featured_image,
                     description=prod.description,
                     quantity=needQuantity,
                     location=location
                 )
                 newProd.save()
-
-            
-            if obj is None:
+                prod.save()
+                order.save()
+                messages.success(request, 'You purchased {}'.format(productName))
+                return redirect('account')
+                
+            elif choice == "Consuming":
+                prod.save()
+                rder.save()
                 messages.success(request, 'Your order sent successfully!')
                 return redirect('products')
             else:
                 messages.error(request, 'Error for inserting order')
-                return redirect('checkout-product',pk=productId)
+                return redirect('checkout-product', pk=productId)
+
 
         else :
             messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
-            return redirect('checkout-product',pk=productId)
+            return redirect('checkout-product', pk=productId)
 
     else:
         messages.info(request, 'something went wrong!!')
-        return redirect('checkout-product',pk=productId)
+        return redirect('checkout-product', pk=productId)
      
 
 
