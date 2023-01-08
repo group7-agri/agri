@@ -118,7 +118,7 @@
               <a href="{% url 'product' product.id %}"><img src="{{product.imageURL}}" alt="Product Thumbnail" /></a>
             </td>
             <td class="settings__tableInfo">
-              <a href="{% url 'product' product.id %}">{{product.title}}</a>
+              <a href="{% url 'product' product.id %}">{{product.name.name}}</a>
               <p>{{product.description|slice:"150"}}</p>
             </td>
             

@@ -98,7 +98,7 @@
                                     <img class="project__thumbnail" src="{{product.imageURL}}"
                                         alt="project thumbnail" />
                                     <div class="card__body">
-                                        <h3 class="project__title">{{product.title}}</h3>
+                                        <h3 class="project__title">{{product.name.name}}</h3>
                                         <p><a class="project__author"
                                                 href="{% url 'user-profile' product.owner.id %}">By
                                                 {{product.owner.name}}</a>

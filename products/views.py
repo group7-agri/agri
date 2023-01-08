@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Product, Payment
+from .models import Product, Payment, SingleProduct, Review
 from .forms import ProductForm, ReviewForm
 from .utils import searchProducts, paginateProducts
 from django import template
@@ -18,7 +18,8 @@ def products(request):
     return render(request, 'products/products.html', context)
 
 def viewProduct(request, pk):
-    products = Product.objects.filter(title=pk)
+    item = SingleProduct.objects.get(name=pk)
+    products = Product.objects.filter(name=item)
     custom_range, products = paginateProducts(request, products, 6)
 
     context = {'products': products, 'title':pk, 'custom_range': custom_range}

@@ -1,4 +1,4 @@
-from .models import Product, Payment
+from .models import *
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -38,11 +38,18 @@ def searchProducts(request):
 
     if request.GET.get('search_query'):
         search_query = request.GET.get('search_query')
+    
+    # item = SingleProduct.objects.filter(name_icontains=search_query)
+    
+    # product = ''
+    products = Product.objects.filter(name__name__icontains=search_query)
+    # for ite in items:
+    #     product= ite.name
 
-    payments = Payment.objects.filter(name__icontains=search_query)
+    payments = Payment.objects.filter(name=search_query)
 
     products = Product.objects.distinct().filter(
-        Q(title__icontains=search_query) |
+        Q(name__name__icontains=search_query) |
         Q(description__icontains=search_query) |
         Q(owner__name__icontains=search_query) |
         Q(payments__in=payments)

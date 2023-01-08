@@ -49,8 +49,8 @@
                        
                                 {% for product in profile.product_set.all|slice:"5" %}
                             
-                                <span class="tag tag--pill tag--main" title="{{product.title}}" onclick = "window.location.href='{% url 'view-product' product.title %}'; return false;">
-                                    <small>{{product.title}}</small>
+                                <span class="tag tag--pill tag--main" title="{{product.name.name}}" onclick = "window.location.href='{% url 'view-product' product.name %}'; return false;">
+                                    <small>{{product.name.name}}</small>
                                 </span>
                          
                                 {% endfor %}
