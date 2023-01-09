@@ -308,6 +308,7 @@ img {
   margin: 1.5rem 0;
   font-size: 1.35rem;
   line-height: 1.4;
+  color: var(--color-text);
   text-align: justify;
 }
 

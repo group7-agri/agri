@@ -30,6 +30,10 @@
       max-width: 65rem;
   }
 }
+
+.card {
+    border: 2px solid #2d2d39;
+}
 h5 .singleProject__subtitle{
   color: var(--color-text);
 }

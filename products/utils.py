@@ -1,7 +1,7 @@
 from .models import *
 from django.db.models import Q
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-
+from django.http import HttpResponse
 
 def paginateProducts(request, products, results):
 
@@ -37,6 +37,7 @@ def searchProducts(request):
     search_query = ''
 
     if request.GET.get('search_query'):
+        return HttpResponse("thank you")
         search_query = request.GET.get('search_query')
     
     # item = SingleProduct.objects.filter(name_icontains=search_query)
