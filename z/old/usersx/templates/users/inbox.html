@@ -1,0 +1,96 @@
+{% extends 'main.html' %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<!-- Main Section -->
+<main class="inbox my-xl">
+  <div class="content-box">
+    
+    {% if messageRequests %}
+    <h3 class="inbox__title">New Messages <span id="count" style="color:blue;"></span></h3>
+
+    <ul class="messages" id="display">
+    
+    </ul>
+  </div>
+  {% else %}
+
+                <p id="no-data">No Messages</p>
+
+  {% endif %}
+
+
+</main>
+
+{% endblock content %}
+
+{% block script %}
+
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+<script>
+  $(document).ready(function(){
+
+      setInterval(function(){
+          $.ajax({
+              type:'GET',
+              url: "{% url 'inboxAjax' %}",
+              success: function(response){
+
+                  $("#display").empty();
+                  $("#bracket").empty();
+                  
+                  for (var key in response.messageRequests)
+                  {
+                    if(response.messageRequests[key].is_read){
+                      li = "<li class='message'>";
+                    }
+                    else{
+                      li="<li class='message message--unread'>";
+                    }
+                    if(response.messageRequests[key].attachment){
+                      attachment = "<br>(Attachment added)";
+                    }
+                    else{
+                      attachment="";
+                    }
+                    id = response.messageRequests[key].id;
+                    console.log(id);
+                      // var temp = "<li>"+response.profiles[key].name+"</li>";
+                      var temp = li+
+                                  "<a href='/message/"+response.messageRequests[key].id+ "/'>"+
+                                  "<span class='message__author'>"+ response.messageRequests[key].name+"</span>"+
+                                  "<span class='message__subject'>"+ response.messageRequests[key].subject+
+                                   attachment+"</span>"+
+                                  "<span class='message__date'> "+ response.timesent[key]+
+                                  " ago</span></a></li>";
+
+                
+                      $("#display").append(temp);
+                  }
+                  
+                  var count =  response.unreadCount;
+                  if(count>0){
+                    $("#count").text(count);
+                    $(".badge").text(count);
+                  }
+                  else{
+                    $("#bracket").css("display:none;");
+                    $(".badge").css("display:none; background-color:none;");
+                  }
+                  
+
+              },
+              error: function(response){
+                  alert("cant retrieve data")
+              }
+          });
+          
+
+        
+
+      },1000);
+  });
+
+</script>
+
+{% endblock script %}

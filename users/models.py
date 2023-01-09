@@ -1,36 +1,54 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+from phonenumber_field.formfields import PhoneNumberField
+from phone_field import PhoneField
+from django.conf import settings
+
+User = settings.AUTH_USER_MODEL
+
 import uuid
 # Create your models here.
 
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
+# from products.models import Payment
 
 
-class Profile(models.Model):
-
-
+class CustomUser(AbstractUser):
+    
     ACCOUNT_TYPE = (
         ('Farmer','Farmer'),
         ('Rancher','Rancher'),
         ( 'Trader','Trader'),
     )
+    
+    PRIVELEGE= (
+        ('Normal','Normal'),
+        ('Agronome','Agronome'),
+        ( 'Admin','Admin'),
+    )
+    
+    phone = PhoneField(blank=True, unique=True, null=True, help_text='Try other Number (startwith  +250)')
+    status = models.CharField(max_length=200, choices=ACCOUNT_TYPE, default="staff")
+    role = models.CharField(max_length=200, choices=PRIVELEGE, default="Normal")
+    
+
+class Profile(models.Model):
+
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True)
     name = models.CharField(max_length=200, blank=True, null=True)
     email = models.EmailField(max_length=500, blank=True, null=True)
     username = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, blank=True, null=True)
-    # short_intro = models.CharField(max_length=200, blank=True, null=True)
-    account = models.CharField(max_length=200, choices=ACCOUNT_TYPE, default="Farmer")
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(
         null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
-    social_github = models.CharField(max_length=200, blank=True, null=True)
-    social_twitter = models.CharField(max_length=200, blank=True, null=True)
-    social_linkedin = models.CharField(max_length=200, blank=True, null=True)
-    social_youtube = models.CharField(max_length=200, blank=True, null=True)
-    social_website = models.CharField(max_length=200, blank=True, null=True)
+    account = models.CharField(max_length=200, blank=True, null=True)
+    phone1 = PhoneField(blank=True,  null=True, help_text='Try other Number (startwith  +250)')
+    phone2 = PhoneField(blank=True, null=True, help_text='Start with Country Code(eg:  +250)')
+    # other_Number = PhoneNumberField()
+    
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

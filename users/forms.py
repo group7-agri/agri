@@ -2,15 +2,27 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import Profile, Training, Message, Inquiry
+from .models import Profile, Training, Message, Inquiry, CustomUser
+
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+
 
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
-        model = User
-        fields = ['first_name', 'email', 'username', 'password1', 'password2']
+        model = CustomUser
+        fields = ['first_name', 'email','phone','username', 'password1', 'password2','status']
         labels = {
             'first_name': 'Name',
+            'phone': 'Your personal number',
+            'status': 'I am (eg: Farmer)',
+        }
+        widgets = {
+            'phone': forms.TextInput(attrs={'required': 'required'}),
+            
+            'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXX'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -23,14 +35,13 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'email', 'username', 'account',
-                  'location', 'bio', 'profile_image',
-                  'social_github', 'social_linkedin', 'social_twitter',
-                  'social_youtube', 'social_website']
-        labels = {
-            'account': 'Type of account',
+        fields = ('name', 'email', 'username',
+                  'location', 'bio', 'profile_image', 
+                  'phone1','phone2')
+        widgets = {
+            'bio': forms.TextInput(attrs={'required': 'required'}),
         }
-
+        
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
 

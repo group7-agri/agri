@@ -1,56 +1,74 @@
 from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
-from django.contrib.auth.models import User
+from django.conf import settings
+
 from .models import Profile
 
 from django.core.mail import send_mail
 from django.conf import settings
 
 # @receiver(post_save, sender=Profile)
-
+User = settings.AUTH_USER_MODEL
 
 def createProfile(sender, instance, created, **kwargs):
     if created:
         user = instance
-        profile = Profile.objects.create(
-            user=user,
-            username=user.username,
-            email=user.email,
-            name=user.first_name,
-        )
+        if user.role=='Normal':
+            profile = Profile.objects.create(
+                user=user,
+                username=user.username,
+                email=user.email,
+                account=user.status,
+                name=user.first_name,
+            )
 
-        subject = 'Welcome to YieldSearch'
-        message = 'We are glad you are here!'
+            subject = 'Welcome to YieldSearch'
+            message = 'Hello {} We are glad you are here!'.format(user.first_name)
 
-        send_mail(
-            subject,
-            message,
-            settings.EMAIL_HOST_USER,
-            [profile.email],
-            fail_silently=False,
-        )
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [profile.email],
+                fail_silently=False,
+            )
+        elif user.role=='Admin':
+            user.is_staff = True
+            user.is_superuser= True
+            user.save()
+        else:
+            pass
 
 
 def updateUser(sender, instance, created, **kwargs):
     profile = instance
     user = profile.user
+    if user:
+        if created == False:
+            user.first_name = profile.name
+            user.username = profile.username
+            user.email = profile.email
+            user.save()
+    else:
+        pass
 
-    if created == False:
-        user.first_name = profile.name
-        user.username = profile.username
-        user.email = profile.email
-        user.save()
+    
 
 
 def deleteUser(sender, instance, **kwargs):
     try:
         user = instance.user
-        user.delete()
+        if user:
+            user.delete()
+        else:
+            pass
     except:
         pass
 
 
-post_save.connect(createProfile, sender=User)
+
+
+post_save.connect(createProfile, sender=settings.AUTH_USER_MODEL)
 post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)

@@ -32,6 +32,9 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.43.119','172.31.121.10']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
+    #PHONE NUMBER…
+    'phonenumber_field',
+    'phone_field',
     #HUMANIZE
     'django.contrib.humanize',
     'django.contrib.auth',
@@ -208,6 +211,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.CustomUser'
 
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

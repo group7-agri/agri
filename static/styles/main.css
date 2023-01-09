@@ -11,8 +11,25 @@
 
 :root{
   --color-text: #373636;
+  --color-success: #000;
+}
+.alert.alert--success,
+.alert.alert--success > .alert__message {
+  background-color: var(--color-success-bg);
+  color: #000;
 }
 
+.auth{
+  height: auto;
+  padding: 2vh;
+}
+@media screen and (min-width: 650px){
+  .auth > .card {
+      padding: 2rem 5rem;
+      width: 95%;
+      max-width: 65rem;
+  }
+}
 h5 .singleProject__subtitle{
   color: var(--color-text);
 }

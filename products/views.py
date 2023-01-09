@@ -1,6 +1,7 @@
 from django.core import paginator
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Product,Order, Payment, SingleProduct, Review
@@ -171,6 +172,7 @@ def processOrder(request, pk):
                 newProd = Product.objects.create(
                     owner=buyer,
                     name=identity,
+                    instock=False,
                     featured_image = prod.featured_image,
                     description=prod.description,
                     quantity=needQuantity,
@@ -184,17 +186,17 @@ def processOrder(request, pk):
                 
             elif choice == "Consuming":
                 prod.save()
-                rder.save()
+                order.save()
                 messages.success(request, 'Your order sent successfully!')
                 return redirect('products')
             else:
                 messages.error(request, 'Error for inserting order')
-                return redirect('checkout-product', pk=productId)
+                return redirect(reverse('checkout-product', pk=productId))
 
 
         else :
             messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
-            return redirect('checkout-product', pk=productId)
+            return redirect(reverse('checkout-product', pk=productId))
 
     else:
         messages.info(request, 'something went wrong!!')

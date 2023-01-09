@@ -1,0 +1,72 @@
+{% load humanize %}
+
+<!-- Search Result: Product list -->
+    <section class="productsList">
+        <div class="container" >
+            <div class="grid grid--three" id="MyData">
+
+                {% if products %}
+                {% for product in products %}
+                <div class="column" id="MyRow">
+                    <div class="card product" id="Data">
+                        <a href="{% url 'product' product.id %}" class="product">
+                            <img class="product__thumbnail" src="{{product.imageURL}}" alt="Product thumbnail" /></a>
+                            <div class="card__body">
+                                <h3 class="product__title">{{product.name.name}}</h3>
+                                <p><a href="{% url 'user-profile' product.owner.id %}">By
+                                        {{product.owner.name}}</a>
+                                </p>
+                                <span class="product__author"> Uploaded: {{product.created|naturaltime }} </span>
+                                
+                                <table class="table">
+                                    <tr>
+                                        <td>Available: </td>
+                                        <td>{{product.quantity}} {{product.name.unity}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Initial Price: </td>
+                                        <td>{{product.name.price}} Rwf</td>
+                                    </tr>
+                                </table
+                                
+                                
+                                <p class="product--rating">
+                                    <span style="font-weight: bold;">{{product.vote_ratio}}%</span> Positive
+                                    Feedback ({{product.vote_total}}) Vote{{product.vote_total|pluralize:"s"}}
+                                </p>
+                                <br>
+                                
+                                <div class="product__tags" id="{{product.id}}">
+                                    {% if product.quantity > 0 %}
+                                    <button class="btn btn--sub btn--lg buy">
+                                        <small><a style="color:#fff;" href=" {% url 'checkout-product' product.id %}">ASK</a></small>
+                                        </button>
+                                    {% else %}
+                                    <button class="btn btn--sub btn--lg buy" disabled><small>OUT OF STOCK</small></button>
+                                    {% endif %}
+                                        
+                                </div>
+
+                                   
+
+
+
+                            </div>
+                        
+                    </div>
+                </div>
+                {% endfor %}
+
+
+                {% else %}
+
+                
+                <p id="no-data">No Data</p>
+
+                {% endif %}
+
+            </div>
+        </div>
+    </section>
+
+

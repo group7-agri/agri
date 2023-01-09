@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+{% block content %}
+
+
+<!-- Main Section -->
+<main class="products">
+    <section class="hero-section text-center">
+        <div class="container container--narrow">
+            <div class="hero-section__box">
+                
+                <h2>List of <span>{{title}}</span></h2>
+                
+            </div>
+
+            <div class="hero-section__search">
+                <form id='searchForm' class="form" action="{% url 'products' %}" method="get">
+                    <div class="form__field">
+                        <label for="formInput#search">Search By Yield </label>
+                        <input class="input input--text white" id="formInput#search" type="text" name="search_query"
+                            placeholder="Search for other product..." value="{{search_query}}" />
+                    </div>
+
+                    <input class="btn btn--sub btn--lg" type="submit" value="Search" />
+                </form>
+            </div>
+        </div>
+    </section>
+        {% include 'products/card.html' %}
+
+    {% include 'pagination.html' with queryset=products custom_range=custom_range %}
+
+</main>
+
+
+
+
+{% endblock %}

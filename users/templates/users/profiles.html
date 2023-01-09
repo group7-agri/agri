@@ -26,12 +26,15 @@
             </div>
         </div>
     </section>
+
+   
     <!-- Search Result: DevList -->
     <section class="devlist">
         <div class="container">
-            {% if profiles %}
+
             <div class="grid grid--three" id="MyData" >
 
+             {% if profiles %}
                 {% for profile in profiles %}
                 {% if profile.bio %}
                 <div class="column card" id="MyRow">
@@ -59,28 +62,34 @@
                          </a>
                     </div>
                 </div>
-
-               
+                 </div>
 
                 {% endif %}
                 {% endfor %}
- 
-            
 
-            </div>
-            {% else %}
-            
-                <p id="no-data">No Data</p>
-            {% endif %}
+        {% else %}
 
+                
+               <script>
+                        window.alert("Hello! I am an alert box!");
+                </script>
+
+
+                {% endif %}
+           
+        </div></div>
 
         </div>
     </section>
 
     {% include 'pagination.html' with queryset=profiles custom_range=custom_range %}
+
+
 </main>
 
 
 
 
 {% endblock content %}
+
+{% block footer %}{% endblock footer %}
