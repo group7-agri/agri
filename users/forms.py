@@ -22,7 +22,7 @@ class CustomUserCreationForm(UserCreationForm):
         widgets = {
             'phone': forms.TextInput(attrs={'required': 'required'}),
             
-            'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXX'}),
+            'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -40,10 +40,11 @@ class ProfileForm(ModelForm):
                   'phone1','phone2')
         widgets = {
             
-            'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXX'}),
+            'phone1': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
+            'phone2': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
         }
         labels = {
-            'phone1': 'Second Number',
+            'phone1': 'Second Number ',
             'phone2': 'Other Number',
 
         }

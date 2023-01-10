@@ -7,7 +7,27 @@
 <main class="formPage my-xl">
     <div class="content-box">
         <div class="formWrapper">
-            <a class="backButton" href="{% url 'account' %}">&#10094;</a> 
+            <a class="backButton" href="{% url 'account' %}"><i class="fa icon-chevron-left"></i></a> 
+
+             {% if profile %} <img src="{{profile.imageURL}}" class="product-image" id="myModalImg" >
+            
+            
+                        <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
+
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage"></div>
+                        </div>
+
+                        </div>
+
+            
+            {% endif %}
+            
+
             <br>
 
             <form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">

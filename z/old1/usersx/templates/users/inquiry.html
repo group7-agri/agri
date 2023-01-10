@@ -6,7 +6,7 @@
 <main class="messagePage my-xl">
   <div class="content-box">
     <div class="message">
-      <a class="backButton" style="float:left;" href="{% url 'feedback' %}">&#10094;</a>
+      <a class="backButton" style="float:left;" href="{% url 'feedback' %}"><i class="fa icon-chevron-left"></i></a>
       {% if inquiry.status == 'Unsolved' %}
        <button class="tag tag--pill tag--main" style="float:right;" onclick ="return confirm('Is it done?')">
         <a href="{% url 'markSolved' inquiry.id %}" style="color:#fff;"><small>Mark as Solved</small></a>

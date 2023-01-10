@@ -13,6 +13,7 @@ class ProductForm(ModelForm):
             
             'name': 'Product Name',
             'quantity': 'Quantiy (in Kilogram, Litre....)',
+            'featured_image': 'Product Image',
         }
 
         widgets = {

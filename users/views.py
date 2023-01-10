@@ -79,8 +79,10 @@ def registerUser(request):
 def profiles(request):
     profiles, search_query = searchProfiles(request)
 
-    image = Profile.objects.get(user = request.user)
-    
+    image = ''
+    if request.user.is_authenticated:
+        image = Profile.objects.get(user = request.user)
+
 
     custom_range, profiles = paginateProfiles(request, profiles, 6)
     context = {'profiles': profiles, 'search_query': search_query,
@@ -122,7 +124,7 @@ def editAccount(request):
 
             return redirect('account')
 
-    context = {'form': form}
+    context = {'form': form, 'profile': profile}
     return render(request, 'users/profile_form.html', context)
 
 

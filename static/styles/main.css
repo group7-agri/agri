@@ -62,6 +62,36 @@ p, span, strong {
   }
 }
 
+.my-xl {
+    margin: 2rem auto;
+}
+.product-image{
+  display:flex;
+  height: 5em;
+  width: 8rem;
+  float: right;
+  right: 50%;
+}
+
+
+ a .backButton{
+    color: white;
+    align-self: center;
+}
+
+.backButton {
+  background: var(--color-main-light);
+  color: var(--color-main);
+ 
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.backButton i {
+  font-size: 1.6rem;
+}
 
 
 .grid {
@@ -385,7 +415,7 @@ textarea{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 3rem; /* Location of the box */
+  padding-top: 5rem; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
