@@ -13,13 +13,22 @@
             <form class="form" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
 
-                {% for field in form %}
+                 {% for field in form %}
                 <!-- Input:Text -->
                 <div class="form__field">
                     <label for="formInput#text">{{field.label}}</label>
                     {{field}}
                 </div>
-                {% endfor %}
+                {% endfor %} 
+
+
+                 {% comment %} <!-- Input:Text -->
+                    <div class="form__field">
+                        <label for="formInput#text">{{form.field.label}} </label>
+                        <input class="input input--text" id="formInput#text" type="text" name="text"
+                            placeholder="Enter text" />
+                    </div> {% endcomment %}
+
 
                 <div class="form__field form__field--checkbox" >
                     {% for payment in product.payments.all %}

@@ -31,7 +31,8 @@ def loginUser(request):
         try:
             user = User.objects.get(username=username)
         except:
-            messages.error(request, 'Username does not exist')
+            pass
+            # messages.error(request, 'Username does not exist')
 
         user = authenticate(request, username=username, password=password)
 
@@ -78,9 +79,12 @@ def registerUser(request):
 def profiles(request):
     profiles, search_query = searchProfiles(request)
 
+    image = Profile.objects.get(user = request.user)
+    
+
     custom_range, profiles = paginateProfiles(request, profiles, 6)
     context = {'profiles': profiles, 'search_query': search_query,
-               'custom_range': custom_range}
+               'custom_range': custom_range, 'image':image}
     return render(request, 'users/profiles.html', context)
 
 

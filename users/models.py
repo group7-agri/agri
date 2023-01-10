@@ -28,7 +28,9 @@ class CustomUser(AbstractUser):
         ( 'Admin','Admin'),
     )
     
-    phone = PhoneField(blank=True, unique=True, null=True, help_text='Try other Number (startwith  +250)')
+    
+    phone = models.CharField(blank=True, max_length=10,  null=True, help_text='Try other Number (startwith  +250)')
+    # phone = PhoneField(blank=True, unique=True, null=True, help_text='Try other Number (startwith  +250)')
     status = models.CharField(max_length=200, choices=ACCOUNT_TYPE, default="staff")
     role = models.CharField(max_length=200, choices=PRIVELEGE, default="Normal")
     
@@ -45,8 +47,8 @@ class Profile(models.Model):
     profile_image = models.ImageField(
         null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")
     account = models.CharField(max_length=200, blank=True, null=True)
-    phone1 = PhoneField(blank=True,  null=True, help_text='Try other Number (startwith  +250)')
-    phone2 = PhoneField(blank=True, null=True, help_text='Start with Country Code(eg:  +250)')
+    phone1 = models.CharField(blank=True, max_length=10,  null=True, help_text='Example +2507XXXXXXXXXXX')
+    phone2 = models.CharField(blank=True, max_length=10,  null=True, help_text='Example +2507XXXXXXXXXXX')
     # other_Number = PhoneNumberField()
     
     created = models.DateTimeField(auto_now_add=True)

@@ -1,5 +1,7 @@
 /* my custom css */
-
+body{
+  font-size: 1.5rem;
+}
 .buy{
     width:100%; 
     text-align: center;
@@ -8,7 +10,36 @@
   opacity: 0.65; 
   cursor: not-allowed;
 }
+.header {
+ /*    position: sticky;
+    z-index: 111;
+    background-color: var(--color-sub); */
+    padding: 1rem 0;
+}
+.devlist{
+  margin-top: 2rem;
+}
+p, span, strong {
+    font-size: 1.6rem;
+    color: var(--color-text);
+    font-weight: var(--font-regular);
+}
+.card__body, .card__header {
+    padding: 0.8rem 1.5rem;
+}
 
+.product__thumbnail {
+    height: auto;
+    object-fit: cover;
+    object-position: top center;
+}
+
+.products{
+  padding: 0rem auto;
+}
+.my-md {
+    margin: 1rem auto; 
+}
 :root{
   --color-text: #373636;
   --color-success: #000;
@@ -31,11 +62,30 @@
   }
 }
 
+
+
+.grid {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
 .card {
-    border: 2px solid #2d2d39;
+    border:2px solid #efebeb;
+    box-shadow: 0px 0px 9px #ccc;
 }
 h5 .singleProject__subtitle{
   color: var(--color-text);
+}
+
+.logout-image{
+  width: 35px;
+  height: 35px;
+  display: inline;
+  border-radius: 50%;
+}
+.profile .card > .dev {
+    padding: 2rem; 
 }
 
 .message__body{
@@ -46,6 +96,20 @@ h5 .singleProject__subtitle{
 #id_payments{
   list-style: none;
   margin-right: 2rem;
+}
+.avatar--xl {
+    height: 12rem;
+    width: 12rem;
+}
+.contact{
+  align-items:flex-start;
+  text-align: left;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  color: #000;
+}
+.dev__name{
+  font-size: 1.9rem;
 }
 
 .input-search{
@@ -321,7 +385,7 @@ textarea{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
+  padding-top: 3rem; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

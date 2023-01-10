@@ -36,7 +36,7 @@
             
          {% if profiles %}
             {% for profile in profiles %}
-                {% if profile.bio %}
+                {% if profile.bio  and profile.user != request.user %}
           <div class="column card" id="MyRow">
             <div class="dev"  id="Data">
               <a href="{% url 'user-profile' profile.id %}" class="card__body">

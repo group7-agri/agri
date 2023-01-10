@@ -1,6 +1,7 @@
 {% extends 'main.html' %}
 
 {% load static %}
+{% load humanize %}
 {% block content %}
 
 <!-- Main Section -->
@@ -10,43 +11,54 @@
       <div class="column column--1of3">
         <div class="card text-center">
           <div class="card__body dev">
-            <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i>
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="fa icon-edit"></i>
               Edit</a>
-            <img class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" />
-            <h2 class="dev__name">{{profile.name}}</h2>
+
+
+
+            <img id="myModalImg" alt="{{profile.name}}" class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" />
+             <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
+
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage"></div>
+                        </div>
+
+                        </div>
+
+
+            <h3 class="dev__name">{{profile.name}}</h3>
             <p class="dev__title">{{profile.short_into}}</p>
-            <p class="dev__location">Based in {{profile.location}}</p>
+            <p class="dev__location"><i class="fa icon-map-marker" ></i> &nbsp;{{profile.location}} &nbsp; <span style="font-color:#000;">({{request.user.status}})</span></p>
+            <p class="dev__location"><i class="fa icon-calendar" ></i> Born {{profile.created|slice:'12'}}</p>
 
-            <ul class="dev__social">
-              {% if profile.social_github %}
-              <li>
-                <a title="Github" href="{{profile.social_github}}" target="_blank"><i class="im im-github"></i></a>
-              </li>
+            <br>
+            <p class="dev__name">Contact</p>
+            <hr>
+            <div class="contact">
+              <b>Email:</b> <br>
+             &nbsp; <i class="fa icon-envelope-alt"></i>&nbsp;{{request.user.email}} <br><br>
+
+              <b>Main Phone:</b> <br>
+              &nbsp; <i class="fa fa icon-phone"></i>&nbsp;&nbsp;{{request.user.phone}} <br><br>
+
+              {% if profile.phone1 %}
+              
+              <b>Second phone:</b> <br>
+              &nbsp; <i class="fa icon-phone-sign"></i>&nbsp;&nbsp;{{profile.phone1}} <br><br>
               {% endif %}
 
-
-              {% if profile.social_twitter %}
-              <li>
-                <a title="Twitter" href="{{profile.social_twitter}}" target="_blank"><i class="im im-twitter"></i></a>
-              </li>
+              {% if profile.phone2 %}
+              
+              <b>Other :</b> <br>
+              &nbsp; <i class="fa fa icon-phone-sign"></i>&nbsp;&nbsp;{{profile.phone2}} 
               {% endif %}
+            </div>
 
-              {% if profile.social_linkedin %}
-              <li>
-                <a title="LinkedIn" href="{{profile.social_linkedin}}" target="_blank"><i
-                    class="im im-linkedin"></i></a>
-              </li>
-              {% endif %}
-
-              {% if profile.social_website %}
-              <li>
-                <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i
-                    class="im im-globe"></i></a>
-              </li>
-              {% endif %}
-
-            </ul>
-
+       
 
           </div>
         </div>

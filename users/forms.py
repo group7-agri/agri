@@ -39,7 +39,13 @@ class ProfileForm(ModelForm):
                   'location', 'bio', 'profile_image', 
                   'phone1','phone2')
         widgets = {
-            'bio': forms.TextInput(attrs={'required': 'required'}),
+            
+            'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXX'}),
+        }
+        labels = {
+            'phone1': 'Second Number',
+            'phone2': 'Other Number',
+
         }
         
     def __init__(self, *args, **kwargs):

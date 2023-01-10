@@ -7,7 +7,7 @@
 <main class="formPage my-xl">
     <div class="content-box">
         <div class="formWrapper">
-            <a class="backButton" href="{% url 'account' %}">&#10094;</a>
+            <a class="backButton" href="{% url 'account' %}">&#10094;</a> 
             <br>
 
             <form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">
@@ -20,7 +20,7 @@
                 </div>
                 {% endfor %}
 
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Save" />
             </form>
         </div>
     </div>
