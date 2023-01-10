@@ -43,6 +43,7 @@ p, span, strong {
 :root{
   --color-text: #373636;
   --color-success: #000;
+  --color-sub-light:#0018e3;
 }
 .alert.alert--success,
 .alert.alert--success > .alert__message {
@@ -72,8 +73,38 @@ p, span, strong {
   float: right;
   right: 50%;
 }
+.state{
+  padding: 2px;
 
+}
 
+.products > .hero-section {
+    background: var(--color-sub-lighter);
+    height: 22vh;
+}
+.hero-section {
+    height: 58vh;
+}
+.stat{
+  background-color: #888;
+  padding: 2px;
+}
+.auth::after {
+  z-index: -1;
+  opacity: 0.3;
+}
+.settings__btn i{
+  font-size: 1.2rem;
+  padding-right: 2px;
+}
+
+.btn {
+  background-color: #1927a3;
+}
+.auth__alternative a{
+  color: #000;
+  font-weight: bold;
+}
  a .backButton{
     color: white;
     align-self: center;

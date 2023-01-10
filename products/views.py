@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Product,Order, Payment, SingleProduct, Review
-from .forms import ProductForm, ReviewForm
+from .forms import ProductForm, ReviewForm, TraderProductForm
 from .utils import searchProducts, paginateProducts
 from django.views.decorators.csrf import csrf_exempt
 from django import template
@@ -97,6 +97,50 @@ def updateProduct(request, pk):
 
     context = {'form': form, 'product': product}
     return render(request, "products/product_form.html", context)
+
+@login_required(login_url="login")
+def traderUpdate(request, pk):
+    profile = request.user.profile
+    product = profile.product_set.get(id=pk)
+    form = TraderProductForm(instance=product)
+    
+    qty = 0,
+    quantity =0,
+
+    if request.method == 'POST':
+        qty= request.POST['allowedQuantity']
+        quantity= request.POST['quantity']
+
+        if quantity <= qty:
+
+
+            newpayments = request.POST.get('newpayments').replace(',',  " ").split()
+
+            form = TraderProductForm(request.POST, request.FILES, instance=product)
+            if form.is_valid():
+
+                product = form.save(commit=False)
+                product.instock = True
+                product.save()
+                for payment in newpayments:
+                    payment, created = Payment.objects.get_or_create(name=payment)
+                    product.payments.add(payment)
+                messages.success(request, "Done")
+                return redirect('account')
+            else:
+                pass
+                
+
+        else:
+            messages.error(request, "Quantity can not exceed {}".format(qty))
+            return redirect(traderUpdate, pk=product.id)
+
+    context = {'form': form, 'product': product}
+    return render(request, "products/trader_form.html", context)
+
+
+
+
 
 
 @login_required(login_url="login")

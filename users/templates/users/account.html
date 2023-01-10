@@ -92,9 +92,9 @@
             </td>
             <td class="settings__tableActions">
               <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-training' training.id %}"><i
-                  class="im im-edit"></i> Edit</a>
+                  class="fa icon-pencil"></i> Edit</a>
               <a class="tag tag--pill tag--main settings__btn"
-                href="{% url 'delete-training' training.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                href="{% url 'delete-training' training.id %}?next=/account"><i class="fa icon-trash"></i> 
                 Delete</a>
             </td>
           </tr>
@@ -115,7 +115,7 @@
 
             <div class="settings">
           <h3 class="settings__title">Products</h3>
-              {% if profile.account == 'Farmer' %}
+              {% if profile.account == 'Farmer' or profile.account == 'Rancher'   %}
 
           <a class="tag tag--pill tag--sub settings__btn tag--lg" style="background:#9f9fc3; color:#000;" href="{% url 'create-product' %}"><i
               class="im im-plus"></i> Add Product</a>
@@ -131,17 +131,41 @@
             </td>
             <td class="settings__tableInfo">
               <a href="{% url 'product' product.id %}">{{product.name.name}}</a>
+              <p class="tag tag--pill tag--main state"> {{product.quantity}}  {{product.name.unity}}</p>
+              {% if product.instock %}
+              <p class="tag tag--pill tag--main stat">
+                On Trade
+              </p>
+              {% else %}
+              <p class="tag tag--pill tag--main stat">
+                Resell
+              </p>
+              {% endif %}
               <p>{{product.description|slice:"150"}}</p>
             </td>
             
-            {% if profile.account == 'Farmer' %}
-            <td class="settings__tableActions">
-              <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-product' product.id %}"><i
-                  class="im im-edit"></i> Edit</a>
-              <a class="tag tag--pill tag--main settings__btn"
-                href="{% url 'delete-product'  product.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
-                Delete</a>
-            </td>
+             {% if profile.account == 'Farmer' or profile.account == 'Rancher'   %}
+              <td class="settings__tableActions">
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-product' product.id %}"><i
+                    class="fa icon-pencil"></i> Edit</a>
+                <a class="tag tag--pill tag--main settings__btn"
+                  href="{% url 'delete-product'  product.id %}?next=/account"><i class="fa icon-trash"></i> 
+                  Delete</a>
+              </td>
+              
+             {% elif profile.account == 'Trader' %}
+              <td class="settings__tableActions">
+                <a class="tag tag--pill tag--main settings__btn" href="{% url 'trader-update' product.id %}">
+                  Update</a>
+                <a class="tag tag--pill tag--main settings__btn"
+                  href="{% url 'delete-product'  product.id %}?next=/account"><i class="fa icon-trash"></i> 
+                  Delete</a>
+              </td>
+              {% else %}
+              <td class="settings__tableActions">
+                <span id="no-data">No Privelege</span>
+              </td>
+              
             {% endif %}
           </tr>
           {% endfor %}

@@ -8,6 +8,8 @@ urlpatterns = [
     path('create-product/', views.createProduct, name="create-product"),
 
     path('update-product/<str:pk>/', views.updateProduct, name="update-product"),
+    path('trader-update/<str:pk>/', views.traderUpdate, name="trader-update"),
+    
     path('view-product/<str:pk>/', views.viewProduct, name="view-product"),
 
     path('delete-product/<str:pk>/', views.deleteProduct, name="delete-product"),

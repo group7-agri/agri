@@ -15,12 +15,17 @@ class CustomUserCreationForm(UserCreationForm):
         model = CustomUser
         fields = ['first_name', 'email','phone','username', 'password1', 'password2','status']
         labels = {
-            'first_name': 'Name',
+            'first_name': 'Names',
             'phone': 'Your personal number',
             'status': 'I am (eg: Farmer)',
         }
         widgets = {
             'phone': forms.TextInput(attrs={'required': 'required'}),
+            
+            'first_name': forms.TextInput(attrs={'placeholder': 'eg: ARISTO DUSHIMIRIMANA'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'eg: aristo@gmail.com'}),
+            'username': forms.TextInput(attrs={'placeholder': 'eg: aristo123'}),
+            'password1': forms.TextInput(attrs={'placeholder': 'eg: Enter passowrd you can remember'}),
             
             'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
         }
@@ -30,6 +35,10 @@ class CustomUserCreationForm(UserCreationForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
+        
+        for field_name in self.fields:
+            self.fields[field_name].required = True
+
 
 
 class ProfileForm(ModelForm):

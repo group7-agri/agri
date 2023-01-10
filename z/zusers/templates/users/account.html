@@ -10,7 +10,7 @@
       <div class="column column--1of3">
         <div class="card text-center">
           <div class="card__body dev">
-            <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="im im-edit"></i>
+            <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-account' %}"><i class="fa icon-pencil"></i>
               Edit</a>
             <img class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" />
             <h2 class="dev__name">{{profile.name}}</h2>
@@ -80,9 +80,9 @@
             </td>
             <td class="settings__tableActions">
               <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-training' training.id %}"><i
-                  class="im im-edit"></i> Edit</a>
+                  class="fa icon-pencil"></i> Edit</a>
               <a class="tag tag--pill tag--main settings__btn"
-                href="{% url 'delete-training' training.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                href="{% url 'delete-training' training.id %}?next=/account"><i class="fa icon-trash"></i> 
                 Delete</a>
             </td>
           </tr>
@@ -125,9 +125,9 @@
             {% if profile.account == 'Farmer' %}
             <td class="settings__tableActions">
               <a class="tag tag--pill tag--main settings__btn" href="{% url 'update-product' product.id %}"><i
-                  class="im im-edit"></i> Edit</a>
+                  class="fa icon-pencil"></i> Edit</a>
               <a class="tag tag--pill tag--main settings__btn"
-                href="{% url 'delete-product'  product.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
+                href="{% url 'delete-product'  product.id %}?next=/account"><i class="fa icon-trash"></i> 
                 Delete</a>
             </td>
             {% endif %}
