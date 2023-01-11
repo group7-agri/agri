@@ -39,14 +39,16 @@
 input.input[type='text'],
 input.input[type='email'],
 input.input[type='password'],
+
 input.input[type='file'],
 input.input[type='date'],
+input.input[type='url'],
 input.input[type='number'],
 select.input,
 textarea.input {
   min-width: 24rem;
   width: 100%;
-  padding: 1.2rem 1.5rem;
+  padding: 1rem 1.2rem;
   border-radius: 0.5rem;
   border: 2px solid var(--color-light);
   transition: all 0.3s ease-in-out;

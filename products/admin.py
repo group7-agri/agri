@@ -54,5 +54,6 @@ class OrderAdmin(admin.ModelAdmin):
         return True
 
 admin.site.register(Order, OrderAdmin)
+# admin.site.register(Order)
 
 

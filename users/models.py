@@ -79,6 +79,7 @@ class Training(models.Model):
     certificate = models.ImageField(
         null=True, blank=True, upload_to='certificates/')
     completed = models.DateField(null=True, blank=True)
+    link = models.URLField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,

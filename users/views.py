@@ -65,7 +65,7 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
 
-            messages.success(request, 'User account was created!')
+            messages.success(request, 'Account created complete profile!')
 
             login(request, user)
             return redirect('edit-account')
