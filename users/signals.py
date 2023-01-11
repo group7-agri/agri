@@ -12,6 +12,16 @@ from .models import *
 # @receiver(post_save, sender=Profile)
 User = settings.AUTH_USER_MODEL
 
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def assign_user_permissions(sender, instance, created, **kwargs):
+#     if created:
+#         user = instance
+#         if user.role=='Agronome':
+#             user.is_staff = True
+#             view_permission = Permission.objects.get(codename='view_secret_data')
+#             for project in Project.objects.all():
+#                 instance.user_permissions.add(view_permission)
+
 def createProfile(sender, instance, created, **kwargs):
     if created:
         user = instance
@@ -41,6 +51,11 @@ def createProfile(sender, instance, created, **kwargs):
 
         elif user.role=='Agronome':
             user.is_staff = True
+            view_permission = Permission.objects.get(codename='view_secret_data')
+            for training in Training.objects.all():
+                instance.user_permissions.add(view_permission)
+            
+
             # view_permission = Permission.objects.get(codename='view_secret_data')
             # delete_permission = Permission.objects.get(codename='delete_secret_data')
             # instance.user_permissions.add(view_permission, delete_permission)

@@ -5,21 +5,31 @@ from .models import *
 
 
 class ProductAdmin(admin.ModelAdmin):
+    
+    search_fields = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
+    ordering = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
     list_display = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
 
 admin.site.register(Product, ProductAdmin)
 
 class ReviewAdmin(admin.ModelAdmin):
+    search_fields = ('owner', 'product', 'value', 'created')
+    ordering = ('owner', 'product', 'value', 'created')
     list_display = ('owner', 'product', 'value', 'created')
 
 admin.site.register(Review, ReviewAdmin)
 
 class PaymentAdmin(admin.ModelAdmin):
+    search_fields = ('name', 'created')
+    ordering = ('name', 'created')
     list_display = ('name', 'created')
 
 admin.site.register(Payment, PaymentAdmin)
 
 class SingleProductAdmin(admin.ModelAdmin):
+    
+    search_fields = ('name', 'price', 'unity')
+    ordering = ('name', 'price', 'unity')
     list_display = ('name', 'price', 'unity')
 
 admin.site.register(SingleProduct, SingleProductAdmin)
@@ -28,6 +38,9 @@ admin.site.register(SingleProduct, SingleProductAdmin)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    
+    search_fields = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
+    ordering = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     list_display = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     
     
