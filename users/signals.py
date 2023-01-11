@@ -4,9 +4,10 @@ from django.dispatch import receiver
 from django.conf import settings
 
 from .models import Profile
-
+from django.contrib.auth.models import Permission
 from django.core.mail import send_mail
 from django.conf import settings
+from .models import *
 
 # @receiver(post_save, sender=Profile)
 User = settings.AUTH_USER_MODEL
@@ -36,6 +37,15 @@ def createProfile(sender, instance, created, **kwargs):
         elif user.role=='Admin':
             user.is_staff = True
             user.is_superuser= True
+            user.save()
+
+        elif user.role=='Agronome':
+            user.is_staff = True
+            # view_permission = Permission.objects.get(codename='view_secret_data')
+            # delete_permission = Permission.objects.get(codename='delete_secret_data')
+            # instance.user_permissions.add(view_permission, delete_permission)
+
+            
             user.save()
         else:
             pass

@@ -82,8 +82,8 @@ def profiles(request):
     profiles, search_query = searchProfiles(request)
 
     image = ''
-    if request.user.is_authenticated:
-        image = Profile.objects.get(user = request.user)
+    # if request.user.is_authenticated:
+    #     image = Profile.objects.get(user = request.user)
 
 
     custom_range, profiles = paginateProfiles(request, profiles, 6)
