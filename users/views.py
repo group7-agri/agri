@@ -106,7 +106,7 @@ def userAccount(request):
     profile = request.user.profile
 
     trainings = profile.training_set.all()
-    products = profile.product_set.all()
+    products = profile.product_set.all().exclude(instock=None)
 
     
 
