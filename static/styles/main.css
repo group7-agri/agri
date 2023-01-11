@@ -352,13 +352,16 @@ textarea{
 
 /* FOOTER */
 
+
 .footer {
-    
+  /* position: fixed; */
    left: 0;
-   bottom: 0px !important;
+
+   bottom: 0;
    width: 100%;
    padding: 1.3rem;
-   background-color: #2d2d39;
+   /* background:rgb(45, 45, 57, 0.3); */
+   background-color: #2d2d39 ;
    color: white!;
    text-align: center;
 }
