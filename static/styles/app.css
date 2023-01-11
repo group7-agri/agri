@@ -258,7 +258,9 @@ img {
 .hero-section__search > .form input.input--text {
   width: 50rem;
 }
-
+.tag{
+      padding: 0.2rem 0.8rem;
+}
 @media screen and (max-width: 700px) {
   .hero-section__search > .form {
     display: flex;

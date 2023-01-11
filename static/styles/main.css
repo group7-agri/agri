@@ -360,10 +360,10 @@ textarea{
 
 
 .footer {
-  position: fixed;
+  position: sticky;
    left: 0;
 
-   bottom: 0;
+   bottom: 0!important;
    width: 100%;
    padding: 1.3rem;
    /* background:rgb(45, 45, 57, 0.3); */

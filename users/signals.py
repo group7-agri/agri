@@ -12,16 +12,6 @@ from .models import *
 # @receiver(post_save, sender=Profile)
 User = settings.AUTH_USER_MODEL
 
-# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
-# def assign_user_permissions(sender, instance, created, **kwargs):
-#     if created:
-#         user = instance
-#         if user.role=='Agronome':
-#             user.is_staff = True
-#             view_permission = Permission.objects.get(codename='view_secret_data')
-#             for project in Project.objects.all():
-#                 instance.user_permissions.add(view_permission)
-
 def createProfile(sender, instance, created, **kwargs):
     if created:
         user = instance
@@ -98,3 +88,4 @@ def deleteUser(sender, instance, **kwargs):
 post_save.connect(createProfile, sender=settings.AUTH_USER_MODEL)
 post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
+
