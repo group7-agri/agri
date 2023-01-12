@@ -37,7 +37,6 @@ def searchProducts(request):
     search_query = ''
 
     if request.GET.get('search_query'):
-        return HttpResponse("thank you")
         search_query = request.GET.get('search_query')
     
     # item = SingleProduct.objects.filter(name_icontains=search_query)
@@ -58,5 +57,5 @@ def searchProducts(request):
         Q(owner__name__icontains=search_query) |
         Q(payments__in=payments) &
         Q(instock=True)
-    ).exclude( owner__name = user)
+    )
     return products, search_query

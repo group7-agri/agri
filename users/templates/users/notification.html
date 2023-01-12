@@ -47,9 +47,12 @@
                     <tr>
                     <td colspan= "2"><b>Search:</b></td>
                     <td colspan= "6">
-                      <form action="{% url 'notification' %}" method="get"> {% csrf_token %}
-                        <Input type="text" class="input input--text" value="{{search_query}}" 
-                        placeholder="Search by name" name="search_query"  id="formInput"></form></th>
+                     <form id="searchForm" class="form" action="{% url 'notification' %}" method="get">
+                   
+                        <input class="input input--text" id="formInput" type="text" name="search_query"
+                            value="{{search_query}}" placeholder="Search................" />
+                  
+                  </th>
                     <tr class="chk-th">
                     <th>Order Id</th>
                     <th>P Name</th>

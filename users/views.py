@@ -202,7 +202,7 @@ def notification(request):
 
   
     
-    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'orders':orders}
+    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'orders':orders, 'search_query':search_query}
     return render(request, 'users/notification.html', context)
 
 
