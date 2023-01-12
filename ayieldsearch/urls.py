@@ -9,8 +9,8 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
      #JET 
      
-    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
-    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+#     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+#     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
     
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),

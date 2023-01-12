@@ -33,9 +33,10 @@
          {% url 'inbox' as url2 %}
         <li class="header__menuItem {% if request.path == url2 %}active{% endif %}">
           <a href="{% url 'inbox' %}" ><i class="icon-envelope-alt icon"></i><p class="badge"> </p></a></li>
-          
-        <li class="header__menuItem">
-          <a href="{% url 'inbox' %}"><i class="icon-bell icon"></i></a></li>
+           
+        {% url 'notification' as url8 %}
+        <li class="header__menuItem {% if request.path == url8 %}active{% endif %}">
+          <a href="{% url 'notification' %}" ><i class="icon-bell icon"></i><p class="notify"> </p></a></li>
         
           {% url 'account' as url4 %}
         <li class="header__menuItem {% if request.path == url4 %}active{% endif %}">

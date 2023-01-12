@@ -8,7 +8,7 @@ class ProductAdmin(admin.ModelAdmin):
     
     search_fields = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
     ordering = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
-    list_display = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
+    list_display = ('id','owner', 'name', 'quantity', 'location', 'instock', 'created')
 
 admin.site.register(Product, ProductAdmin)
 
@@ -19,12 +19,21 @@ class ReviewAdmin(admin.ModelAdmin):
 
 admin.site.register(Review, ReviewAdmin)
 
+# class PaymentInline(admin.TabularInline):
+#     model = Payment
+
+
 class PaymentAdmin(admin.ModelAdmin):
     search_fields = ('name', 'created')
     ordering = ('name', 'created')
     list_display = ('name', 'created')
+    # inlines = [PaymentInline]
+
+
 
 admin.site.register(Payment, PaymentAdmin)
+
+
 
 class SingleProductAdmin(admin.ModelAdmin):
     
@@ -41,17 +50,17 @@ class OrderAdmin(admin.ModelAdmin):
     
     search_fields = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     ordering = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
-    list_display = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
+    list_display = ('id','seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     
     
-    def has_change_permission(self, request, obj=None):
-        return False
+    # def has_change_permission(self, request, obj=None):
+    #     return False
 
-    def has_add_permission(self, request, obj=None):
-        return False
+    # def has_add_permission(self, request, obj=None):
+    #     return False
 
-    def has_view_permission(self, request, obj=None):
-        return True
+    # def has_view_permission(self, request, obj=None):
+    #     return True
 
 admin.site.register(Order, OrderAdmin)
 # admin.site.register(Order)

@@ -1,5 +1,6 @@
 from django.db.models import Q
 from .models import Profile, Training
+from products.models import Order
 
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
@@ -52,3 +53,26 @@ def searchProfiles(request):
     print(request.user.id)
 
     return profiles, search_query
+
+def searchOrders(request):
+    search_query = ''
+
+    profile = request.user.profile
+
+    if request.GET.get('search_query'):
+        search_query = request.GET.get('search_query')
+
+ 
+   
+
+    orders = Order.objects.filter(
+        Q(seller=profile) | 
+        Q(buyer=profile)| 
+        Q(productName__icontains=search_query)| 
+        Q(quantity__icontains=search_query)| 
+        Q(request__icontains=search_query)| 
+        Q(price__icontains=search_query)| 
+        Q(response__icontains=search_query)
+        )
+
+    return orders, search_query

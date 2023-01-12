@@ -11,8 +11,9 @@ from django.urls import conf
 from django.db.models import Q
 from .models import Profile, Message, Inquiry
 from .forms import CustomUserCreationForm, ProfileForm, TrainingForm, MessageForm, InquiryForm
-from .utils import searchProfiles, paginateProfiles
+from .utils import searchProfiles, paginateProfiles,searchOrders
 from django.http import JsonResponse
+from products.models import Order, Product, SingleProduct
 
 
 User = settings.AUTH_USER_MODEL
@@ -188,6 +189,24 @@ def inbox(request):
 
 
 @login_required(login_url='login')
+def notification(request):
+
+    orders, search_query = searchOrders(request)
+    profile = request.user.profile
+    buys  = profile.buyer.all()
+    
+  
+    pending = buys.filter( status__icontains ='Pending' ).count()
+    confirmed = buys.filter( status__icontains ='Confirmed' ).count()
+    declined = buys.filter( status__icontains ='Declined' ).count()
+
+  
+    
+    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'orders':orders}
+    return render(request, 'users/notification.html', context)
+
+
+@login_required(login_url='login')
 def viewMessage(request, pk):
     profile = request.user.profile
     message = profile.messages.get(id=pk)
@@ -292,7 +311,14 @@ def getProfiles(request):
 @login_required(login_url='login')
 def inboxAjax(request):
     profile = request.user.profile
+    
     messageRequests = profile.messages.all()
+    buys  = profile.buyer.all()
+
+    notifications = buys.filter( status__icontains ='Confirmed' ).count()
+
+
+ 
     unreadCount = messageRequests.filter(is_read=False).count()
     periods = []
     for p in messageRequests:
@@ -300,7 +326,7 @@ def inboxAjax(request):
         periods.append(period)
     
     #context = {"messageRequests": list(messageRequests.values()), "unreadCount": list(unreadCount.values())}
-    return JsonResponse({"messageRequests": list(messageRequests.values()), "unreadCount": unreadCount, "timesent": periods})
+    return JsonResponse({"messageRequests": list(messageRequests.values()), "unreadCount": unreadCount, "notifications": notifications, "timesent": periods})
 
 
 #TODO: AI response

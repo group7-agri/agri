@@ -33,15 +33,15 @@ p, span, strong {
     width: 95%;
     max-width: 65rem;
 }
-.product__thumbnail {
+/* .product__thumbnail {
     height: auto;
     object-fit: cover;
     object-position: top center;
-}
+} */
 
-.products{
+/* .products{
   padding: 0rem auto;
-}
+} */
 .my-md {
     margin: 1rem auto; 
 }
@@ -71,18 +71,22 @@ p, span, strong {
 .my-xl {
     margin: 2rem auto;
 }
-.product-image{
+/* .product-image{
   display:flex;
   height: 5em;
   width: 8rem;
   float: right;
   right: 50%;
-}
+} */
 .state{
   padding: 2px;
 
 }
 
+.noshadow{
+  box-shadow:none; 
+  border:none;
+}
 .products > .hero-section {
     background: var(--color-sub-lighter);
     height: 22vh;
@@ -132,7 +136,7 @@ p, span, strong {
 
 .grid {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: flex;
     justify-content: flex-start;
     align-items: stretch;
 }
@@ -203,7 +207,7 @@ h5 .singleProject__subtitle{
 .icon, .fa{
   font-size: 1.8rem;
 }
-.badge{
+.badge, .notify{
   display: inline;
   color: white;
   border-radius: 50%;
@@ -358,6 +362,47 @@ textarea{
 
 /* FOOTER */
 
+.notifications table {
+  border-collapse: collapse;
+  width: auto;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+.notifications, .notifications .card{
+  padding: 2rem 4rem;
+
+}
+.notifications table{
+  margin-top: 2rem;
+  margin-bottom: 12rem;
+  margin-left: 2rem;
+}
+
+.notifications th, .notifications td {
+  text-align: left;
+  padding: 16px;
+}
+.notifications tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.notifications th{
+  min-width: 10%;
+}
+
+.icon-ok{
+  color: green;
+  cursor: pointer;
+}
+.icon-refresh{
+  color: #0018e3;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.icon-remove{
+  color: red;
+  cursor: pointer;
+}
 
 .footer {
   position: sticky;

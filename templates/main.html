@@ -49,7 +49,7 @@
                
 
     {% block footer %} 
-    {% include 'footer.html' %}
+    {% comment %} {% include 'footer.html' %} {% endcomment %}
 
     {% endblock footer %}
 
@@ -77,6 +77,20 @@
                   else{
                    $(".badge").text(count);
                    $(".badge").css("padding:4px");
+                  }
+                  
+
+                  $(".notify").empty();
+                  
+                  
+                  var count2 =  response.notifications;
+                  if(count2==0){
+                    $(".notify").css("display:none;")
+                    $(".notify").css("padding:0px");
+                  }
+                  else{
+                   $(".notify").text(count2);
+                   $(".notify").css("padding:4px");
                   }
                   
 
@@ -151,18 +165,20 @@
             }
           });
         }
-        var isNone = $("#MyData #MyRow:not('#MyRow'):visible");
+        var isNone = $("#MyData tr:not('.chk-th'):visible");
 
         if(isNone.length == 0){
-          $("#no-result").text("No result Found").show();
+          $("#no-result").text("No result Found").css("display", "block");
 
         }
         else {
-          $("#no-result").text("No result Found").hide();
+          $("#no-result").text("No result Found").css("display", "none");
 
         }
       })
     })
+
+
 
 
 

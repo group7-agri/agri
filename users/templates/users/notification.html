@@ -1,0 +1,110 @@
+{% extends 'main.html' %}
+
+{% load static %}
+{% load humanize %}
+{% block content %}
+
+<!-- Main Section -->
+<main class="settingsPage profile my-md">
+  <div class="container">
+    <div class="layout notifications" style="background:white; margin:auto;">
+
+<div class="contact">
+                    <h3>Overall <i onclick="window.location='{% url 'notification' %}';" class="icon-refresh"></i></h3>
+                <hr>
+                <br>
+                <p>
+                 <h6> Declined: &nbsp; <b> {{declined}} </b> </h6>
+                 
+                 <h6> Pending: &nbsp;  <b>  {{pending}} </b> </h6>
+                 
+                 <h6> Confirmed: &nbsp; <b>  {{confirmed}} </b> </h6>
+                  
+                </p>
+
+
+        
+            </div>
+             
+            
+{% comment %} 
+            <img id="myModalImg" alt="{{profile.name}}" class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" /> {% endcomment %}
+             <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
+
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage"></div>
+                        </div>
+                     </div>
+
+      
+
+        <div style="overflow-x:auto;">
+                <table id="MyData">
+                    <tr>
+                    <td colspan= "2"><b>Search:</b></td>
+                    <td colspan= "6">
+                      <form action="{% url 'notification' %}" method="get"> {% csrf_token %}
+                        <Input type="text" class="input input--text" value="{{search_query}}" 
+                        placeholder="Search by name" name="search_query"  id="formInput"></form></th>
+                    <tr class="chk-th">
+                    <th>Order Id</th>
+                    <th>P Name</th>
+                    <th>Seller</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Request</th>
+                    <th>Feedback</th>
+                    <th colspan = "2"><center>Action</center></th>
+                    </tr>
+                    {% if orders %}
+                    
+                      {% for order in orders  %}
+                      
+                    <tbody id="MyRow">
+                        <tr  id="Data">
+                        <td>{{order.id}}</td>
+                        <td>{{order.productName}}</td>
+                        <td>{{order.seller}}</td>
+                        <td>{{order.price}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>{{order.request}}</td>
+
+                        
+                        <td>{{order.response}}</td>
+                        <td><i class="icon-remove noti"></i></td>
+                        <td><i class="icon-ok noti"></i></td>
+                    
+                      </tr>
+                    <tbody>
+                      {% endfor %}
+                      {% else %}
+                      <tbody>
+                        <tr>
+                      <td id="no-data">No result Found<td></span>
+                        </tr>
+                      </tbody>
+                  {% endif %}
+
+                </table>
+
+                
+                </div>
+
+        
+</div>
+
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock content %}
+
+
+
+

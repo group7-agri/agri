@@ -19,7 +19,7 @@ class Product(models.Model):
     vote_ratio = models.IntegerField(default=0, null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     
-    id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=False)
+    id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=True)
 
     def __str__(self):
         return self.name.name
@@ -108,7 +108,7 @@ class Order(models.Model):
     seller = models.ForeignKey(
         Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="seller")
     buyer = models.ForeignKey(
-        Profile, on_delete=models.SET_NULL, null=True, blank=True)
+        Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="buyer")
         
     productName = models.CharField(max_length=200, null=True, blank=True)
     price = models.CharField(max_length=200, null=True, blank=True, verbose_name="Initial Price")

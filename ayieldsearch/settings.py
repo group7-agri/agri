@@ -31,14 +31,17 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '192.168.43.119','172.31.121.10']
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    
     #PHONE NUMBER…
     'phonenumber_field',
     'phone_field',
 
+    #VOLT TEMPLATE
+    'admin_volt.apps.AdminVoltConfig',
+
     #JET TEMPLATE
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
     #HUMANIZE
 
     'django.contrib.humanize',
@@ -48,6 +51,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+
+    'django.contrib.admin',
     'products.apps.ProductsConfig',
     'users.apps.UsersConfig',
 

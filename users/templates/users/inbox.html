@@ -79,6 +79,22 @@
                   }
                   
 
+                     
+
+                  $(".notify").empty();
+                  
+                  
+                  var count2 =  response.notifications;
+                  if(count2==0){
+                    $(".notify").css("display:none;")
+                    $(".notify").css("padding:0px");
+                  }
+                  else{
+                   $(".notify").text(count2);
+                   $(".notify").css("padding:4px");
+                  }
+                  
+
               },
               error: function(response){
                   alert("cant retrieve data")

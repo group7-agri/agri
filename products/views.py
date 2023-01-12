@@ -185,7 +185,7 @@ def processOrder(request, pk):
         #CHOICE MADE
         choice = request.POST['choice']
 
-
+        orderId = ''
         if quantity >=0:
             order = Order.objects.create(
             seller=seller,
@@ -204,16 +204,16 @@ def processOrder(request, pk):
 
 
 
-
             # Update the field values of the model instance
             prod.quantity = quantity
 
             # Save the changes to the database
-            
-         
-            
+            order.save()
+            orderId = order.id
+
             if choice == 'Resell':
                 newProd = Product.objects.create(
+                    id = orderId,
                     owner=buyer,
                     name=identity,
                     instock=False,
@@ -224,8 +224,7 @@ def processOrder(request, pk):
                 )
                 newProd.save()
                 prod.save()
-                order.save()
-                messages.success(request, 'You purchased {}'.format(productName))
+                messages.success(request, 'Your {}  waits for confirmation!'.format(productName))
                 return redirect('account')
                 
             elif choice == "Consuming":
