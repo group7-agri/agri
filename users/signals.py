@@ -89,3 +89,23 @@ post_save.connect(createProfile, sender=settings.AUTH_USER_MODEL)
 post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
 
+
+@receiver(post_save, sender=User)
+def assign_permissions(sender, instance, created, **kwargs):
+    if created:
+        user = instance
+        if user.role == 'Agronome':
+            permission = Permission.objects.get(codename='view_nature')
+            instance.user_permissions.add(permission)
+            permission = Permission.objects.get(codename='add_nature')
+            instance.user_permissions.add(permission)
+            permission = Permission.objects.get(codename='change_nature')
+            instance.user_permissions.add(permission)
+            permission = Permission.objects.get(codename='delete_nature')
+            instance.user_permissions.add(permission)
+        else:
+            pass
+
+    else:
+        pass
+
