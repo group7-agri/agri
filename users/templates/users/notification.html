@@ -9,7 +9,7 @@
   <div class="container">
     <div class="layout notifications" style="background:white; margin:auto;">
 
-<div class="contact">
+<div class="contact" style="flex-flow:row;">
                     <h3>Overall <i onclick="window.location='{% url 'notification' %}';" class="icon-refresh"></i></h3>
                 <hr>
                 <br>
@@ -24,7 +24,88 @@
 
 
         
-            </div>
+</div>
+
+{% comment %} <div class="contact" >
+  <div>
+            <canvas id="myChart"></canvas>
+          </div>
+
+          <script src=" {% static 'js/chart.js' %} "></script>
+
+          <script>
+            const ctx = document.getElementById('myChart').getContext('2d');
+
+            new Chart(ctx, {
+              type: 'polarArea',
+              data: {
+                labels: [
+                 {% for order in orders  %} '{{order.productName}}',{% endfor %}
+                
+                ],
+                datasets: [{
+                  label: 'PRICE TREND',
+                  data: [
+                  {% for order in orders  %} {{order.quantity}}, {% endfor %}
+                  
+                  ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+</div>  {% endcomment %}
+{% comment %} 
+<div class="contact">
+        <!-- SECOND CHART--> 
+        <div>
+            <canvas id="myChart2"></canvas>
+          </div>
+
+          <script src=" {% static 'js/chart.js' %} "></script>
+
+          <script>
+            const ctx = document.getElementById('myChart2').getContext('2d');
+
+            new Chart(ctx, {
+              type: 'bar',
+              data: {
+                labels: [
+                 {% for prod in product  %} '{{prod.name}}',{% endfor %}
+                
+                ],
+                datasets: [{
+                  label: 'PRICES ',
+                  data: [
+                  {% for prod in product  %} {{prod.price}}, {% endfor %}
+                  
+                  ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+</div>
+
+
+ {% endcomment %}
+
+{% include 'users/chart.html' %}
+
              
             
 {% comment %} 
@@ -45,7 +126,7 @@
         <div style="overflow-x:auto;">
                 <table id="MyData">
                     <tr>
-                    <td colspan= "2"><b>Search:</b></td>
+                    <td colspan= "2"><b>My orders:</b></td>
                     <td colspan= "6">
                      <form id="searchForm" class="form" action="{% url 'notification' %}" method="get">
                    
@@ -78,9 +159,18 @@
 
                         
                         <td>{{order.response}}</td>
+
+                          {% if order.buyer == request.user %}
+                          <td colspan="2"><span  class="{{order.status}}">{{order.status}}</span></td>
+                          {% else %}
+
                         <td><i class="icon-remove noti"></i></td>
                         <td><i class="icon-ok noti"></i></td>
+
+                          {% endif %}
                     
+
+
                       </tr>
                     <tbody>
                       {% endfor %}

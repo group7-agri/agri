@@ -194,6 +194,7 @@ def notification(request):
     orders, search_query = searchOrders(request)
     profile = request.user.profile
     buys  = profile.buyer.all()
+    product = SingleProduct.objects.all()
     
   
     pending = buys.filter( status__icontains ='Pending' ).count()
@@ -202,7 +203,7 @@ def notification(request):
 
   
     
-    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'orders':orders, 'search_query':search_query}
+    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'product':product, 'orders':orders, 'search_query':search_query}
     return render(request, 'users/notification.html', context)
 
 

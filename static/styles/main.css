@@ -366,12 +366,16 @@ textarea{
   border-collapse: collapse;
   width: auto;
   border-spacing: 0;
-  border: 1px solid #ddd;
+  border: 1px solid rgb(15, 15, 15);
 }
 .notifications, .notifications .card{
   padding: 2rem 4rem;
 
 }
+
+
+
+
 .notifications table{
   margin-top: 2rem;
   margin-bottom: 12rem;
@@ -380,7 +384,7 @@ textarea{
 
 .notifications th, .notifications td {
   text-align: left;
-  padding: 16px;
+  padding: 9px 12px;
 }
 .notifications tr:nth-child(even) {
   background-color: #f2f2f2;
@@ -389,6 +393,27 @@ textarea{
   min-width: 10%;
 }
 
+.Pending{
+  background-color: #e7e7e7; 
+  color: black;
+  padding: 1rem;
+}
+.Confirmed{
+  background-color: #4CAF50;
+  padding: 1rem;
+  color: white;
+}
+
+.Declined{
+  background-color: #f44336;
+  padding:1rem;
+  color: white;
+}
+.Delivered{
+  background-color: #008CBA;
+  padding:1rem;
+  color: white;
+}
 .icon-ok{
   color: green;
   cursor: pointer;
