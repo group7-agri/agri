@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 from .models import Profile, Training, Message, Inquiry, CustomUser
-
+import datetime
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
@@ -21,6 +21,7 @@ class CustomUserCreationForm(UserCreationForm):
         }
         widgets = {
             'phone': forms.TextInput(attrs={'required': 'required'}),
+            'email': forms.EmailInput(attrs={'required': 'required'}),
             
             'first_name': forms.TextInput(attrs={'placeholder': 'eg: ARISTO DUSHIMIRIMANA'}),
             'email': forms.EmailInput(attrs={'placeholder': 'eg: aristo@gmail.com'}),
@@ -70,7 +71,8 @@ class ProfileForm(ModelForm):
 class TrainingForm(ModelForm):
     class Meta:
         model = Training
-        fields = '__all__'
+        # fields = '__all__'
+        fields = ('trainer', 'completed', 'certificate', 'link', 'description')
         exclude = ['owner']
         
        
@@ -81,6 +83,17 @@ class TrainingForm(ModelForm):
         for name, field in self.fields.items():
             
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs.update({'required': 'required'})
+
+              
+    def clean(self):
+        cleaned_data = super().clean()
+        date_field = cleaned_data.get('completed')
+
+        if date_field and date_field <= datetime.date.today():
+            raise forms.ValidationError("Date must be greater than today.")
+
+
 
 
 class MessageForm(ModelForm):
@@ -93,9 +106,7 @@ class MessageForm(ModelForm):
 
         for name, field in self.fields.items():
             field.widget.attrs.update({'class': 'input'})
-
-
-
+  
 class InquiryForm(ModelForm):
     class Meta:
         model = Inquiry

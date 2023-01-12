@@ -46,6 +46,9 @@ def searchProducts(request):
     products = Product.objects.filter(name__name__icontains=search_query)
     # for ite in items:
     #     product= ite.name
+    user = ''
+    if request.user.is_authenticated:
+        user  = request.user
 
     payments = Payment.objects.filter(name=search_query)
 
@@ -55,5 +58,5 @@ def searchProducts(request):
         Q(owner__name__icontains=search_query) |
         Q(payments__in=payments) &
         Q(instock=True)
-    ).exclude( owner__name__iexact = request.user.first_name)
+    ).exclude( owner__name = user)
     return products, search_query

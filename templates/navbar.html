@@ -43,7 +43,7 @@
         </li>  
         {% url 'logout' as url5 %}
         <li class="header__menuItem {% if request.path == url5 %}active{% endif %}">
-          <a href="{% url 'logout' %}"  title="{{request.user.first_name}}" class="btn btn--sub "  onclick="return confirm('Are you sure you want to log out?');">Logout</a>
+          <a href="{% url 'logout' %}"  {% if request.user.first_name %} title="{{request.user.first_name}}" {% endif %} class="btn btn--sub "  onclick="return confirm('Are you sure you want to log out?');">Logout</a>
         </li>
            {% comment %} <a href="{% url 'logout' %}"  title="Logout" onclick="return confirm('Are you sure you want to log out?');"><img src="{{request.user.email}}" class="logout-image"></a>
          {% endcomment %}
@@ -54,6 +54,9 @@
         {% endif %}
       </ul>
 
+
+
+      
 
       <div class="mobile__menu" id="responsive-menu">
           

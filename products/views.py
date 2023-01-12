@@ -235,7 +235,7 @@ def processOrder(request, pk):
                 return redirect('products')
             else:
                 messages.error(request, 'Error for inserting order')
-                return redirect(reverse('checkout-product', pk=productId))
+                return redirect('checkout-product', pk=productId)
 
 
         else :

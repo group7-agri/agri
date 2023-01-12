@@ -11,7 +11,7 @@ class Product(models.Model):
     name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True)
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
-    quantity = models.IntegerField(null=True, blank=True, default=0)
+    quantity = models.PositiveIntegerField(null=True, blank=True, default=0)
     location = models.CharField(max_length=100, null=True, blank=True)
     payments = models.ManyToManyField('Payment', blank=True, default="In Hand")
     instock = models.BooleanField(blank=True, null=True, default=True)
@@ -85,7 +85,7 @@ class Payment(models.Model):
 class SingleProduct(models.Model):
 
     name = models.CharField(max_length=200, null=True, blank=True, default="Ibirayi")
-    price = models.IntegerField(null=True, blank=True, default=0)
+    price = models.PositiveIntegerField(null=True, blank=True, default=0)
     unity = models.CharField(max_length=200, null=True, blank=True, default="Kilogram")
     
     created = models.DateTimeField(auto_now_add=True)

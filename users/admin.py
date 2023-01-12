@@ -8,11 +8,11 @@ from django.contrib.auth.models import Group
 from django.conf import settings
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.core.exceptions import ValidationError
-
+from django.utils.html import format_html_join
+from django.utils.safestring import mark_safe
 # Register your models here.
 
 from .models import Profile, Training, Message, Inquiry, CustomUser
-
 
 User = settings.AUTH_USER_MODEL
 
@@ -39,24 +39,30 @@ admin.site.register(Message)
 
 class InquiryAdmin(admin.ModelAdmin):
     
-    search_fields = ('name', 'email', 'created')
-    ordering = ('name', 'email', 'created')
+    search_fields = ('name', 'email', 'subject','created')
+    ordering = ('name', 'email', 'subject','created')
     
-    list_display = ('name', 'email', 'created')
-    filter_horizontal = ()
+    list_display = ('name', 'email', 'subject','created',)
+    
 
-    def has_change_permission(self, request, obj=None):
-        return False
+    readonly_fields = ('name','email', 'subject','created', 'body','sender', 'attachment')
 
+    
+   
     def has_add_permission(self, request, obj=None):
         return False
+    def has_change_permission(self, request, obj=None):
+        return True
 
     def has_view_permission(self, request, obj=None):
         return True
 
-# admin.site.register(Inquiry, InquiryAdmin)
+    def has_delete_permission(self, request, obj=None):
+            return False
 
-admin.site.register(Inquiry)
+admin.site.register(Inquiry, InquiryAdmin)
+
+# admin.site.register(Inquiry)
 
 
 
@@ -81,7 +87,7 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('first_name', 'email', 'phone', 'username', 'role')
     filter_horizontal = ()
 
-    list_display = ('first_name', 'email', 'phone', 'username', 'role')
+    list_display = ('first_name', 'email', 'phone', 'username', 'role', 'is_staff')
     add_form = CustomUserCreationForm
     add_fieldsets = (
         (None, {
@@ -93,8 +99,36 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         (None, {'fields': ('first_name', 'email', 'phone', 'username', 'role')}),
     )
+    
+    def has_change_permission(self, request, obj=None):
+        if request.user.role == "Agronome":
+            return False
+        else:
+            return True
+       
+       
+        
 
+    def has_add_permission(self, request, obj=None):
+        if request.user.role == "Agronome":
+            return False
+        else:
+            return True
+       
+    #    return True
+        
 
+    def has_view_permission(self, request, obj=None):
+        if request.user.is_staff:
+            return True
+        else:
+            return False
+        
+    def has_delete_permission(self, request, obj=None):
+        if request.user.is_staff:
+            return True
+        else:
+            return False
 
 # class CustomUserChangeForm(UserChangeForm):
 
@@ -120,7 +154,13 @@ class ProfileAdmin(admin.ModelAdmin):
     filter_horizontal = ()
     list_display = ('user', 'name', 'email', 'account', 'location')
 
-
+    def has_change_permission(self, request, obj=None):
+        if request.user.is_staff:
+            return True
+        elif request.user.is_superuser:
+            return True
+        else:
+            return False
 admin.site.register(Profile, ProfileAdmin)
 
 #  #Profile, Training, Message, Inquiry, CustomUser

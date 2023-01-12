@@ -16,6 +16,7 @@ body{
     background-color: var(--color-sub); */
     padding: 1rem 0;
 }
+
 .devlist{
   margin-top: 2rem;
 }
@@ -27,7 +28,11 @@ p, span, strong {
 .card__body, .card__header {
     padding: 0.8rem 1.5rem;
 }
-
+.auth > .card {
+    padding: 1rem 4rem;
+    width: 95%;
+    max-width: 65rem;
+}
 .product__thumbnail {
     height: auto;
     object-fit: cover;
@@ -202,6 +207,7 @@ h5 .singleProject__subtitle{
   display: inline;
   color: white;
   border-radius: 50%;
+  padding: 0rem 0.1rem;
   background-color: var(--color-sub-light);
   margin-left:.4rem ;
   
@@ -354,10 +360,10 @@ textarea{
 
 
 .footer {
-  /* position: fixed; */
+  position: sticky;
    left: 0;
 
-   bottom: 0;
+   bottom: 0!important;
    width: 100%;
    padding: 1.3rem;
    /* background:rgb(45, 45, 57, 0.3); */
