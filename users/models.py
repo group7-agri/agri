@@ -1,9 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+
 from phonenumber_field.formfields import PhoneNumberField
 from phone_field import PhoneField
 from django.conf import settings
-
+from django.contrib.auth.models import AbstractUser,PermissionsMixin
 User = settings.AUTH_USER_MODEL
 
 import uuid
@@ -33,8 +33,9 @@ class CustomUser(AbstractUser):
     # phone = PhoneField(blank=True, unique=True, null=True, help_text='Try other Number (startwith  +250)')
     status = models.CharField(max_length=200, choices=ACCOUNT_TYPE, default="staff")
     role = models.CharField(max_length=200, choices=PRIVELEGE, default="Normal")
-    
 
+    
+   
 class Profile(models.Model):
 
     user = models.OneToOneField(
@@ -142,6 +143,7 @@ class Inquiry(models.Model):
     email = models.EmailField(max_length=200, null=True, blank=True)
     subject = models.CharField(max_length=200, null=True, blank=True)
     body = models.TextField()
+    reply = models.TextField(null=True)
     attachment = models.ImageField(
         null=True, blank=True, upload_to='Inquiry/')
     is_read = models.BooleanField(default=False, null=True)

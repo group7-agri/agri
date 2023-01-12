@@ -2,9 +2,8 @@ from django.db.models.signals import post_save, post_delete
 from django.dispatch import receiver
 
 from django.conf import settings
-
 from .models import Profile
-from django.contrib.auth.models import Permission
+from django.contrib.auth.models import Permission, Group
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import *
@@ -12,9 +11,22 @@ from .models import *
 # @receiver(post_save, sender=Profile)
 User = settings.AUTH_USER_MODEL
 
+# @receiver(post_save, sender=settings.AUTH_USER_MODEL)
+# def assign_user_permissions(sender, instance, created, **kwargs):
+#     if created:
+#         user = instance
+#         if user.role=='Agronome':
+#             user.is_staff = True
+#             view_permission = Permission.objects.get(codename='view_secret_data')
+#             for project in Project.objects.all():
+#                 instance.user_permissions.add(view_permission)
+
+
+
 def createProfile(sender, instance, created, **kwargs):
-    if created:
-        user = instance
+    
+    user = instance
+    if created == True:
         if user.role=='Normal':
             profile = Profile.objects.create(
                 user=user,
@@ -40,20 +52,39 @@ def createProfile(sender, instance, created, **kwargs):
             user.save()
 
         elif user.role=='Agronome':
+            group = Group.objects.get(pk=1)
             user.is_staff = True
-            view_permission = Permission.objects.get(codename='view_secret_data')
-            for training in Training.objects.all():
-                instance.user_permissions.add(view_permission)
-            
-
-            # view_permission = Permission.objects.get(codename='view_secret_data')
-            # delete_permission = Permission.objects.get(codename='delete_secret_data')
-            # instance.user_permissions.add(view_permission, delete_permission)
+            user.groups.add(group)
 
             
             user.save()
         else:
             pass
+
+    # if created == False:
+    #     if user.role=='Admin':
+    #         user.is_staff = True
+    #         user.is_superuser= True
+    #         user.save()
+    
+
+    #     elif user.role=='Normal':
+    #         user.is_staff = False
+    #         user.is_superuser= False
+    #         user.save()
+            
+    #     elif user.role=='Agronome':
+    #         group = Group.objects.get(pk=1)
+    #         user.is_staff = True
+    #         user.groups.add(group)
+    #         user.save()
+            
+    #     else:
+    #         pass
+
+    # else:
+    #     pass
+
 
 
 def updateUser(sender, instance, created, **kwargs):
@@ -69,7 +100,36 @@ def updateUser(sender, instance, created, **kwargs):
     else:
         pass
 
+
+# def updateRole(sender, instance, created, **kwargs):
+#     user =instance
+#     if created == False:
+#         if user.role=='Admin':
+#             user.is_staff = True
+#             user.is_superuser= True
+#             user.save()
     
+
+#         elif user.role=='Normal':
+#             user.is_staff = False
+#             user.is_superuser= False
+#             user.save()
+            
+#         elif user.role=='Agronome':
+#             group = Group.objects.get(pk=1)
+#             user.is_staff = True
+#             user.groups.add(group)
+#             user.save()
+            
+#         else:
+#             pass
+
+#     else:
+#         pass
+    
+    
+
+
 
 
 def deleteUser(sender, instance, **kwargs):
@@ -86,26 +146,6 @@ def deleteUser(sender, instance, **kwargs):
 
 
 post_save.connect(createProfile, sender=settings.AUTH_USER_MODEL)
+# post_save.connect(updateRole, sender=settings.AUTH_USER_MODEL)
 post_save.connect(updateUser, sender=Profile)
 post_delete.connect(deleteUser, sender=Profile)
-
-
-@receiver(post_save, sender=User)
-def assign_permissions(sender, instance, created, **kwargs):
-    if created:
-        user = instance
-        if user.role == 'Agronome':
-            permission = Permission.objects.get(codename='view_nature')
-            instance.user_permissions.add(permission)
-            permission = Permission.objects.get(codename='add_nature')
-            instance.user_permissions.add(permission)
-            permission = Permission.objects.get(codename='change_nature')
-            instance.user_permissions.add(permission)
-            permission = Permission.objects.get(codename='delete_nature')
-            instance.user_permissions.add(permission)
-        else:
-            pass
-
-    else:
-        pass
-
