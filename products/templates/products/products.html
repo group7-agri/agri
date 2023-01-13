@@ -7,19 +7,20 @@
     <section class="hero-section text-center">
         <div class="container container--narrow">
             <div class="hero-section__box">
-                <h2>Search for <span>Yield</span></h2>
+                <h2>Search for <span>Yield</span> <span onclick = "window.location.href='{% url 'trend' %}'; return false;" title="view Trend"><i class="fa icon-bar-chart" style="font-size: inherit; cursor:pointer; color:blue;"></i></span></h2>
             </div>
 
             <div class="hero-section__search">
                 <form id='searchForm' class="form" action="{% url 'products' %}" method="get">
                     <div class="form__field">
-                        <label for="formInput#search">Search By Yield </label>
+                        <label for="formInput#search">Search By Yield </label> 
                         <input class="input input--text white" id="formInput" type="text" name="search_query"
                             placeholder="Search by Yield Title" value="{{search_query}}" />
                     </div>
 
                     <input class="btn btn--sub btn--lg" type="submit" value="Search" />
                 </form>
+                
             </div>
         </div>
     </section>

@@ -55,6 +55,9 @@ def product(request, pk):
 
 @login_required(login_url="login")
 def createProduct(request):
+    
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     form = ProductForm()
 
@@ -79,6 +82,9 @@ def createProduct(request):
 
 @login_required(login_url="login")
 def updateProduct(request, pk):
+    
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     product = profile.product_set.get(id=pk)
     form = ProductForm(instance=product)
@@ -100,6 +106,9 @@ def updateProduct(request, pk):
 
 @login_required(login_url="login")
 def traderUpdate(request, pk):
+    
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     product = profile.product_set.get(id=pk)
     form = TraderProductForm(instance=product)
@@ -145,6 +154,9 @@ def traderUpdate(request, pk):
 
 @login_required(login_url="login")
 def deleteProduct(request, pk):
+    
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     product = profile.product_set.get(id=pk)
     if request.method == 'POST':
@@ -159,6 +171,8 @@ def deleteProduct(request, pk):
 def processOrder(request, pk):
 
 
+    if request.user.is_staff:
+        return redirect('/admin/')
     #DATA 
     buyer = request.user.profile
     seller = Profile.objects.get(id=pk)
@@ -246,6 +260,16 @@ def processOrder(request, pk):
         return redirect('checkout-product', pk=productId)
      
 
+
+def trend(request):
+
+    products = Product.objects.all().distinct()
+    product = SingleProduct.objects.all().distinct()
+    context = {'products':products, 
+
+                'product':product
+                }
+    return render(request, 'products/trend.html', context)
 
 
 register = template.Library()

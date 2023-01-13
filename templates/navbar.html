@@ -77,8 +77,9 @@
         <span class="mobile__menuItem {% if request.path == url2 %}active{% endif %}">
           <a href="{% url 'inbox' %}" ><i class="icon-envelope-alt icon"></i><p class="badge"> </p></a></span>
           
-        <span class="mobile__menuItem">
-          <a href="{% url 'inbox' %}"><i class="icon-bell icon"></i></a></span>
+           {% url 'notification' as url8 %}
+        <span class="mobile__menuItem  {% if request.path == url8 %}active{% endif %}">
+          <a href="{% url 'notification' %}"><i class="icon-bell icon"></i><p class="notify"> </p></a></span>
         
           {% url 'account' as url4 %}
         <span class="mobile__menuItem {% if request.path == url4 %}active{% endif %}">

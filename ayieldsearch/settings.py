@@ -12,9 +12,13 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 import os
+import sys
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+sys.path.append('path/to/middleware')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -112,6 +116,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+
+    #MY MIDDLEWARE
+    
+    # 'users.middleware.rolebased.RoleBasedMiddleware',
 ]
 
 ROOT_URLCONF = 'ayieldsearch.urls'
@@ -201,7 +210,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aristodush@gmail.com'
-EMAIL_HOST_PASSWORD = 'bugwikujnkfcbpoi'
+EMAIL_HOST_PASSWORD = 'yvvtoddmjwaartcw'
 
 
 

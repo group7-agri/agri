@@ -1,0 +1,178 @@
+{% extends 'main.html' %}
+{% block content %}
+{% load static %}
+{% load humanize %}
+<!-- Main Section -->
+<main class="products">
+
+  
+    <section class="productsList">
+        <div class="container" style="background-color:white; padding:2rem;" >
+            <div class="grid grid--three" >
+
+
+   
+               <div class="column" >
+                    <div class="card" >
+                      
+              <div class="card__body" style="overflow-x: auto;">
+                <h3>Top 5 on Watch <i class="icon-arrow-up"></i></h3>
+                <hr>
+                <div class="border">
+                <table >
+
+                {% for produ in products|slice:"5"  %}
+                   <tr >
+                    
+                    <td>
+                  {{produ.owner.name|upper}} </td>
+                  
+                  <td> {{produ.quantity}}    </td>   
+                     <td> {{produ.name.name}}    </td>   
+                    
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+               
+            </div>
+
+                    </div>
+               </div>
+
+
+                <div class="column" >
+                    <div class="card" >
+                      
+                <canvas id="trend1" style="display: inline!important;"></canvas>
+                
+              <script src=" {% static 'js/chart.js' %} "></script>
+                <script>
+                    var ctx = document.getElementById('trend1').getContext('2d');
+                    var myChart = new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                            labels: [{% for price in product %} '{{price.name}}',{% endfor %}],
+                    datasets: [{
+                        label: 'Price on market',
+                        data: [{% for price in product %} {{ price.price }}, {% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                                borderWidth: 1
+                    }]
+                        },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                    });
+                </script>
+                    </div>
+               </div> 
+               
+               
+               <div class="column" height="400" >
+                    <div class="card" >
+                      
+                <canvas id="trend" ></canvas>
+                <script>
+                    var ctx = document.getElementById('trend').getContext('2d');
+                    var myChart1 = new Chart(ctx, {
+                        type: 'pie',
+                        data: {
+                            labels: [{% for prod in products %} '{{prod.location}}', {% endfor %}],
+                    datasets: [{
+                        label: 'Production',
+                        data: [{% for prod in products %} {{ prod.quantity }}, {% endfor %}],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                                borderWidth: 1
+                    }]
+                        },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                    });
+                </script>
+
+                    </div>
+               </div>
+                        <div style="overflow-x: auto;" class="charttable">
+                                <table>
+                                  <tr>
+                                    <th>Owner</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Measurement</th>
+                                    <th>Unit Price</th>
+                                    <th>Location</th>
+                                  </tr>
+
+                                  {% for produce in products|slice:"7"  %}
+                                  <tr>
+                                    <td>{{produce.owner.name}}</td>
+                                    <td>{{produce.name.name}}</td>
+                                    <td>{{produce.quantity}}</td>
+                                    <td>{{produce.name.unity}}</td>
+                                    <td>{{produce.name.price}}</td>
+                                    <td>{{produce.location}}</td>
+                                    
+                                  </tr>
+                              {% endfor %}
+                                </table>
+                              </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main>
+
+
+
+
+{% endblock %}
+

@@ -97,7 +97,19 @@
 
               },
               error: function(response){
-                  alert("cant retrieve data")
+                var staff = response.unreadCount;
+
+                console.log(staff);
+
+                if (staff = 'undefined'){
+                  alert("Staff are redirected!");
+                  window.location.href = '/admin/';
+                }
+
+                else {
+                  console.log("Try logging again")
+                }
+                
               }
           });
 

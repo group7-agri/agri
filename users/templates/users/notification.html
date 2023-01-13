@@ -26,84 +26,6 @@
         
 </div>
 
-{% comment %} <div class="contact" >
-  <div>
-            <canvas id="myChart"></canvas>
-          </div>
-
-          <script src=" {% static 'js/chart.js' %} "></script>
-
-          <script>
-            const ctx = document.getElementById('myChart').getContext('2d');
-
-            new Chart(ctx, {
-              type: 'polarArea',
-              data: {
-                labels: [
-                 {% for order in orders  %} '{{order.productName}}',{% endfor %}
-                
-                ],
-                datasets: [{
-                  label: 'PRICE TREND',
-                  data: [
-                  {% for order in orders  %} {{order.quantity}}, {% endfor %}
-                  
-                  ],
-                  borderWidth: 1
-                }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-              }
-            });
-          </script>
-</div>  {% endcomment %}
-{% comment %} 
-<div class="contact">
-        <!-- SECOND CHART--> 
-        <div>
-            <canvas id="myChart2"></canvas>
-          </div>
-
-          <script src=" {% static 'js/chart.js' %} "></script>
-
-          <script>
-            const ctx = document.getElementById('myChart2').getContext('2d');
-
-            new Chart(ctx, {
-              type: 'bar',
-              data: {
-                labels: [
-                 {% for prod in product  %} '{{prod.name}}',{% endfor %}
-                
-                ],
-                datasets: [{
-                  label: 'PRICES ',
-                  data: [
-                  {% for prod in product  %} {{prod.price}}, {% endfor %}
-                  
-                  ],
-                  borderWidth: 1
-                }]
-              },
-              options: {
-                scales: {
-                  y: {
-                    beginAtZero: true
-                  }
-                }
-              }
-            });
-          </script>
-</div>
-
-
- {% endcomment %}
-
 {% include 'users/chart.html' %}
 
              
@@ -138,10 +60,11 @@
                     <th>Order Id</th>
                     <th>P Name</th>
                     <th>Seller</th>
+                    <th>Buyer</th>
                     <th>Price</th>
                     <th>Quantity</th>
                     <th>Request</th>
-                    <th>Feedback</th>
+                    <th>Total</th>
                     <th colspan = "2"><center>Action</center></th>
                     </tr>
                     {% if orders %}
@@ -153,19 +76,27 @@
                         <td>{{order.id}}</td>
                         <td>{{order.productName}}</td>
                         <td>{{order.seller}}</td>
+                        <td>{{order.buyer}}</td>
                         <td>{{order.price}}</td>
                         <td>{{order.quantity}}</td>
+                        
                         <td>{{order.request}}</td>
 
-                        
-                        <td>{{order.response}}</td>
+                        <td></td>
 
-                          {% if order.buyer == request.user %}
+
+                        
+
+                          {% if order.buyer == request.user.profile %}
                           <td colspan="2"><span  class="{{order.status}}">{{order.status}}</span></td>
                           {% else %}
+                          {% if order.status == 'Pending' %}
+                          <td colspan="2"><i class="icon-remove noti"></i><i class="icon-ok noti"></i></td>
+                          {% else %}
+                           <td colspan="2"><span  class="{{order.status}}">{{order.status}}</span></td>
 
-                        <td><i class="icon-remove noti"></i></td>
-                        <td><i class="icon-ok noti"></i></td>
+                          {% endif %}
+                          
 
                           {% endif %}
                     

@@ -39,6 +39,8 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
+
+            
             return redirect(request.GET['next'] if 'next' in request.GET else 'account')
 
         else:
@@ -87,13 +89,16 @@ def profiles(request):
     #     image = Profile.objects.get(user = request.user)
 
 
-    custom_range, profiles = paginateProfiles(request, profiles, 6)
+    custom_range, profiles = paginateProfiles(request, profiles, 12)
     context = {'profiles': profiles, 'search_query': search_query,
                'custom_range': custom_range, 'image':image}
     return render(request, 'users/profiles.html', context)
 
 
 def userProfile(request, pk):
+    
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = Profile.objects.get(id=pk)
 
     training = profile.training_set.exclude(description__exact="")
@@ -104,8 +109,10 @@ def userProfile(request, pk):
 
 @login_required(login_url='login')
 def userAccount(request):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
-
+    
     trainings = profile.training_set.all()
     products = profile.product_set.all().exclude(instock=None)
 
@@ -117,6 +124,8 @@ def userAccount(request):
 
 @login_required(login_url='login')
 def editAccount(request):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     form = ProfileForm(instance=profile)
 
@@ -133,6 +142,8 @@ def editAccount(request):
 
 @login_required(login_url='login')
 def createTraining(request):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     form = TrainingForm()
 
@@ -151,6 +162,8 @@ def createTraining(request):
 
 @login_required(login_url='login')
 def updateTraining(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     training = profile.training_set.get(id=pk)
     form = TrainingForm(instance=training)
@@ -168,6 +181,8 @@ def updateTraining(request, pk):
 
 @login_required(login_url='login')
 def deleteTraining(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     training = profile.training_set.get(id=pk)
     if request.method == 'POST':
@@ -181,6 +196,8 @@ def deleteTraining(request, pk):
 
 @login_required(login_url='login')
 def inbox(request):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     messageRequests = profile.messages.all()
     unreadCount = messageRequests.filter(is_read=False).count()
@@ -190,12 +207,19 @@ def inbox(request):
 
 @login_required(login_url='login')
 def notification(request):
-
+    if request.user.is_staff:
+        return redirect('/admin/')
     orders, search_query = searchOrders(request)
     profile = request.user.profile
     buys  = profile.buyer.all()
     product = SingleProduct.objects.all()
-    
+
+    total = [];
+     
+    for order in orders:
+        add = order.price*order.quantity
+        total.append(add)
+   
   
     pending = buys.filter( status__icontains ='Pending' ).count()
     confirmed = buys.filter( status__icontains ='Confirmed' ).count()
@@ -203,12 +227,14 @@ def notification(request):
 
   
     
-    context = {'pending': pending, 'confirmed': confirmed, 'declined': declined, 'product':product, 'orders':orders, 'search_query':search_query}
+    context = {'pending': pending, 'total':total, 'confirmed': confirmed, 'declined': declined, 'product':product, 'orders':orders, 'search_query':search_query}
     return render(request, 'users/notification.html', context)
 
 
 @login_required(login_url='login')
 def viewMessage(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     profile = request.user.profile
     message = profile.messages.get(id=pk)
     if message.is_read == False:
@@ -219,6 +245,7 @@ def viewMessage(request, pk):
 
 
 def createMessage(request, pk):
+    
     recipient = Profile.objects.get(id=pk)
     form = MessageForm()
 
@@ -249,7 +276,8 @@ def createMessage(request, pk):
 
 @login_required(login_url='login')
 def Feedback(request):
-    
+    if not request.user.is_staff:
+        return redirect('/')
     feedbacks = Inquiry.objects.all()
     unreadCount = feedbacks.filter(is_read=False).count()
     context = {'feedbacks': feedbacks, 'unreadCount': unreadCount}
@@ -258,6 +286,8 @@ def Feedback(request):
 
 @login_required(login_url='login')
 def viewInquiry(request, pk):
+    if not request.user.is_staff:
+        return redirect('/')
     inquiry = Inquiry.objects.get(id=pk)
     if inquiry.is_read == False:
         inquiry.is_read = True
@@ -267,6 +297,8 @@ def viewInquiry(request, pk):
 
 @login_required(login_url='login')
 def markSolved(request, pk):
+    if not request.user.is_staff:
+        return redirect('/')
     inquiry = Inquiry.objects.get(id=pk)
     inquiry.status = 'Solved'
     inquiry.save()
@@ -305,14 +337,12 @@ def createInquiry(request):
 
 # TODO: AJAX FUNCTIONS
 
-def getProfiles(request):
-    profiles = Profile.objects.all()
-    return JsonResponse({"profiles":list(profiles.values())})
 
 @login_required(login_url='login')
 def inboxAjax(request):
     profile = request.user.profile
-    
+    staff = request.user.is_staff
+
     messageRequests = profile.messages.all()
     buys  = profile.buyer.all()
 
@@ -327,7 +357,7 @@ def inboxAjax(request):
         periods.append(period)
     
     #context = {"messageRequests": list(messageRequests.values()), "unreadCount": list(unreadCount.values())}
-    return JsonResponse({"messageRequests": list(messageRequests.values()), "unreadCount": unreadCount, "notifications": notifications, "timesent": periods})
+    return JsonResponse({"messageRequests": list(messageRequests.values()), 'staff':staff, "unreadCount": unreadCount, "notifications": notifications, "timesent": periods})
 
 
 #TODO: AI response

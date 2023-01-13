@@ -43,6 +43,7 @@ class InquiryAdmin(admin.ModelAdmin):
     ordering = ('name', 'email', 'subject','created')
     
     list_display = ('name', 'email', 'subject','created',)
+    list_filter = ('created',)
     
 
     readonly_fields = ('name','email', 'subject','created', 'body','sender', 'attachment')

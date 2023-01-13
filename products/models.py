@@ -111,10 +111,10 @@ class Order(models.Model):
         Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name="buyer")
         
     productName = models.CharField(max_length=200, null=True, blank=True)
-    price = models.CharField(max_length=200, null=True, blank=True, verbose_name="Initial Price")
+    price = models.PositiveIntegerField( null=True, blank=True, verbose_name="Initial Price")
     status = models.CharField(max_length=200, choices=STATUS, default="Pending", null=True, blank=True)
     unity = models.CharField(max_length=200, null=True, blank=True)
-    quantity = models.CharField(max_length=200, null=True, blank=True, verbose_name="Quantity Purchased")
+    quantity = models.PositiveIntegerField(null=True, blank=True, verbose_name="Quantity Purchased")
     location = models.CharField(max_length=200, null=True, blank=True)
     request = models.TextField(null=True, blank=True)
     response = models.TextField(null=True, blank=True)

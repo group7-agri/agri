@@ -71,25 +71,25 @@ p, span, strong {
 .my-xl {
     margin: 2rem auto;
 }
-/* .product-image{
+.product-image{
   display:flex;
   height: 5em;
   width: 8rem;
   float: right;
   right: 50%;
-} */
+}
 .state{
   padding: 2px;
 
 }
 
-.noshadow{
+.shadow{
   box-shadow:none; 
   border:none;
 }
 .products > .hero-section {
     background: var(--color-sub-lighter);
-    height: 22vh;
+    /* height: 22vh; */
 }
 .hero-section {
     height: 58vh;
@@ -280,12 +280,61 @@ h5 .singleProject__subtitle{
 
 @media screen and (max-width: 418px) {
 .mobile__menuItem{
-    padding: 1rem 10px;
+    padding: 1rem 1rem;
 }
 .icon{
   font-size: 2rem;
 }
 }
+
+#myChart, #myChart1{
+  width: 300px;
+  height: 400;
+}
+
+
+.charttable{
+  padding: 1rem 2rem;
+
+  align-items: center;
+  width: 100%;
+}
+
+.charttable table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.charttable th, .charttable td {
+  text-align: left;
+  padding: 8px 0px;
+}
+.charttable tr, .charttable table{
+  border: 2px solid #ccc;
+}
+
+.charttable tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+.border{
+  padding: 1rem 2rem;
+
+}
+
+
+.border table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.border th, .border td {
+  text-align: left;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+}
+
+.border tr:nth-child(even) {background-color: #f2f2f2;}
+
 
 
 @media screen and (max-width: 315px) {
@@ -393,6 +442,7 @@ textarea{
   min-width: 10%;
 }
 
+
 .Pending{
   background-color: #e7e7e7; 
   color: black;
@@ -423,7 +473,14 @@ textarea{
   cursor: pointer;
   font-size: 2rem;
 }
-
+.noti{
+  padding: 1rem;
+  border: 2px solid #ccc;
+  margin: 0rem 0.2rem;
+}
+.notif:hover{
+  background-color: #ccc;
+}
 .icon-remove{
   color: red;
   cursor: pointer;
