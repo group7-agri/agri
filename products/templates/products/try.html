@@ -30,6 +30,18 @@
 
              
             
+{% comment %} 
+            <img id="myModalImg" alt="{{profile.name}}" class="avatar avatar--xl dev__avatar" src="{{profile.imageURL}}" /> {% endcomment %}
+             <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
+
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage"></div>
+                        </div>
+                     </div>
 
       
 
@@ -45,12 +57,13 @@
                   
                   </th>
                     <tr class="chk-th">
-                    <th>Reference Code</th>
+                    <th>Order Id</th>
                     <th>P Name</th>
                     <th>Seller</th>
                     <th>Buyer</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Request</th>
                     <th>Total(Rwf)</th>
                     <th colspan = "2"><center>Action</center></th>
                     </tr>
@@ -67,6 +80,8 @@
                         <td id="price">{{order.price}}</td>
                         <td id="quantity">{{order.quantity}}</td>
                         
+                        <td id="request">{{order.request}}</td>
+                         <td id="response" style="display:none;">{{order.response}}</td>
                          <td id="unity" style="display:none;">{{order.unity}}</td>
                          <td id="location" style="display:none;">{{order.location}}</td>
                           
@@ -75,7 +90,7 @@
                         <td id="total">{{order.line_total|intcomma }} </td>
                         
                         
-                        <td  class="open-modal-button "  data-id="{{order.id }}"> View </td>
+                        <td  class="open-modal-button" data-id="{{order.id }}"> View </td>
                        
 
                         
@@ -97,7 +112,13 @@
 
                       </tr>
                     
-                      {% include 'users/modal.html' %}
+              <!-- The Modal -->
+              <div id="notifymyModal-{{ order.id }}"  class="notifymodal">
+              {{ order.id }}
+                    <p>{{ order.description }}</p>
+                    <button type="button" class="close" onclick="$(this).parent().hide()">x</button>
+                                      
+              </div>
 
 
 
@@ -122,6 +143,7 @@
 
     </div>
 
+    
 
 
 
@@ -133,7 +155,8 @@
      $(".open-modal-button").click(function(){
      var id = $(this).data("id");
         $("#notifymyModal-"+id).show();
-     });           
+     });
+                    
    });
 </script>
 

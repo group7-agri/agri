@@ -124,7 +124,8 @@ class Order(models.Model):
 
     def __str__(self):
         return self.productName
-        
+    def line_total(self):
+        return self.quantity * self.price
 
 
 

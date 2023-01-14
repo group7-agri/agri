@@ -27,8 +27,13 @@
         {% url 'products' as url1 %}
         <li class="header__menuItem {% if request.path == url1 %}active{% endif %}">
           <a href="{% url 'products' %}">Yields</a>
+        </li>  
+        {% if not user.is_authenticated %}
+        {% url 'trend' as urlb %}
+        <li class="header__menuItem {% if request.path == urlb %}active{% endif %}">
+          <a href="{% url 'trend' %}"><i class="icon-bar-chart" style="font-size:2rem;"></i></a>
         </li>
-
+      {% endif %}
         {% if request.user.is_authenticated %}
          {% url 'inbox' as url2 %}
         <li class="header__menuItem {% if request.path == url2 %}active{% endif %}">
@@ -71,6 +76,13 @@
         <span class="mobile__menuItem {% if request.path == url1 %}active{% endif %}">
           <a href="{% url 'products' %}"><i class="icon-shopping-cart icon"></i></a>
         </span>
+
+        {% if not user.is_authenticated %}
+        {% url 'trend' as urlb %}
+        <span class="mobile__menuItem  {% if request.path == urlb %}active{% endif %}">
+          <a href="{% url 'trend' %}"><i class="icon-bar-chart"></i></a>
+        </span>
+      {% endif %}
 
         {% if request.user.is_authenticated %}
          {% url 'inbox' as url2 %}

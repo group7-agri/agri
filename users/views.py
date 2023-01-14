@@ -214,12 +214,6 @@ def notification(request):
     buys  = profile.buyer.all()
     product = SingleProduct.objects.all()
 
-    total = [];
-     
-    for order in orders:
-        add = order.price*order.quantity
-        total.append(add)
-   
   
     pending = buys.filter( status__icontains ='Pending' ).count()
     confirmed = buys.filter( status__icontains ='Confirmed' ).count()
@@ -227,7 +221,7 @@ def notification(request):
 
   
     
-    context = {'pending': pending, 'total':total, 'confirmed': confirmed, 'declined': declined, 'product':product, 'orders':orders, 'search_query':search_query}
+    context = {'pending': pending,  'confirmed': confirmed, 'declined': declined, 'product':product, 'orders':orders, 'search_query':search_query}
     return render(request, 'users/notification.html', context)
 
 
@@ -368,3 +362,8 @@ register = template.Library()
 @register.filter
 def naturaltime(value):
     return timesince(value)
+
+
+@register.filter
+def multiply(value, arg):
+    return value * arg

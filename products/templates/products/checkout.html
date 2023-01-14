@@ -192,7 +192,7 @@
                         <div class="form__field form__field--action center">
                             <input class="btn btn--sub--outline" type="reset" value="Reset" />
                             <input class="btn btn--sub"
-                             {% if product.quantity == 0 %} disabled {% endif %} type="submit" value="Submit" />
+                             {% if product.quantity == 0 or product.owner = request.user %} disabled {% endif %} type="submit" value="Submit" />
                         </div>
                         </form>
                 

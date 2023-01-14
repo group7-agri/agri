@@ -71,7 +71,7 @@ class Profile(models.Model):
         except:
             url = ''
         return url
-
+    
 
 class Training(models.Model):
     owner = models.ForeignKey(

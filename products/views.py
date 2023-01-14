@@ -264,13 +264,25 @@ def processOrder(request, pk):
 def trend(request):
 
     products = Product.objects.all().distinct()
+    top = Product.objects.all().distinct().order_by('-quantity')
     product = SingleProduct.objects.all().distinct()
     context = {'products':products, 
-
+                'top':top,
                 'product':product
                 }
     return render(request, 'products/trend.html', context)
 
+
+def modal(request):
+    
+    products = Product.objects.all().distinct()
+    top = Product.objects.all().distinct().order_by('-quantity')
+    product = SingleProduct.objects.all().distinct()
+    context = {'products':products, 
+                'top':top,
+                'product':product
+                }
+    return render(request, 'products/try.html', context)
 
 register = template.Library()
 

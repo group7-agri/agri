@@ -1,0 +1,81 @@
+         <!-- The Modal -->
+              <div id="notifymyModal-{{ order.id }}"  class="notifymodal">
+                  <div class="notifymodal-content">
+                       
+                 <!-- Main Section -->
+    <main class="formPage my-xl">
+        <div class="content-box">
+                
+
+            <div class="formWrapper hr">
+                               <span class="backButton" onclick="$('.notifymodal').hide()" ><i class="fa icon-chevron-left"></i></span> 
+
+    
+                <form class="form" method="POST">
+
+                            <h4 class="centerme"> Order Information </h4>
+
+                        <div class="layout" style="justify-content: space-evenly;">
+
+                                <div class="column column--1of2"><label for="formInput#text">Order Reference Code </label></div>
+                                <div class="column column--1of2"><input name="order_id" readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.id}}" /></div>
+
+                                <div class="column column--1of2"><label for="formInput#text">Product Name </label></div>
+                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.productName}}" /></div>
+
+                                <div class="column column--1of2"><label for="formInput#text">Seller Names: </label></div>
+                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.seller.name}}" /></div>
+
+                                <div class="column column--1of2"><label for="formInput#text">Buyer Names: </label></div>
+                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.buyer.name}}" /></div>
+
+                                <div class="column column--1of2"><label for="formInput#text">Quantity</label></div>
+                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.quantity}} {{order.unity}}" /></div>
+
+                             <div class="column column--1of2"><label for="formInput#text">Price Per Unit</label></div>
+                               <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.price}} Rwf" /></div>
+                        
+                            <div class="column column--1of2"><label for="formInput#text">Location</label></div>
+                               <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
+                            value="{{order.location}} " /></div>
+
+                            
+                                 <div class="column column--1of2"><label for="formInput#text">Reason</label></div>
+                               <div class="column column--1of2"><textarea readonly class="input" id="formInput#text" type="text">
+                                 {{order.request}} </textarea> </div>
+                            
+                                 <div class="column column--1of2"><label for="formInput#text">Response</label></div>
+                               <div class="column column--1of2"><textarea name="response" placeholder= "Write Something"  class="input" id="formInput#text" type="text">
+                                 {{order.response}} </textarea> </div>
+                               
+                               </div>
+                             <div class="center"><h5>Total: &nbsp; <b> {{order.line_total}} Rwf<b></h5></div>
+                               
+
+                 
+                    
+                        <div class="form__field form__field--action center">
+                            
+                           <input class="btn btn--sub--outline danger" type="submit"   name="decline" value="decline" onclick="return confirm('Are you sure you want to log out?')"/> 
+                           <input class="btn btn--sub--outline safe" type="Submit" value="Confirm"  name="confirm" />
+                           
+                        </div>
+                   
+                
+
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+                  </div>
+              </div>
+              

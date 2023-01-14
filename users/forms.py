@@ -23,9 +23,9 @@ class CustomUserCreationForm(UserCreationForm):
             'phone': forms.TextInput(attrs={'required': 'required'}),
             'email': forms.EmailInput(attrs={'required': 'required'}),
             
-            'first_name': forms.TextInput(attrs={'placeholder': 'eg: ARISTO DUSHIMIRIMANA'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'eg: aristo@gmail.com'}),
-            'username': forms.TextInput(attrs={'placeholder': 'eg: aristo123'}),
+            'first_name': forms.TextInput(attrs={'placeholder': 'eg: John Doe'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'eg: John@gmail.com'}),
+            'username': forms.TextInput(attrs={'placeholder': 'eg: John123'}),
             'password1': forms.TextInput(attrs={'placeholder': 'eg: Enter passowrd you can remember'}),
             
             'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),

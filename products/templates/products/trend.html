@@ -21,13 +21,12 @@
                 <div class="border">
                 <table >
 
-                {% for produ in products|slice:"5"  %}
-                   <tr >
-                    
+                {% for produ in top|slice:"5" %}
+                   <tr onclick = "window.location.href='{% url 'user-profile' produ.owner.id %}'; return false;" title="Visit Owner"> 
                     <td>
                   {{produ.owner.name|upper}} </td>
                   
-                  <td> {{produ.quantity}}    </td>   
+                  <td> {{produ.quantity}}   </td>   
                      <td> {{produ.name.name}}    </td>   
                     
                 </tr>
@@ -136,19 +135,22 @@
 
                     </div>
                </div>
+               <span onclick = "window.location.href='{% url 'products'  %}'; return false;" title="view Trend" class="btn  btn--md" style="color:white; margin:0rem auto;">View all</span>
                         <div style="overflow-x: auto;" class="charttable">
                                 <table>
+                                  
                                   <tr>
                                     <th>Owner</th>
                                     <th>Product Name</th>
                                     <th>Quantity</th>
                                     <th>Measurement</th>
-                                    <th>Unit Price</th>
+                                    <th> Price</th>
                                     <th>Location</th>
                                   </tr>
-
+                                  {% if products %}
                                   {% for produce in products|slice:"7"  %}
-                                  <tr>
+                   <tr onclick = "window.location.href='{% url 'product' produce.id %}'; return false;" title="view Product">
+                             
                                     <td>{{produce.owner.name}}</td>
                                     <td>{{produce.name.name}}</td>
                                     <td>{{produce.quantity}}</td>
@@ -158,6 +160,10 @@
                                     
                                   </tr>
                               {% endfor %}
+                              {% else %}
+
+                                    <p id="no-data">No data</p>
+                                    {% endif %}
                                 </table>
                               </div>
 
