@@ -50,7 +50,7 @@ class OrderAdmin(admin.ModelAdmin):
     
     search_fields = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     ordering = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
-    list_display = ('id','seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
+    list_display = ('id','seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created', 'ProductId')
     
     
     # def has_change_permission(self, request, obj=None):

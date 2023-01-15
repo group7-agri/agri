@@ -34,6 +34,7 @@
             <p class="dev__title">{{profile.short_into}}</p>
             <p class="dev__location"><i class="fa icon-map-marker" ></i> &nbsp;{{profile.location}} &nbsp; <span style="font-color:#000;">({{request.user.status}})</span></p>
             <p class="dev__location"><i class="fa icon-calendar" ></i> Born {{profile.born}}</p>
+            <p class="dev__location"><i class="fa icon-user" ></i> Username:  {{profile.username}}</p>
 
             <br>
             <p class="dev__name">Contact</p>
@@ -132,7 +133,7 @@
             <td class="settings__tableInfo">
               <a href="{% url 'product' product.id %}">{{product.name.name}}</a>
               <p class="tag tag--pill tag--main state"> {{product.quantity}}  {{product.name.unity}}</p>
-              {% if product.instock %}
+              {% if product.instock == 'True' %}
               <p class="tag tag--pill tag--main stat">
                 On Trade
               </p>

@@ -42,7 +42,7 @@ def searchProducts(request):
     # item = SingleProduct.objects.filter(name_icontains=search_query)
     
     # product = ''
-    products = Product.objects.filter(name__name__icontains=search_query)
+    # products = Product.objects.filter(name__name__icontains=search_query)
     # for ite in items:
     #     product= ite.name
     user = ''
@@ -51,11 +51,11 @@ def searchProducts(request):
 
     payments = Payment.objects.filter(name=search_query)
 
-    products = Product.objects.distinct().filter(
+    products = Product.objects.distinct().filter((
         Q(name__name__icontains=search_query) |
         Q(description__icontains=search_query) |
         Q(owner__name__icontains=search_query) |
-        Q(payments__in=payments) &
+        Q(payments__in=payments)) &
         Q(instock=True)
     )
     return products, search_query

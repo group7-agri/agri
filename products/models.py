@@ -8,7 +8,7 @@ from users.models import Profile
 
 class Product(models.Model):
     owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
-    name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True)
+    name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True, related_name = 'product')
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")
     quantity = models.PositiveIntegerField(null=True, blank=True, default=0)
@@ -118,6 +118,7 @@ class Order(models.Model):
     location = models.CharField(max_length=200, null=True, blank=True)
     request = models.TextField(null=True, blank=True)
     response = models.TextField(null=True, blank=True)
+    ProductId = models.CharField(blank=True, null= True, max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)

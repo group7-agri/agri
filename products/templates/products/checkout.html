@@ -12,7 +12,7 @@
             <h4> Product Info</h4>
             <hr>
             <br>
-           <img id="myModalImg" style="width:100%;max-width:300px" alt="{{product.name.name}}" class="singleProject__preview"  src="{{ product.imageURL }}" alt="portfolio thumbnail" />
+           <img id="myModalImg" style="max-width:109px" alt="{{product.name.name}}" class="singleProject__preview"  src="{{ product.imageURL }}" alt="portfolio thumbnail" />
               <!-- The Modal -->
                         <div id="myModalImage" class="modalImage">
 
@@ -81,6 +81,13 @@
                         <input  class="input input--text" id="formInput#text"type="text"
                             name="productName"value = "{{product.name.name}}"
                             hidden readonly
+                        />
+                        </div> 
+                        <!-- Input:Text -->
+                        <div class="form__field">
+                        <input  class="input input--text" id="formInput#text"type="text"
+                            name="productId"value = "{{product.id}}"
+                             readonly
                         />
                         </div>
                           <!-- Input:Text -->

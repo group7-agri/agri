@@ -13,38 +13,31 @@
                         <h2 class="dev__name">{{profile.name}}</h2>
                         <p class="dev__title">{{profile.account}}</p>
                         <p class="dev__location">Based in {{profile.location}}</p>
-                        <ul class="dev__social">
+                        
 
-                            {% if profile.social_github %}
-                            <li>
-                                <a title="Github" href="{{profile.social_github}}" target="_blank"><i
-                                        class="im im-github"></i></a>
-                            </li>
-                            {% endif %}
+                    <p class="dev__name">Contact</p>
+                        <hr>
+                        <div class="contact">
+                        <b>Email:</b> <br>
+                        &nbsp; <i class="fa icon-envelope-alt"></i>&nbsp;{{profile.email}} <br>
 
+                        <b>Main Phone:</b> <br>
+                        &nbsp; <i class="fa fa icon-phone"></i>&nbsp;&nbsp;{{profile.user.phone}} <br>
 
-                            {% if profile.social_twitter %}
-                            <li>
-                                <a title="Twitter" href="{{profile.social_twitter}}" target="_blank"><i
-                                        class="im im-twitter"></i></a>
-                            </li>
-                            {% endif %}
+                        {% if profile.phone1 %}
+                        
+                        <b>Second phone:</b> <br>
+                        &nbsp; <i class="fa icon-phone-sign"></i>&nbsp;&nbsp;{{profile.phone1}} <br>
+                        {% endif %}
 
-                            {% if profile.social_linkedin %}
-                            <li>
-                                <a title="LinkedIn" href="{{profile.social_linkedin}}" target="_blank"><i
-                                        class="im im-linkedin"></i></a>
-                            </li>
-                            {% endif %}
+                        {% if profile.phone2 %}
+                        
+                        <b>Other :</b> <br>
+                        &nbsp; <i class="fa fa icon-phone-sign"></i>&nbsp;&nbsp;{{profile.phone2}} 
+              {% endif %}
+            </div>
+            <br>
 
-                            {% if profile.social_website %}
-                            <li>
-                                <a title="Personal Website" href="{{profile.social_website}}" target="_blank"><i
-                                        class="im im-globe"></i></a>
-                            </li>
-                            {% endif %}
-
-                        </ul>
                         {% if request.user.profile.id != profile.id %}
                         <a href="{% url 'create-message' profile.id %}" class="btn btn--sub btn--lg">Send Message </a>
                         {% endif %}
@@ -95,7 +88,7 @@
                         <div class="column">
                             <div class="card project">
                                 <a href="{% url 'product' product.id %}" class="project">
-                                    <img class="project__thumbnail" src="{{product.imageURL}}"
+                                    <img class="project__thumbnail" style="height:20vh;" src="{{product.imageURL}}"
                                         alt="project thumbnail" />
                                     <div class="card__body">
                                         <h3 class="project__title">{{product.name.name}}</h3>

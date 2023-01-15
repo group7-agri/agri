@@ -29,8 +29,14 @@ def viewProduct(request, pk):
     context = {'products': products, 'title':pk, 'custom_range': custom_range}
     return render(request, 'products/view-product.html', context)
 
+
+@login_required(login_url="login")
 def checkOutProduct(request, pk):
     product = Product.objects.get(id=pk)
+    profile = request.user.profile
+    if product.owner == profile:
+        messages.info(request, 'You can not buy your own product')
+        return redirect('account')
     context = {'product': product}
     return render(request, 'products/checkout.html', context)
 
@@ -171,7 +177,6 @@ def deleteProduct(request, pk):
 @login_required(login_url="login")
 def processOrder(request, pk):
 
-
     if request.user.is_staff:
         return redirect('/admin/')
     #DATA 
@@ -195,8 +200,7 @@ def processOrder(request, pk):
         quantity = totalQuantity - needQuantity
         location = request.POST['location']
         reason = request.POST['reason']
-
-
+        existingProduct = Product.objects.get(id=productId)
         #CHOICE MADE
         choice = request.POST['choice']
 
@@ -210,7 +214,8 @@ def processOrder(request, pk):
             unity=unity,
             quantity=needQuantity,
             location=location,
-            request=reason)
+            request=reason,
+            ProductId=existingProduct.id)
 
             
                     # Get the instance of the model that you want to update
@@ -231,7 +236,7 @@ def processOrder(request, pk):
                     id = orderId,
                     owner=buyer,
                     name=identity,
-                    instock=False,
+                    instock=None,
                     featured_image = prod.featured_image,
                     description=prod.description,
                     quantity=needQuantity,
@@ -267,8 +272,8 @@ def processOrder(request, pk):
 
 def trend(request):
 
-    products = Product.objects.all().distinct()
-    top = Product.objects.all().distinct().order_by('-quantity')
+    products = Product.objects.filter(instock=True)
+    top = Product.objects.distinct().filter(instock=True).order_by('-quantity')
     product = SingleProduct.objects.all().distinct()
     context = {'products':products, 
                 'top':top,
@@ -277,25 +282,32 @@ def trend(request):
     return render(request, 'products/trend.html', context)
 
 
+@login_required(login_url='login')
 def confirmation(request):
     
     if request.method == 'POST':
         order_id = request.POST.get('order_id')
+        
+        weight = request.POST.get('weight')
+
         response = request.POST.get('response')
         Decline = request.POST.get('decline')
         Confirm = request.POST.get('Confirm')
         Delete = request.POST.get('Delete')
         
         
-        prod = Product.objects.filter(id__icontains=order_id)
         
+        prod = Product.objects.get(id=order_id)
+       
         if prod:
             print(prod)
         order = Order.objects.get(id=order_id)
+        
+        updateProd = Product.objects.get(id=order.ProductId)
 
         if Confirm :
             if not prod =='none' :
-                prod.instock = 'No'
+                prod.instock = False
                 prod.save()
             else:
                 pass
@@ -304,17 +316,14 @@ def confirmation(request):
             order.response = response
             order.save()
         elif Delete:
-            if not prod :
-                prod.delete()
-            else:
-                pass
-            
             order.delete()
         elif Decline:
-            if not prod :
+            if prod :
                 prod.delete()
             else:
                 pass
+            updateProd.quantity = updateProd.quantity + int(weight)
+            updateProd.save()
             order.status = 'Declined'
             order.response = response
             order.save()

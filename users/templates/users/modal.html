@@ -34,9 +34,9 @@
                                 <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
                             value="{{order.buyer.name}}" /></div>
 
-                                <div class="column column--1of2"><label for="formInput#text">Quantity</label></div>
-                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
-                            value="{{order.quantity}} {{order.unity}}" /></div>
+                                <div class="column column--1of2"><label for="formInput#text">Quantity in {{order.unity}}</label></div>
+                                <div class="column column--1of2"><input readonly class="input input--text" name="weight" id="formInput#text" type="number" 
+                            value="{{order.quantity}}" /></div>
 
                              <div class="column column--1of2"><label for="formInput#text">Price Per Unit</label></div>
                                <div class="column column--1of2"><input readonly class="input input--text" id="formInput#text" type="text" 
@@ -62,6 +62,8 @@
                  
                     
                         <div class="form__field form__field--action center">
+
+                            {% if order.status == 'Pending' %}
                             {% if order.buyer.username == request.user.username %}
 
                               <input class="btn btn--sub--outline danger" type="Submit" value="Delete"  name="Delete" />
@@ -70,6 +72,10 @@
                             <input class="btn btn--sub--outline danger" type="Submit" value="Decline"  name="decline" />
                            <input class="btn btn--sub--outline safe" type="Submit" value="Confirm"  name="Confirm" />
                            
+                           {% endif %}
+                                {% else %}
+                                 <span class="{{order.status}}" > {{order.status}} </span>
+
                            {% endif %}
                         </div>
                    

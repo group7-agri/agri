@@ -66,16 +66,12 @@ def searchOrders(request):
    
 
     orders = profile.buyer.filter(
-        Q(seller=profile) | 
-        Q(buyer=profile)| 
         Q(productName__icontains=search_query)| 
         Q(quantity__icontains=search_query)| 
         Q(request__icontains=search_query)| 
         Q(price__icontains=search_query)| 
         Q(response__icontains=search_query)
-        ) or profile.seller.filter(
-        Q(seller=profile) | 
-        Q(buyer=profile)| 
+        ) | profile.seller.filter(
         Q(productName__icontains=search_query)| 
         Q(quantity__icontains=search_query)| 
         Q(request__icontains=search_query)| 
