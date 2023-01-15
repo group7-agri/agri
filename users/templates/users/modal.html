@@ -1,4 +1,5 @@
-         <!-- The Modal -->
+{% load humanize %}
+<!-- The Modal -->
               <div id="notifymyModal-{{ order.id }}"  class="notifymodal">
                   <div class="notifymodal-content">
                        
@@ -11,8 +12,8 @@
                                <span class="backButton" onclick="$('.notifymodal').hide()" ><i class="fa icon-chevron-left"></i></span> 
 
     
-                <form class="form" method="POST">
-
+                <form class="form" method="POST" action="{% url 'confirmation' %}" id="myForm">
+                            {% csrf_token %}
                             <h4 class="centerme"> Order Information </h4>
 
                         <div class="layout" style="justify-content: space-evenly;">
@@ -51,20 +52,25 @@
                                  {{order.request}} </textarea> </div>
                             
                                  <div class="column column--1of2"><label for="formInput#text">Response</label></div>
-                               <div class="column column--1of2"><textarea name="response" placeholder= "Write Something"  class="input" id="formInput#text" type="text">
+                               <div class="column column--1of2"><textarea name="response" {% if order.buyer.username == request.user.username %} readonly  {% endif %} placeholder= "Write Something"  class="input" id="formInput#text" type="text">
                                  {{order.response}} </textarea> </div>
                                
                                </div>
-                             <div class="center"><h5>Total: &nbsp; <b> {{order.line_total}} Rwf<b></h5></div>
+                             <div class="center"><h5>Total: &nbsp; <b> {{order.line_total|intcomma}} Rwf<b></h5></div>
                                
 
                  
                     
                         <div class="form__field form__field--action center">
-                            
-                           <input class="btn btn--sub--outline danger" type="submit"   name="decline" value="decline" onclick="return confirm('Are you sure you want to log out?')"/> 
-                           <input class="btn btn--sub--outline safe" type="Submit" value="Confirm"  name="confirm" />
+                            {% if order.buyer.username == request.user.username %}
+
+                              <input class="btn btn--sub--outline danger" type="Submit" value="Delete"  name="Delete" />
                            
+                          {% else %} 
+                            <input class="btn btn--sub--outline danger" type="Submit" value="Decline"  name="decline" />
+                           <input class="btn btn--sub--outline safe" type="Submit" value="Confirm"  name="Confirm" />
+                           
+                           {% endif %}
                         </div>
                    
                 

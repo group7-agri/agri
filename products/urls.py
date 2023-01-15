@@ -6,7 +6,8 @@ urlpatterns = [
     path('product/<str:pk>/', views.product, name="product"),
     path('trend/', views.trend, name="trend"),
     path('modal/', views.modal, name="modal"),
-
+    path('confirmation/', views.confirmation, name="confirmation"),
+    path('submit-form/', views.submit_form, name='submit_form'),
     path('create-product/', views.createProduct, name="create-product"),
 
     path('update-product/<str:pk>/', views.updateProduct, name="update-product"),

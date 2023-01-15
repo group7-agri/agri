@@ -143,9 +143,9 @@ class CustomUserAdmin(UserAdmin):
 admin.site.register(CustomUser, CustomUserAdmin)
 
 
-#CUSTOMIZING INTERFACE
+# #CUSTOMIZING INTERFACE
 
-admin.site.unregister(Group)
+# admin.site.unregister(Group)
 admin.site.site_header =  'Yield Administration'
 
  #Profile, Training, Message, Inquiry, CustomUser
@@ -153,7 +153,7 @@ class ProfileAdmin(admin.ModelAdmin):
     search_fields = ('user', 'name', 'email', 'account', 'location')
     ordering = ('user', 'name', 'email', 'account', 'location')
     filter_horizontal = ()
-    list_display = ('user', 'name', 'email', 'account', 'location')
+    list_display = ('user', 'name', 'email', 'account', 'location','born')
 
     def has_change_permission(self, request, obj=None):
         if request.user.is_staff:

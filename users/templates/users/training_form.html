@@ -10,22 +10,39 @@
             <a class="backButton" href="{% url 'account' %}"><i class="fa icon-chevron-left"></i></a>
             <br>
             
-            <form class="form" method="POST" action="" enctype="multipart/form-data" >
+            <form class="form" method="POST" action="" enctype="multipart/form-data"  >
                 {% csrf_token %}
+
+               
 
                 {% for field in form %}
                 <div class="form__field">
                     <label for="formInput#text"> {{field.label}}</label>
                     {{field}}
                 </div>
+                 {% for error in field.errors %}
+                <p style="color: red;">{{error}}</p>
                 {% endfor %}
 
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />
+                {% endfor %}
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit"  onclick="checkDate()" />
             </form>
         </div>
     </div>
 </main>
-
+<script>
+    function checkDate() {
+        let enteredDate = new Date(document.getElementById("id_completed").value); // Get the submitted date
+        let today = new Date();
+        if (enteredDate <= today) {
+            return true;
+        } else {
+            alert("Entered date must not be later than today's date");
+            return false;
+        }
+    }
+</script>
 
 
 {% endblock %}

@@ -5,37 +5,46 @@
 
 {% if page == 'register' %}
 
-<div class="auth">
+<div class="auth" style="line-height:1.9rem;">
     <div class="card">
-        <div class="auth__header">
+        <div class="auth__header text-center" >
             <a href="/">
-                <img src="{% static 'images/icon.svg' %}" alt="icon" style="width:2rem; height:2rem;" />
+                <img src="{% static 'images/profiles/user-default.png' %}" alt="icon" style="width:6rem; height:6rem; aliign-self:center;" />
             </a>
-            <h5><b>Register an Account<b></h5>
+            <h5><b>Register an Account<b></h5><br>
             <p>Create a new  account</p>
         </div>
 
-        <form method="POST" action="{% url 'register' %}" class="form auth__form">
-            {% csrf_token %}
+        <form method="POST" action="{% url 'register' %}"  class="form auth__form">
+            {% csrf_token %} 
+ 
 
-            {% for field in form %}
-            <div class="form__field">
-                <label for="formInput#text">{{field.label}}</label>
-                {{field}}
+            <!-- 2 Columns Layout -->
+            <div class="layout" style="justify-content: space-evenly;">
 
-                <!-- {% if field.help_text %}
-                <small>{{field.help_text}}</small>
-                {% endif %} -->
 
-                {% for error in field.errors %}
-                <p style="color: red;">{{error}}</p>
-                {% endfor %}
 
-            </div>
+                 {% for field in form %}
+                        <div class="column column--1of2" style="margin-bottom:0rem;"><div class="form__field">
+                            <label for="formInput#text">{{field.label}}</label></div>
+                            <div class="column column--1of2" style="margin-bottom:0rem;">{{field}}   </div></div>
+
+                            <!-- {% if field.help_text %}
+                            <small>{{field.help_text}}</small>
+                            {% endif %} -->
+
+                            {% for error in field.errors %}
+                            <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+
+                     
 
             {% endfor %}
+            </div>
 
-            <div class="auth__actions">
+           
+
+            <div class="auth__actions" style="margin-top:0rem">
                 <input class="btn btn--sub btn--lg" type="submit" value="Next" />
             </div>
         </form>

@@ -65,25 +65,7 @@ def searchOrders(request):
  
    
 
-    # orders = profile.buyer.filter(
-    #     Q(seller=profile) | 
-    #     Q(buyer=profile)| 
-    #     Q(productName__icontains=search_query)| 
-    #     Q(quantity__icontains=search_query)| 
-    #     Q(request__icontains=search_query)| 
-    #     Q(price__icontains=search_query)| 
-    #     Q(response__icontains=search_query)
-    #     ) or profile.seller.filter(
-    #     Q(seller=profile) | 
-    #     Q(buyer=profile)| 
-    #     Q(productName__icontains=search_query)| 
-    #     Q(quantity__icontains=search_query)| 
-    #     Q(request__icontains=search_query)| 
-    #     Q(price__icontains=search_query)| 
-    #     Q(response__icontains=search_query)
-    #     )
-
-    orders = Order.objects.filter(
+    orders = profile.buyer.filter(
         Q(seller=profile) | 
         Q(buyer=profile)| 
         Q(productName__icontains=search_query)| 
@@ -91,5 +73,23 @@ def searchOrders(request):
         Q(request__icontains=search_query)| 
         Q(price__icontains=search_query)| 
         Q(response__icontains=search_query)
-        ) 
+        ) or profile.seller.filter(
+        Q(seller=profile) | 
+        Q(buyer=profile)| 
+        Q(productName__icontains=search_query)| 
+        Q(quantity__icontains=search_query)| 
+        Q(request__icontains=search_query)| 
+        Q(price__icontains=search_query)| 
+        Q(response__icontains=search_query)
+        ).order_by('-created')
+
+    # orders = Order.objects.filter(
+    #     Q(seller=profile) | 
+    #     Q(buyer=profile)| 
+    #     Q(productName__icontains=search_query)| 
+    #     Q(quantity__icontains=search_query)| 
+    #     Q(request__icontains=search_query)| 
+    #     Q(price__icontains=search_query)| 
+    #     Q(response__icontains=search_query)
+    #     ).order_by('-created')
     return orders, search_query

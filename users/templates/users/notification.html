@@ -38,11 +38,11 @@
                     <tr>
                     <td colspan= "2"><b>My orders:</b></td>
                     <td colspan= "6">
-                     <form id="searchForm" class="form" action="{% url 'notification' %}" method="get">
+                     <form id="searchForm" class="form" action="" method="get">
                    
                         <input class="input input--text" id="formInput" type="text" name="search_query"
                             value="{{search_query}}" placeholder="Search................" />
-                  
+                     </form>
                   </th>
                     <tr class="chk-th">
                     <th>Reference Code</th>
@@ -133,7 +133,25 @@
      $(".open-modal-button").click(function(){
      var id = $(this).data("id");
         $("#notifymyModal-"+id).show();
-     });           
+     });
+
+    $("#decline").click(function(e){
+        e.preventDefault();
+        var formData = $("#myForm").serialize();
+        $.ajax({
+            type: 'POST',
+            url: '{% url 'confirmation' %}',
+            data: formData,
+            beforeSend: function(xhr) {
+                xhr.setRequestHeader("X-CSRFToken", csrf_token);
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        });
+    });
+
+
    });
 </script>
 

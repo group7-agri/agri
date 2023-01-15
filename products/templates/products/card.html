@@ -37,10 +37,16 @@
                                 </p>
                                 </div>
                                 <div class="product__tags" id="{{product.id}}">
-                                    {% if product.quantity > 0 %}
+                                    {% if product.owner.username  == request.user.username %}
                                     <button class="btn btn--sub  buy">
-                                        <small><a style="color:#fff;" href=" {% url 'checkout-product' product.id %}">ASK</a></small>
+                                        <small><a style="color:#fff;" href=" {% url 'account' %}">Your own</a></small>
                                         </button>
+
+                                    {% elif product.quantity > 0 %}
+                                    <button class="btn btn--sub  buy">
+                                        <small><a style="color:#fff;" href=" {% url 'checkout-product' product.id %}">Negotiate</a></small>
+                                        </button>
+                                    
                                     {% else %}
                                     <button class="btn btn--sub btn--lg buy" disabled><small>OUT OF STOCK</small></button>
                                     {% endif %}

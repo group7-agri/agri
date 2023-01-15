@@ -1,6 +1,6 @@
 from django.core import paginator
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -11,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django import template
 from users.models import Profile
 from django.utils.timesince import timesince
+from django.views.decorators.csrf import csrf_exempt
 
 def products(request):
     products, search_query = searchProducts(request)
@@ -200,7 +201,7 @@ def processOrder(request, pk):
         choice = request.POST['choice']
 
         orderId = ''
-        if quantity >=0:
+        if needQuantity <= totalQuantity:
             order = Order.objects.create(
             seller=seller,
             buyer=buyer,
@@ -239,7 +240,7 @@ def processOrder(request, pk):
                 newProd.save()
                 prod.save()
                 messages.success(request, 'Your {}  waits for confirmation!'.format(productName))
-                return redirect('account')
+                return redirect('notification')
                 
             elif choice == "Consuming":
                 prod.save()
@@ -251,9 +252,12 @@ def processOrder(request, pk):
                 return redirect('checkout-product', pk=productId)
 
 
-        else :
+        elif needQuantity >= totalQuantity:
             messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
-            return redirect(reverse('checkout-product', pk=productId))
+            return redirect('checkout-product', pk=productId)
+        elif quantity < 0:
+            messages.error(request, '{}   Must be Positive number'.format(quantity))
+            return redirect('checkout-product', pk=productId)
 
     else:
         messages.info(request, 'something went wrong!!')
@@ -273,6 +277,59 @@ def trend(request):
     return render(request, 'products/trend.html', context)
 
 
+def confirmation(request):
+    
+    if request.method == 'POST':
+        order_id = request.POST.get('order_id')
+        response = request.POST.get('response')
+        Decline = request.POST.get('decline')
+        Confirm = request.POST.get('Confirm')
+        Delete = request.POST.get('Delete')
+        
+        
+        prod = Product.objects.filter(id__icontains=order_id)
+        
+        if prod:
+            print(prod)
+        order = Order.objects.get(id=order_id)
+
+        if Confirm :
+            if not prod =='none' :
+                prod.instock = 'No'
+                prod.save()
+            else:
+                pass
+
+            order.status = 'Confirmed'
+            order.response = response
+            order.save()
+        elif Delete:
+            if not prod :
+                prod.delete()
+            else:
+                pass
+            
+            order.delete()
+        elif Decline:
+            if not prod :
+                prod.delete()
+            else:
+                pass
+            order.status = 'Declined'
+            order.response = response
+            order.save()
+        else:
+            pass
+
+        messages.success(request, 'Done Successfully')
+        return redirect('notification')
+    else:
+       messages.success(request, 'Something Went Wrong')
+       return redirect('notification')
+
+
+
+
 def modal(request):
     
     products = Product.objects.all().distinct()
@@ -283,6 +340,22 @@ def modal(request):
                 'product':product
                 }
     return render(request, 'products/try.html', context)
+
+
+@csrf_exempt
+def submit_form(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+
+        print(name)
+        print(email)
+        # Do something with the data (e.g., save it to the database)
+        return JsonResponse({'status': 'success'})
+    else:
+        return render(request, 'products/try.html')
+
+    
 
 register = template.Library()
 

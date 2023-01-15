@@ -32,18 +32,50 @@
 
             <form class="form" method="POST" action="{% url 'edit-account' %}" enctype="multipart/form-data">
                 {% csrf_token %}
+       <!-- 2 Columns Layout -->
+            <div class="layout" style="justify-content: space-evenly;">
 
-                {% for field in form %}
-                <div class="form__field">
-                    <label for="formInput#text">{{field.label}}</label>
-                    {{field}}
-                </div>
-                {% endfor %}
 
-                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Save" />
+
+                 {% for field in form %}
+                        <div class="column column--1of2" style="margin-bottom:0rem;"><div class="form__field">
+                            <label for="formInput#text">{{field.label}}</label></div>
+                            <div class="column column--1of2" style="margin-bottom:0rem;">{{field}}   </div></div>
+
+                            <!-- {% if field.help_text %}
+                            <small>{{field.help_text}}</small>
+                            {% endif %} -->
+
+                            {% for error in field.errors %}
+                            <p style="color: red;">{{error}}</p>
+                            {% endfor %}
+
+                     
+
+            {% endfor %}
+            </div>
+
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Save"  onclick="checkAge()" />
             </form>
         </div>
     </div>
 </main>
+
+
+<script type="text/javascript">
+
+ function checkAge() {
+        let dob = new Date(document.getElementById("id_born").value); // Get the submitted date of birth
+        let today = new Date();
+        let age = today.getFullYear() - dob.getFullYear();
+
+        if (age < 18) {
+            alert("You must be at least 18 years old to submit this form.");
+        } else {
+            return true;
+        }
+    }
+</script>
 
 {% endblock content %}

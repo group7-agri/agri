@@ -14,7 +14,7 @@ from .forms import CustomUserCreationForm, ProfileForm, TrainingForm, MessageFor
 from .utils import searchProfiles, paginateProfiles,searchOrders
 from django.http import JsonResponse
 from products.models import Order, Product, SingleProduct
-
+from django.views.decorators.csrf import csrf_exempt
 
 User = settings.AUTH_USER_MODEL
 
@@ -174,6 +174,8 @@ def updateTraining(request, pk):
             form.save()
             messages.success(request, 'Training was updated successfully!')
             return redirect('account')
+        
+    
 
     context = {'form': form}
     return render(request, 'users/training_form.html', context)

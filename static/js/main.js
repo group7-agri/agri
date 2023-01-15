@@ -24,7 +24,21 @@ if (searchForm) {
 
 
 
+//CHECK AGE
 
+ function checkAge() {
+   let dob = new Date(document.getElementById("id_born").value); // Get the submitted date of birth
+   let today = new Date();
+   let age = today.getFullYear() - dob.getFullYear();
+
+   if (age < 18) {
+     alert("You must be at least 18 years old to submit this form.");
+   } else {
+     alert("You are eligible to submit this form");
+   }
+ }
+
+ 
 // Get the modal image
 var imageModal = document.getElementById("myModalImage");
 
@@ -58,6 +72,35 @@ window.onclick = function(event) {
 }
 
 
+///JQUERY MODAL
+
+ $(document).ready(function () {
+   $(".open-modal-button").click(function () {
+     var id = $(this).data("id");
+     $("#notifymyModal-" + id).show();
+   });
+ });
+
+
+ //CHECK POSITIVE
+
+ document.querySelector("form").addEventListener("submit", function (event) {
+   var numberField = document.querySelector("#number-field");
+   var number = parseFloat(numberField.value);
+   if (isNaN(number) || number <= 0) {
+     alert("Please enter a positive number");
+     event.preventDefault();
+   }
+ });
+
+ document.querySelector("form").addEventListener("submit", function (event) {
+   var numberField = document.querySelector("#id_quantity");
+   var number = parseFloat(numberField.value);
+   if (isNaN(number) || number < 0) {
+     alert("Please enter a positive number");
+     event.preventDefault();
+   }
+ });
 
 // LIVE SEARCH
 

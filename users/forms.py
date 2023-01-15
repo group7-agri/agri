@@ -4,19 +4,20 @@ from django.contrib.auth.models import User
 from django import forms
 from .models import Profile, Training, Message, Inquiry, CustomUser
 import datetime
-
+from datetime import date
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-
-
+from django.core.exceptions import ValidationError
+from django.contrib import messages
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
         fields = ['first_name', 'email','phone','username', 'password1', 'password2','status']
         labels = {
-            'first_name': 'Names',
+            'first_name': 'Full Name',
             'phone': 'Your personal number',
+
             'status': 'I am (eg: Farmer)',
         }
         widgets = {
@@ -47,35 +48,57 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ('name', 'email', 'username',
+        fields = ['name', 'email', 'username',
                   'location', 'bio', 'profile_image', 
-                  'phone1','phone2')
+                  'phone1','phone2', 'born']
         widgets = {
             
             'phone1': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
             'phone2': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
+            # 'born': forms.SelectDateWidget(),
         }
         labels = {
+            'born': 'Date of Birth (18+)',
+            'name': 'Full Name',
             'phone1': 'Second Number ',
             'phone2': 'Other Number',
 
         }
+
+
+    def clean_date_of_birth(self):
+        dob = self.cleaned_data.get('born')
+        if dob:
+            age = (date.today() - dob).days / 365.2425
+            if age < 18:
+                raise forms.ValidationError("You must be at least 18 years old.")
+            return dob
         
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
+            field.widget.attrs.update({'required': 'required'})
             field.widget.attrs.update({'class': 'input'})
+            field.widget.attrs.update({'minlength': 10})
 
 
 class TrainingForm(ModelForm):
     class Meta:
         model = Training
         # fields = '__all__'
-        fields = ('trainer', 'completed', 'certificate', 'link', 'description')
+        fields = ['trainer', 'completed', 'certificate', 'link', 'description']
         exclude = ['owner']
-        
        
+        labels = {
+        'completed': 'Completion Time (Before Today)',
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        my_date = cleaned_data.get("completed")
+        if my_date >= date.today():
+            raise forms.ValidationError("Entered date should  be less than today.")
 
     def __init__(self, *args, **kwargs):
         super(TrainingForm, self).__init__(*args, **kwargs)
@@ -86,12 +109,7 @@ class TrainingForm(ModelForm):
             field.widget.attrs.update({'required': 'required'})
 
               
-    def clean(self):
-        cleaned_data = super().clean()
-        date_field = cleaned_data.get('completed')
-
-        if date_field and date_field <= datetime.date.today():
-            raise forms.ValidationError("Date must be greater than today.")
+ 
 
 
 
