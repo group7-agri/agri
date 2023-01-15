@@ -316,13 +316,27 @@ def confirmation(request):
             order.response = response
             order.save()
         elif Delete:
-            order.delete()
-        elif Decline:
             if prod :
                 prod.delete()
             else:
                 pass
-            updateProd.quantity = updateProd.quantity + int(weight)
+            if updateProd:
+                updateProd.quantity = updateProd.quantity + int(weight)
+            else:
+                pass
+            updateProd.save()
+            
+            order.delete()
+        elif Decline:
+            
+            if prod :
+                prod.delete()
+            else:
+                pass
+            if updateProd:
+                updateProd.quantity = updateProd.quantity + int(weight)
+            else:
+                pass
             updateProd.save()
             order.status = 'Declined'
             order.response = response

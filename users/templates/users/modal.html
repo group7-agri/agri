@@ -63,8 +63,8 @@
                     
                         <div class="form__field form__field--action center">
 
-                            {% if order.status == 'Pending' %}
-                            {% if order.buyer.username == request.user.username %}
+                    {% if order.status == 'Pending' %}
+                        {% if order.buyer.username == request.user.username %}
 
                               <input class="btn btn--sub--outline danger" type="Submit" value="Delete"  name="Delete" />
                            
@@ -74,6 +74,7 @@
                            
                            {% endif %}
                                 {% else %}
+                                
                                  <span class="{{order.status}}" > {{order.status}} </span>
 
                            {% endif %}

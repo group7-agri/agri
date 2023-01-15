@@ -43,8 +43,8 @@
                                         </button>
 
                                     {% elif product.quantity > 0 %}
-                                    <button class="btn btn--sub  buy">
-                                        <small><a style="color:#fff;" href=" {% url 'checkout-product' product.id %}">Negotiate</a></small>
+                                    <button class="btn btn--sub  buy" style="cursor:pointer;" onclick="window.location.href='{% url 'checkout-product' product.id %}'">
+                                        <small>Negotiate</small>
                                         </button>
                                     
                                     {% else %}
@@ -71,7 +71,7 @@
                 {% else %}
 
                 
-                <p id="no-data">No Data</p>
+                <p id="no-data">No Data yet</p>
 
                 {% endif %}
 
