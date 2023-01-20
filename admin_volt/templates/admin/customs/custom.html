@@ -345,7 +345,51 @@
                         </div>
                     </div>
                     <div class="card-body p-2">
-                        <div class="ct-chart-ranking ct-golden-section ct-series-a"></div>
+                        <div class="ct-golden-section ct-series-a">
+
+
+                           <script src=" {% static 'admin_volt/assets/js/chart.min.js' %}"></script>
+
+
+                                    <canvas id="twoChart" style="width:100%;max-width:600px"></canvas>
+
+                                    <script>
+                                    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+                                    var yValues = [55, 49, 44, 24, 15];
+                                    var yyValues = [23, 42, 34, 34, 5];
+                                    var barColors = ["#f0bc74", "#f0bc74","#f0bc74","#f0bc74","#f0bc74"];
+                                    var other = ["#1F2937", "#1F2937","#1F2937","#1F2937","#1F2937"];
+
+                                    new Chart("twoChart", {
+                                    type: "bar",
+                                    data: {
+                                        labels: xValues,
+                                        barThickness: 2,  
+                                        datasets: [{
+                                        backgroundColor: barColors,
+                                        barThickness: 100,  
+                                        data: yValues
+                                        },
+                                        
+                                        {
+                                        backgroundColor: other,
+                                        data: yyValues
+                                        }
+                                        ]
+                                    },
+                                    options: {
+                                        legend: {display: false},
+                                        title: {
+                                        display: false,
+                                        text: "World Wine Production 2018"
+                                        }
+                                        
+                                    }
+
+                                    });
+                                    </script>
+
+                        </div>
                     </div>
                 </div>
             </div>
