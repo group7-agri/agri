@@ -1,9 +1,9 @@
 {% extends 'main.html' %}
-
+{% load humanize %}
 {% block content %}
 
 <!-- Main Section -->
-<main class="singleProject my-md"  style="background:#fff;">
+<main class="singleProject my-md here"  style="background:#fff;">
     <div class="container">
         <div class="layout">
             <div class="column column--1of3">
@@ -26,12 +26,13 @@
 
                     <br><br>
                    <h5 class="singleProject__subtitle">Location: </h5>
-                   <a href="https://www.google.com/maps/place/Rugerero/"> RUBAVU </a>
+                   <a href="https://www.google.com/maps/place/{{product.location}}/"> {{product.location}} </a>
                      <br><br>
                    <h5 class="singleProject__subtitle">Initial Price: &nbsp; <b>{{product.name.price}} Rwf</b> </h5>
                    <a href="#"> View Trends </a>
                      <br><br>
                    <h6 class="singleProject__subtitle">Quantity Available: &nbsp; <b>{{product.quantity}} {{product.name.unity}}</b> </h6>
+ <h6 class="singleProject__subtitle">Last Updated: &nbsp; <b>{{product.updated|naturaltime}}</b> </h6>
 
                 </div>
 

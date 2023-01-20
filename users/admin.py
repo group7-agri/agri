@@ -145,7 +145,7 @@ admin.site.register(CustomUser, CustomUserAdmin)
 
 # #CUSTOMIZING INTERFACE
 
-# admin.site.unregister(Group)
+admin.site.unregister(Group)
 admin.site.site_header =  'Yield Administration'
 
  #Profile, Training, Message, Inquiry, CustomUser

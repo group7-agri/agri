@@ -82,6 +82,10 @@ p, span, strong {
   padding: 2px;
 
 }
+.here{
+    margin: 0;
+    padding: 2rem;
+}
 
 .shadow{
   box-shadow:none; 

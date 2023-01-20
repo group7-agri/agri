@@ -17,6 +17,8 @@ class Product(models.Model):
     instock = models.BooleanField(blank=True, null=True, default=True)
     vote_total = models.IntegerField(default=0, null=True, blank=True)
     vote_ratio = models.IntegerField(default=0, null=True, blank=True)
+    
+    updated = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
     
     id = models.UUIDField(default=uuid.uuid4, unique=True,primary_key=True, editable=True)
@@ -89,6 +91,7 @@ class SingleProduct(models.Model):
     unity = models.CharField(max_length=200, null=True, blank=True, default="Kilogram")
     
     created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False)
 
