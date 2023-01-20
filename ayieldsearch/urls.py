@@ -2,20 +2,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-
+from admin_volt import views
 from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-     #JET 
-     
-#     path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
-#     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-    
+    path('admin/', views.customIndex),
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('', include('users.urls')),
-    path('admin/', include('admin_volt.urls')),
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="reset_password.html"),
          name="reset_password"),
