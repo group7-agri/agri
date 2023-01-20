@@ -22,6 +22,8 @@ def products(request):
     return render(request, 'products/products.html', context)
 
 def viewProduct(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     item = SingleProduct.objects.get(name=pk)
     products = Product.objects.filter(name=item)
     custom_range, products = paginateProducts(request, products, 6)
@@ -32,6 +34,8 @@ def viewProduct(request, pk):
 
 @login_required(login_url="login")
 def checkOutProduct(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     product = Product.objects.get(id=pk)
     profile = request.user.profile
     if product.owner == profile:
@@ -42,6 +46,8 @@ def checkOutProduct(request, pk):
 
 
 def product(request, pk):
+    if request.user.is_staff:
+        return redirect('/admin/')
     productObj = Product.objects.get(id=pk)
     form = ReviewForm()
 
