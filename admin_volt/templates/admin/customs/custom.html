@@ -44,10 +44,10 @@
                                 const myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                    labels: [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}],
+                                    labels: [{% for prod in distint_product %} '{{ prod.name }}', {% endfor %}],
                                     datasets: [{
                                         label: 'SEASON A',
-                                        data: [ {% for prod in products %} {{ prod.quantity }}, {% endfor %}],
+                                        data: [ {% for prod in season_a %} {{ prod.quantity }}, {% endfor %}],
                                         borderWidth: 3,
                                         borderColor: '#f0bc74',
                                         backgroundColor: "rgba(240, 188, 116, 0.1)",
@@ -57,7 +57,7 @@
                                     },
                                     {
                                         label: 'SEASON B',
-                                        data: [ 2,3,6,9,12,11,8],
+                                        data: [  {% for prod in season_b %} {{ prod.quantity }}, {% endfor %}],
                                         borderWidth: 3,
                                         borderColor: '#f0bc74',
                                         backgroundColor: "rgba(240, 188, 116, 0.1)",
@@ -383,7 +383,7 @@
                                     <script>
                                     const xValues = [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}];
                                     const yValues = [{% for prod in singleProduct %} {{ prod.price }}, {% endfor %}];
-                                    const yyValues = [23, 42, 34, 34, 5];
+                                    const yyValues = [{% for prod in distinct_orders %} {{ prod.quantity }}, {% endfor %}];
                                     const barColors = [{% for prod in singleProduct %} '#f0bc74', {% endfor %}];
                                     const other = [{% for prod in singleProduct %} '#1F2937', {% endfor %}];
 
