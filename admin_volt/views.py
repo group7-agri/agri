@@ -4,6 +4,10 @@ from django.contrib.auth.decorators import login_required
 from products.models import *
 from users.models import *
 from datetime import date, timedelta
+from django.http import Http404
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
 
 @login_required(login_url="login")
 def customIndex(request):

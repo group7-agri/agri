@@ -44,7 +44,7 @@
                                 const myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                    labels: [{% for prod in distint_product %} '{{ prod.name }}', {% endfor %}],
+                                    labels: [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}],
                                     datasets: [{
                                         label: 'SEASON A',
                                         data: [ {% for prod in season_a %} {{ prod.quantity }}, {% endfor %}],
