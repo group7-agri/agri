@@ -10,7 +10,19 @@ def customIndex(request):
     orders = Order.objects.all()
     sumProduct  =  Product.objects.aggregate(Sum('quantity'))
     totalProduct = sumProduct['quantity__sum']
-    
+
+    singleProduct = SingleProduct.objects.all()
+
+   
+    confirm = Order.objects.filter(status = 'Confirmed').count()
+    confirmrate = (confirm * 100)/ orders.count()
+
+    confirmed = Order.objects.filter (status = 'Confirmed')
+    revenue = 0
+    for order in confirmed:
+        revenue = (order.quantity * order.price) + revenue
+
+
     totalestimate = 0
     for single in products:
         sumPrice  =  single.name.price
@@ -20,8 +32,11 @@ def customIndex(request):
     context = {'products': products, 
                 'message': "Am trying",
                 'orders' : orders,
+                'singleProduct':singleProduct,
                 'users': users,
-                'totalestimate': totalestimate
+                'revenue': revenue,
+                'totalestimate': totalestimate,
+                'confirmrate': confirmrate
     }
 
 

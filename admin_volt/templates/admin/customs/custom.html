@@ -5,7 +5,7 @@
             <div class="card bg-yellow-100 border-0 shadow">
                 <div class="card-header d-sm-flex flex-row align-items-center flex-0">
                     <div class="d-block mb-3 mb-sm-0">
-                        <div class="fs-5 fw-normal mb-2">Total Estmate Value</div>
+                        <div class="fs-5 fw-normal mb-2">Total Estimate Value</div>
                         <h2 class="fs-3 fw-extrabold">Rwf {{totalestimate|intcomma}}</h2>
                         <div class="small mt-2">
                             <span class="fw-normal me-2">Yesterday</span>
@@ -14,18 +14,17 @@
                         </div>
                     </div>
                     <div class="d-flex ms-auto">
-                        <a href="#" id="seasonA" class="btn btn-secondary text-dark btn-sm me-2">Season A</a>
-                        <script>
-
-                            var btnA = document.getElementById('seasonA');
-                            var mychart = document.getElementById('myChart');
-
-                            btnA.onclick({
-                                mychart.style.display == 'none';
-
-                            })
-                        </script>
-                        <a href="#" class="btn btn-dark btn-sm me-3">Season B</a>
+                        <style>
+                            .season {
+                                background-color: #fff; 
+                            }
+                            .season:focus-within{
+                                background-color: #f0bc74; 
+                            }
+                        </style>
+                        <button id="seasonA" onclick="toggleData(1)" class="btn btn-secondary season text-dark btn-sm me-2">Season A</button>
+                       
+                        <button  onclick="toggleData(0)"class="btn btn-secondary season text-dark btn-sm me-2">Season B</button>
                     </div>
                 </div>
                 <div class="card-body p-2">
@@ -37,16 +36,17 @@
                                 </div>
 
                                 <script src=" {% static 'admin_volt/assets/js/chart.js' %}"></script>
+                                <script src=" {% static 'js/jquery.min.js' %}"></script>
 
                                 <script>
                                 const ctx = document.getElementById('myChart');
 
-                                new Chart(ctx, {
+                                const myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                    labels: [{% for prod in products %} '{{ prod.created|naturaltime }}', {% endfor %}],
+                                    labels: [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}],
                                     datasets: [{
-                                        label: 'Production trend',
+                                        label: 'SEASON A',
                                         data: [ {% for prod in products %} {{ prod.quantity }}, {% endfor %}],
                                         borderWidth: 3,
                                         borderColor: '#f0bc74',
@@ -54,7 +54,19 @@
                                         fill: true,        
                                         lineTension: 0.3,        
                                         radius: 2      
-                                    }]
+                                    },
+                                    {
+                                        label: 'SEASON B',
+                                        data: [ 2,3,6,9,12,11,8],
+                                        borderWidth: 3,
+                                        borderColor: '#f0bc74',
+                                        backgroundColor: "rgba(240, 188, 116, 0.1)",
+                                        fill: true,        
+                                        lineTension: 0.3,        
+                                        radius: 2      
+                                    }
+                                    
+                                    ]
                                     },
                                     options: {
                                         
@@ -71,6 +83,21 @@
                                         
                                     }
                                 });
+                                function toggleData(value){
+
+                                    const showValue = myChart.isDatasetVisible(value);
+                                        if(showValue === true){
+                                            myChart.hide(value);
+                                            }
+
+                                        if(showValue === false)
+                                            {
+                                                myChart.show(value);
+                                            }
+                                }
+
+
+
                                 </script>
 
 
@@ -100,7 +127,7 @@
                                 <h3 class="fw-extrabold mb-2">{{orders|length}}</h3>
                             </div>
                             <small class="d-flex align-items-center text-gray-500">
-                                Feb 1 - Apr 1,
+                                Dec 1 - Jan 7,
                                 <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor"
                                      viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -139,16 +166,16 @@
                             </div>
                             <div class="d-sm-none">
                                 <h2 class="fw-extrabold h5">Revenue</h2>
-                                <h3 class="mb-1">{{totalestimate|intcomma}}</h3>
+                                <h3 class="mb-1">{{revenue|intcomma}}</h3>
                             </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0">Revenue</h2>
-                                <h3 class="fw-extrabold mb-2">Rwf {{totalestimate|intcomma}}</h3>
+                                <h3 class="fw-extrabold mb-2">Rwf {{revenue|intcomma}}</h3>
                             </div>
                             <small class="d-flex align-items-center text-gray-500">
-                                Feb 1 - Apr 1,
+                                Dec 1 - Jan 7,
                                 <svg class="icon icon-xxs text-gray-500 ms-2 me-1" fill="currentColor"
                                      viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd"
@@ -187,16 +214,16 @@
                             </div>
                             <div class="d-sm-none">
                                 <h2 class="fw-extrabold h5"> Confirm Rate</h2>
-                                <h3 class="mb-1">50.88%</h3>
+                                <h3 class="mb-1">{{confirmrate}}%</h3>
                             </div>
                         </div>
                         <div class="col-12 col-xl-7 px-xl-0">
                             <div class="d-none d-sm-block">
                                 <h2 class="h6 text-gray-400 mb-0"> Confirm Rate</h2>
-                                <h3 class="fw-extrabold mb-2">50.88%</h3>
+                                <h3 class="fw-extrabold mb-2">{{confirmrate}}%</h3>
                             </div>
                             <small class="text-gray-500">
-                                Feb 1 - Apr 1
+                                Dec 1 - Jan 7
                             </small>
                             <div class="small d-flex mt-1">
                                 <div>Since last month
@@ -336,11 +363,11 @@
                         <div class="d-block ms-auto">
                             <div class="d-flex align-items-center text-end mb-2">
                                 <span class="dot rounded-circle bg-gray-800 me-2"></span>
-                                <span class="fw-normal small">Consuming</span>
+                                <span class="fw-normal small">Orders</span>
                             </div>
                             <div class="d-flex align-items-center text-end">
                                 <span class="dot rounded-circle bg-secondary me-2"></span>
-                                <span class="fw-normal small">Resell</span>
+                                <span class="fw-normal small">Price</span>
                             </div>
                         </div>
                     </div>
@@ -354,11 +381,11 @@
                                     <canvas id="twoChart" style="width:100%;max-width:600px"></canvas>
 
                                     <script>
-                                    var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-                                    var yValues = [55, 49, 44, 24, 15];
-                                    var yyValues = [23, 42, 34, 34, 5];
-                                    var barColors = ["#f0bc74", "#f0bc74","#f0bc74","#f0bc74","#f0bc74"];
-                                    var other = ["#1F2937", "#1F2937","#1F2937","#1F2937","#1F2937"];
+                                    const xValues = [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}];
+                                    const yValues = [{% for prod in singleProduct %} {{ prod.price }}, {% endfor %}];
+                                    const yyValues = [23, 42, 34, 34, 5];
+                                    const barColors = [{% for prod in singleProduct %} '#f0bc74', {% endfor %}];
+                                    const other = [{% for prod in singleProduct %} '#1F2937', {% endfor %}];
 
                                     new Chart("twoChart", {
                                     type: "bar",
@@ -366,22 +393,30 @@
                                         labels: xValues,
                                         barThickness: 2,  
                                         datasets: [{
-                                        backgroundColor: barColors,
-                                        barThickness: 100,  
-                                        data: yValues
+                                            backgroundColor: barColors,
+                                            barThickness: 100,  
+                                            data: yValues,
+                                            borderColor: '#f0bc74',
+                                            
+                                            fill: true,      
+                                            borderRadius: 50     
+                                           
                                         },
                                         
                                         {
-                                        backgroundColor: other,
-                                        data: yyValues
-                                        }
+                                            backgroundColor: other,
+                                            data: yyValues
+                                        }   
+                                            
                                         ]
                                     },
                                     options: {
+                                        borderWidth: 1,
+                                        borderRadius:50,
                                         legend: {display: false},
                                         title: {
                                         display: false,
-                                        text: "World Wine Production 2018"
+                                        text: "Production"
                                         }
                                         
                                     }
