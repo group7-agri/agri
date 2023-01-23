@@ -93,6 +93,9 @@ def profiles(request):
     custom_range, profiles = paginateProfiles(request, profiles, 12)
     context = {'profiles': profiles, 'search_query': search_query,
                'custom_range': custom_range, 'image':image}
+    if request.user.is_staff:
+        return redirect('admin/')
+
     if request.user.is_authenticated:
         check = request.user.profile
         if check.bio == None:
@@ -101,6 +104,8 @@ def profiles(request):
             
         else:
             pass
+    else:
+        pass
     return render(request, 'users/profiles.html', context)
 
 

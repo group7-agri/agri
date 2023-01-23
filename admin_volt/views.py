@@ -5,6 +5,7 @@ from products.models import *
 from users.models import *
 from datetime import date, timedelta
 from django.http import Http404
+from django import template
 
 def custom_404(request, exception):
     return render(request, '404.html', status=404)
@@ -13,7 +14,7 @@ def custom_404(request, exception):
 def customIndex(request):
     if not request.user.is_staff:
         return redirect('profiles')
-    products = Product.objects.all().order_by('created')
+    products = Product.objects.all().order_by('-created')
 
     distint_product = Product.objects.values('name').distinct()
     orders = Order.objects.all()
@@ -39,7 +40,7 @@ def customIndex(request):
    
     confirm = Order.objects.filter(status = 'Confirmed').count()
     confirmrate = (confirm * 100)/ orders.count()
-
+    confirmrate = "{:.2f}".format(confirmrate)
     confirmed = Order.objects.filter (status = 'Confirmed')
     revenue = 0
     for order in confirmed:
@@ -51,7 +52,7 @@ def customIndex(request):
         sumPrice  =  single.name.price
         totalestimate = (sumPrice * single.quantity) + totalestimate
     
-    users = CustomUser.objects.all()
+    users = CustomUser.objects.all().order_by('-date_joined')
     
     distinct_orders= Order.objects.distinct()
 
@@ -73,3 +74,14 @@ def customIndex(request):
 
 
     return render(request, 'admin/index.html', context)
+
+
+register = template.Library()
+@register.filter
+def truncate_decimal(value, decimal_places):
+    """
+    Truncates a float to a given number of decimal places without rounding.
+    """
+    if not isinstance(value, float):
+        return value
+    return "%.{}f".format(decimal_places) % value

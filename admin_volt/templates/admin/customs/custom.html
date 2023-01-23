@@ -1,4 +1,5 @@
  {% load static %}
+ 
  {% load humanize %}
  <div class="row">
         <div class="col-12 mb-4">
@@ -44,7 +45,9 @@
                                 const myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                    labels: [{% for prod in products %} '{{ prod.created|naturaltime }}', {% endfor %}],
+                                    //labels: [{% for prod in products %} '{{ prod.created|naturaltime }}', {% endfor %}],
+                                    
+                                    labels: [{% for prod in products %} '', {% endfor %}],
                                     datasets: [{
                                         label: 'SEASON A',
                                         data: [ {% for prod in season_a %} {{ prod.quantity }}, {% endfor %}],
@@ -304,7 +307,7 @@
                         </div>
                         <div class="card-body">
 
-                            {% for product in products  %}
+                            {% for product in products|slice:'6'  %}
                             <!-- Project 1 -->
                             <div class="row mb-4">
                                 <div class="col-auto">

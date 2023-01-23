@@ -133,7 +133,7 @@
             <td class="settings__tableInfo">
               <a href="{% url 'product' product.id %}">{{product.name.name}}</a>
               <p class="tag tag--pill tag--main state"> {{product.quantity}}  {{product.name.unity}}</p>
-              {% if product.instock == 'True' %}
+              {% if product.instock == True %}
               <p class="tag tag--pill tag--main stat">
                 On Trade
               </p>

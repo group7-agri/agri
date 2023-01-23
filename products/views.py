@@ -14,6 +14,9 @@ from django.utils.timesince import timesince
 from django.views.decorators.csrf import csrf_exempt
 
 def products(request):
+    if request.user.is_staff:
+        return redirect('adminlog')
+
     if request.user.is_authenticated:
         check = request.user.profile
         if check.bio == None:
@@ -33,7 +36,7 @@ def products(request):
 
 def viewProduct(request, pk):
     if request.user.is_staff:
-        return redirect('/admin/')
+        return redirect('adminlog')
     if request.user.is_authenticated:
         check = request.user.profile
         if check.bio == None:
@@ -54,7 +57,7 @@ def viewProduct(request, pk):
 @login_required(login_url="login")
 def checkOutProduct(request, pk):
     if request.user.is_staff:
-        return redirect('/admin/')
+        return redirect('adminlog')
         
     if request.user.is_authenticated:
         check = request.user.profile
@@ -76,7 +79,7 @@ def checkOutProduct(request, pk):
 
 def product(request, pk):
     if request.user.is_staff:
-        return redirect('/admin/')
+        return redirect('admin/')
         
     productObj = Product.objects.get(id=pk)
     form = ReviewForm()
