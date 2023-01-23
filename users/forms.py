@@ -21,12 +21,12 @@ class CustomUserCreationForm(UserCreationForm):
             'status': 'I am (eg: Farmer)',
         }
         widgets = {
-            'phone': forms.TextInput(attrs={'required': 'required'}),
-            'email': forms.EmailInput(attrs={'required': 'required'}),
+            'phone': forms.TextInput(attrs={'required': 'required', 'minlength':10}),
+            'email': forms.EmailInput(attrs={'required': 'required', 'minlength':10}),
             
             'first_name': forms.TextInput(attrs={'placeholder': 'eg: John Doe'}),
-            'email': forms.EmailInput(attrs={'placeholder': 'eg: John@gmail.com'}),
-            'username': forms.TextInput(attrs={'placeholder': 'eg: John123'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'eg: John@gmail.com', 'minlength':10}),
+            'username': forms.TextInput(attrs={'placeholder': 'eg: John123', 'minlength':6}),
             'password1': forms.TextInput(attrs={'placeholder': 'eg: Enter passowrd you can remember'}),
             
             'phone': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
@@ -53,8 +53,16 @@ class ProfileForm(ModelForm):
                   'phone1','phone2', 'born']
         widgets = {
             
-            'phone1': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
-            'phone2': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX'}),
+            'phone1': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX', 'minlength': 10}),
+            'phone2': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX', 'minlength': 10}),
+            'email': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
+            'name': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
+            'username': forms.TextInput(attrs={'required': 'required', 'minlength': 6}),
+            'location': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
+            'bio': forms.TextInput(attrs={'required': 'required', 'minlength': 20}),
+            
+            'born': forms.DateInput(attrs={'required': 'required'}),
+            
             # 'born': forms.SelectDateWidget(),
         }
         labels = {
@@ -78,9 +86,8 @@ class ProfileForm(ModelForm):
         super(ProfileForm, self).__init__(*args, **kwargs)
 
         for name, field in self.fields.items():
-            field.widget.attrs.update({'required': 'required'})
-            field.widget.attrs.update({'class': 'input'})
-            field.widget.attrs.update({'minlength': 10})
+             field.widget.attrs.update({'class': 'input'})
+           
 
 
 class TrainingForm(ModelForm):

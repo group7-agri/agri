@@ -102,8 +102,20 @@
 
 
 {% endif %}
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+    $("#id_phone").on("input", function() {
+        validateInput(this);
+    });
+});
+function validateInput(input) {
+    var phone_number = input.value;
+    if (!/^[0-9+-]+$/.test(phone_number)) {
+        input.value = phone_number.slice(0, -1);
+    }
+}
 
-
-
+</script>
 
 {% endblock content %}

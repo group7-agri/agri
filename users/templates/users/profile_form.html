@@ -76,6 +76,23 @@
             return true;
         }
     }
+
+
+    $(document).ready(function() {
+    $("#id_phone2").on("input", function() {
+        validateInput(this);
+    });
+    $("#id_phone1").on("input", function() {
+        validateInput(this);
+    });
+});
+function validateInput(input) {
+    var phone_number = input.value;
+    if (!/^[0-9+-]+$/.test(phone_number)) {
+        input.value = phone_number.slice(0, -1);
+    }
+}
+
 </script>
 
 {% endblock content %}

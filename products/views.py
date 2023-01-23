@@ -14,6 +14,16 @@ from django.utils.timesince import timesince
 from django.views.decorators.csrf import csrf_exempt
 
 def products(request):
+    if request.user.is_authenticated:
+        check = request.user.profile
+        if check.bio == None:
+            messages.info(request, "Complete profile first!")
+            return redirect('account')
+        else:
+            pass
+    else:
+        pass
+
     products, search_query = searchProducts(request)
     custom_range, products = paginateProducts(request, products, 6)
 
@@ -24,6 +34,15 @@ def products(request):
 def viewProduct(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
+    if request.user.is_authenticated:
+        check = request.user.profile
+        if check.bio == None:
+            messages.info(request, "Complete profile first!")
+            return redirect('account')
+        else:
+            pass
+    else:
+        pass
     item = SingleProduct.objects.get(name=pk)
     products = Product.objects.filter(name=item)
     custom_range, products = paginateProducts(request, products, 6)
@@ -36,6 +55,16 @@ def viewProduct(request, pk):
 def checkOutProduct(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
+        
+    if request.user.is_authenticated:
+        check = request.user.profile
+        if check.bio == None:
+            messages.info(request, "Complete profile first!")
+            return redirect('account')
+        else:
+            pass
+    else:
+        pass
     product = Product.objects.get(id=pk)
     profile = request.user.profile
     if product.owner == profile:
@@ -48,6 +77,7 @@ def checkOutProduct(request, pk):
 def product(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
+        
     productObj = Product.objects.get(id=pk)
     form = ReviewForm()
 

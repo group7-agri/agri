@@ -67,7 +67,7 @@ def registerUser(request):
             user.username = user.username.lower()
             user.save()
 
-            messages.success(request, 'Account created complete profile!')
+            messages.success(request, 'Account created, complete profile to be found!')
 
             login(request, user)
             return redirect('edit-account')
@@ -95,10 +95,10 @@ def profiles(request):
                'custom_range': custom_range, 'image':image}
     if request.user.is_authenticated:
         check = request.user.profile
-        if check.bio == '':
-            print(check.name)
+        if check.bio == None:
+            
             messages.info(request, "Complete Profile to be found")
-            return redirect('account')
+            
         else:
             pass
     return render(request, 'users/profiles.html', context)
