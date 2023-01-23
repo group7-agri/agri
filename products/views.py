@@ -303,7 +303,7 @@ def confirmation(request):
         
         
         
-        prod = Product.objects.get(id=order_id)
+        prod = Product.objects.filter(id=order_id)
        
         if prod:
             print(prod)
@@ -335,7 +335,7 @@ def confirmation(request):
             order.delete()
         elif Decline:
             
-            if prod :
+            if  not prod =='none' :
                 prod.delete()
             else:
                 pass
