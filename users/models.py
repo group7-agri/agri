@@ -17,9 +17,9 @@ from django.dispatch import receiver
 class CustomUser(AbstractUser):
     
     ACCOUNT_TYPE = (
-        ('Farmer','Farmer'),
-        ('Rancher','Rancher'),
-        ( 'Trader','Trader'),
+        ('Farmer','Umuhinzi'),
+        ('Rancher','Umworozi'),
+        ( 'Trader','Umuguzi'),
     )
     
     PRIVELEGE= (
