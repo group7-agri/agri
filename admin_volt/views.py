@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import Sum,Avg,Count,Max,Min
 from django.contrib.auth.decorators import login_required
 from products.models import *
@@ -11,6 +11,8 @@ def custom_404(request, exception):
 
 @login_required(login_url="login")
 def customIndex(request):
+    if not request.user.is_staff:
+        return redirect('profiles')
     products = Product.objects.all().order_by('created')
 
     distint_product = Product.objects.values('name').distinct()

@@ -1,0 +1,4356 @@
+{
+	"tables": {
+		"a8410862-3947-4e70-bfff-7b6f93a7276f": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "a8410862-3947-4e70-bfff-7b6f93a7276f",
+			"name": "django_migrations",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "7a41c922-46cc-46f8-b0e5-c83e47e1cdf1",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "0ee3c9ea-2bbc-469f-b3dc-50862f56d40c",
+					"name": "app",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "35db05e7-f1cf-4fa2-8267-35a7fb215b37",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "c840069c-d049-4783-8fea-2a4a57ae6cb5",
+					"name": "applied",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "7329546a-5bf1-42a0-b53a-d2b4f70a919c",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "012a71eb-b408-4f6d-9eea-b7c4790cdd1c",
+							"colid": "7a41c922-46cc-46f8-b0e5-c83e47e1cdf1"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"269e9317-7e7e-48d2-a93e-aed29fe29fa0": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "269e9317-7e7e-48d2-a93e-aed29fe29fa0",
+			"name": "django_content_type",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "aad48373-4ff8-4786-86d7-6381135dba36",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "72b304ab-6e24-404d-8191-701262b1f778",
+					"name": "app_label",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "2d0f586b-29e8-4d55-8e52-9a5349191b61",
+					"name": "model",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"22bf18a9-5d23-4933-b072-2599a2d93572"
+			],
+			"keys": [
+				{
+					"id": "0c80f218-2186-43ab-a2f4-9093ce2045d1",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "8b611d93-e4e9-499b-94ad-a6042e07eabb",
+							"colid": "aad48373-4ff8-4786-86d7-6381135dba36"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "000075ee-460b-4819-a0fc-850cdafcd188",
+					"fulltext": false,
+					"unique": true,
+					"name": "django_content_type_app_label_model_76bd3d3b_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "32f31e1f-d790-4d99-b6d0-df80be5d60fc",
+							"colid": "72b304ab-6e24-404d-8191-701262b1f778",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "522ac244-4551-479f-98b7-4a40720ba0f8",
+							"colid": "2d0f586b-29e8-4d55-8e52-9a5349191b61",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"5bb0e6c4-b97b-4fb7-80de-7e3787216df2": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "5bb0e6c4-b97b-4fb7-80de-7e3787216df2",
+			"name": "auth_group_permissions",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "3161ce10-430f-4600-a86f-33e7128ccde4",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "49303385-40dc-44e9-b583-dc9e614f179a",
+					"name": "group_id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "07233741-a4d4-41c4-8fa0-d3021749c648",
+					"name": "permission_id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"338e1929-f31a-4f8e-9834-ac0ab82d08cc",
+				"163a883e-e47d-41b3-8d68-617ceceb909d"
+			],
+			"keys": [
+				{
+					"id": "7e26efbd-2be6-4827-b6d6-3b3e568c7625",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "02f83b51-0a46-49f2-afbc-adcf87b87ff9",
+							"colid": "3161ce10-430f-4600-a86f-33e7128ccde4"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "36ee5cda-4657-40d3-8da4-5f579c21044d",
+					"fulltext": false,
+					"unique": true,
+					"name": "auth_group_permissions_group_id_permission_id_0cd325b0_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "0b104110-6259-4bdb-8478-343038cda716",
+							"colid": "49303385-40dc-44e9-b583-dc9e614f179a",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "4301d1a8-6b47-4238-8664-1fb023ccff7a",
+							"colid": "07233741-a4d4-41c4-8fa0-d3021749c648",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "4b760daa-4250-42ba-b654-12d28a08c754",
+					"fulltext": false,
+					"unique": false,
+					"name": "auth_group_permissions_group_id_b120cbf9",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "cdd0794f-9ac7-4951-9e2e-20b4b4c02658",
+							"colid": "49303385-40dc-44e9-b583-dc9e614f179a",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "bcbc2624-3cd5-498e-ac7f-0d1fab02494f",
+					"fulltext": false,
+					"unique": false,
+					"name": "auth_group_permissions_permission_id_84c5c92e",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "0362c287-b299-47a4-aa5b-906d0dd8d077",
+							"colid": "07233741-a4d4-41c4-8fa0-d3021749c648",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"117b8747-cc01-4d53-9ea4-13399e1b5081": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "117b8747-cc01-4d53-9ea4-13399e1b5081",
+			"name": "auth_permission",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "6850a476-ce89-44c0-b71e-a63693e2a919",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "a5ee6357-2d9e-4817-8ca9-b323d0a611a2",
+					"name": "content_type_id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "e7bd1a26-6004-450f-835e-97a47f35f5c3",
+					"name": "codename",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "839e94bd-8316-44ae-9b44-8d530c17dacc",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"338e1929-f31a-4f8e-9834-ac0ab82d08cc",
+				"22bf18a9-5d23-4933-b072-2599a2d93572",
+				"d9d82193-6fef-465f-8bac-8d3121d527b7"
+			],
+			"keys": [
+				{
+					"id": "fff82f62-a756-4021-a6f0-47ee3451fefb",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "be4d7d59-129d-425e-91bc-961ebb9e59e1",
+							"colid": "6850a476-ce89-44c0-b71e-a63693e2a919"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "08535d15-6ea4-450e-93ab-e1142f7276ef",
+					"fulltext": false,
+					"unique": true,
+					"name": "auth_permission_content_type_id_codename_01ab375a_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "9c8fb918-1edf-42ee-9479-c1229e917a54",
+							"colid": "a5ee6357-2d9e-4817-8ca9-b323d0a611a2",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "b1cce791-f86a-4644-a288-cad2db9b2cb8",
+							"colid": "e7bd1a26-6004-450f-835e-97a47f35f5c3",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "117f6880-217f-4007-a9b8-fb66d5ac92fa",
+					"fulltext": false,
+					"unique": false,
+					"name": "auth_permission_content_type_id_2f476e4b",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "a9009cf9-b235-4811-8deb-fc59fc92f902",
+							"colid": "a5ee6357-2d9e-4817-8ca9-b323d0a611a2",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"1830bb1e-81d5-44c3-8b83-5ee4eacf032d": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "1830bb1e-81d5-44c3-8b83-5ee4eacf032d",
+			"name": "auth_group",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "7e83f384-8923-4a01-b5f2-306231beb39f",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "f5e2cc7f-621c-49bb-aa18-0045d7a22f61",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"163a883e-e47d-41b3-8d68-617ceceb909d",
+				"121bffc3-23b6-4339-ba97-db40ec7b365e"
+			],
+			"keys": [
+				{
+					"id": "50df54bd-8b0a-4f11-aaf1-220465fe2727",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "c0bd9bcd-3ffd-48c2-a3bf-ed0f0d957960",
+							"colid": "7e83f384-8923-4a01-b5f2-306231beb39f"
+						}
+					],
+					"using": ""
+				},
+				{
+					"id": "ae096ed9-505c-45a4-8dd8-82442d83306b",
+					"isPk": false,
+					"name": "auth_group_key_1",
+					"cols": [
+						{
+							"id": "0ae70949-f8a9-49e5-8367-77f9ce687cf7",
+							"colid": "f5e2cc7f-621c-49bb-aa18-0045d7a22f61"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"75b7c678-ef9d-4c35-a202-fab8945ac4b1": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+			"name": "users_customuser",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "003e7bda-4a50-4968-bb71-4a12d59c030d",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "24811271-a659-4046-989f-d4095f815483",
+					"name": "password",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "99af9052-1581-4d6d-a868-2f1e3aa4eedc",
+					"name": "last_login",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "cc3485bd-b192-45e4-891b-17172e2cd7c4",
+					"name": "is_superuser",
+					"datatype": "BOOL",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "62ff0445-c334-4ff9-8646-e9860c5799eb",
+					"name": "username",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "1ace6d9f-0d20-4e16-a22a-e8816bb95649",
+					"name": "first_name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "e96575cc-2497-4258-b88f-6bd8e41237e2",
+					"name": "last_name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "daca74ab-0007-4d8d-bc65-3ef493a2f65d",
+					"name": "email",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "3015a690-72e9-4632-a4e9-746acd9e1554",
+					"name": "is_staff",
+					"datatype": "BOOL",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "b412ba56-307a-4513-9618-24260e7001a8",
+					"name": "is_active",
+					"datatype": "BOOL",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "f1706a53-ab74-46a9-a085-7ddb67221278",
+					"name": "date_joined",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "c1af1b5e-6ec1-4b09-bd0d-38b07e36307a",
+					"name": "phone",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "eecaaefe-ab9e-45dd-82d1-08e8d32445e1",
+					"name": "status",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "cf48f003-85f3-4253-aa46-1576fd95a9fd",
+					"name": "role",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"407c37a1-4217-4a83-aa7f-41c685dda152",
+				"56ffb427-c813-4f2d-94b7-2cc3d7ce556e",
+				"77089e9f-bbec-46f7-b4f3-3be67f2db6be"
+			],
+			"keys": [
+				{
+					"id": "d65613c4-9603-415f-8494-7b8710d7d52f",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "db91e017-2d01-4c3e-ad3a-745e2b4c5583",
+							"colid": "003e7bda-4a50-4968-bb71-4a12d59c030d"
+						}
+					],
+					"using": ""
+				},
+				{
+					"id": "6e3949f2-ffb6-41e1-ab95-488aa76f8f33",
+					"isPk": false,
+					"name": "users_customuser_key_1",
+					"cols": [
+						{
+							"id": "9d2201da-0447-40e9-8c22-08d20aa73726",
+							"colid": "62ff0445-c334-4ff9-8646-e9860c5799eb"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"027bf75e-bb63-4f5d-86c1-a6c5f170ab34": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "027bf75e-bb63-4f5d-86c1-a6c5f170ab34",
+			"name": "users_customuser_groups",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "10ee9cdb-cd59-4460-87a1-eacdd9246857",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "28652f93-c503-4f8c-bda2-3e4b3ed7b09e",
+					"name": "customuser_id",
+					"datatype": "BIGINT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "ccc60f93-ca34-46b8-b9a0-9a030b520af0",
+					"name": "group_id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"121bffc3-23b6-4339-ba97-db40ec7b365e",
+				"407c37a1-4217-4a83-aa7f-41c685dda152"
+			],
+			"keys": [
+				{
+					"id": "a413643e-c7be-4e8e-8cbb-f23d6edea2f5",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "87292d61-d2f6-4975-8440-6d48c1f06ef7",
+							"colid": "10ee9cdb-cd59-4460-87a1-eacdd9246857"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "1835b07f-fb91-4686-ae01-fa8547afe2fe",
+					"fulltext": false,
+					"unique": true,
+					"name": "users_customuser_groups_customuser_id_group_id_76b619e3_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "fda396ea-1f88-4c68-a7d5-b48c2b0cf8dc",
+							"colid": "28652f93-c503-4f8c-bda2-3e4b3ed7b09e",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "bd6e9384-a25b-4b9f-b3e1-5399c15dbbe4",
+							"colid": "ccc60f93-ca34-46b8-b9a0-9a030b520af0",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "19cd23db-2853-4580-b9c2-8caa633f6482",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_customuser_groups_customuser_id_958147bf",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "e524c6fc-32a4-4cbb-917f-ad2dce9fb70d",
+							"colid": "28652f93-c503-4f8c-bda2-3e4b3ed7b09e",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "4fa68145-bc4a-45be-ac8f-8ccdcfb10ef6",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_customuser_groups_group_id_01390b14",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "b26d25a6-7211-4dba-aad6-d12d280c9db7",
+							"colid": "ccc60f93-ca34-46b8-b9a0-9a030b520af0",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"c09a7fca-6c6f-42b8-b071-c0040620b44b": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "c09a7fca-6c6f-42b8-b071-c0040620b44b",
+			"name": "users_customuser_user_permissions",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "b246e64c-063e-445d-a434-76d372168372",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "078c50f5-2d10-48d0-b712-05f18b3c93a1",
+					"name": "customuser_id",
+					"datatype": "BIGINT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "09eefba8-f24b-4f0a-8557-bf18bbcfa155",
+					"name": "permission_id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"d9d82193-6fef-465f-8bac-8d3121d527b7",
+				"56ffb427-c813-4f2d-94b7-2cc3d7ce556e"
+			],
+			"keys": [
+				{
+					"id": "e90c710d-b2d2-4065-b520-94f284648cdf",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "4f11dfc3-f368-4012-9735-0a201079b58e",
+							"colid": "b246e64c-063e-445d-a434-76d372168372"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "4e7de946-cd61-4a9a-896c-672851b60ec4",
+					"fulltext": false,
+					"unique": true,
+					"name": "users_customuser_user_permissions_customuser_id_permission_id_7a7debf6_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "a70daebc-a2d4-4a5c-9866-4f4ebb132ff7",
+							"colid": "078c50f5-2d10-48d0-b712-05f18b3c93a1",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "94c7889a-1bca-47ec-8ba1-ab57fc43de9a",
+							"colid": "09eefba8-f24b-4f0a-8557-bf18bbcfa155",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "83ef26e6-9bec-4e2c-b2c5-6ac44945c0a3",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_customuser_user_permissions_customuser_id_5771478b",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "28bf9ef5-539e-4019-97a9-0f84811dcbee",
+							"colid": "078c50f5-2d10-48d0-b712-05f18b3c93a1",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "eafc948e-20ab-4193-aa71-a1bff33181fa",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_customuser_user_permissions_permission_id_baaa2f74",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "17b1e602-c022-4860-b4fb-edfc96dc70ae",
+							"colid": "09eefba8-f24b-4f0a-8557-bf18bbcfa155",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"98746a79-70cb-4aa5-a66f-756baba06e77": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "98746a79-70cb-4aa5-a66f-756baba06e77",
+			"name": "users_message",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "c6bfa9b2-680c-4e6d-9495-957250f8157b",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "0dab490e-01bb-44bc-b377-31299c109946",
+					"name": "email",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "d653af79-e1e6-4216-b1e7-419f31318548",
+					"name": "subject",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "49063809-5e2b-4ec2-a790-0ee19665f86e",
+					"name": "body",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "dfa07c0c-6842-4dcb-a258-272df3829868",
+					"name": "attachment",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "153739ae-64eb-496e-8ab3-0d3cdc55138d",
+					"name": "is_read",
+					"datatype": "BOOL",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "2f80888e-3c8a-459c-8a70-4441ca032f7b",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "9a5d0aba-269a-435c-a222-2961befb12eb",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "6e23bcba-0331-477d-879a-717b062cdea8",
+					"name": "recipient_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "8ae7b81f-6aaf-4598-b0d2-055856537845",
+					"name": "sender_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"97b83a95-0bac-4826-b776-140b4e40423a",
+				"b50c7496-cbcd-4399-b680-bf41ad3938cf"
+			],
+			"keys": [
+				{
+					"id": "b4e93401-e401-4834-be21-04255ece926d",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "be8ae3de-81d3-47bf-9403-b003cb2b242e",
+							"colid": "9a5d0aba-269a-435c-a222-2961befb12eb"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "ef1c3eff-dd98-45d6-a30a-3d9d76369aa6",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_message_recipient_id_0dcb937f",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "99d21f1e-d325-4873-90e2-3f31649ad5b0",
+							"colid": "6e23bcba-0331-477d-879a-717b062cdea8",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "5911bfb5-a8f0-45b7-b992-b6e0a705048d",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_message_sender_id_d1e3d44e",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "231e0c00-68e3-4eb3-bc0c-3200e0b3cb74",
+							"colid": "8ae7b81f-6aaf-4598-b0d2-055856537845",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"d0d111b0-d0fa-4dee-9920-0a9908cf4945": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "d0d111b0-d0fa-4dee-9920-0a9908cf4945",
+			"name": "users_inquiry",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "2ea2b0d7-b50d-4415-8128-9c889ec72e88",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "676f95d8-3299-4ca9-a11e-3c22f393cae7",
+					"name": "email",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "2e502ee8-cc9e-4f4c-8d11-2b09a0e11df0",
+					"name": "subject",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "749cae5a-16dd-4dae-a1ad-93161d2458c4",
+					"name": "body",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "ad8a811b-bb80-4775-8e00-e83d1041302e",
+					"name": "reply",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "5e80cd4c-b8c0-491c-884c-a41487a95ac3",
+					"name": "attachment",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "1967cbf0-9f25-489c-a6d3-f54a3f4fe7d7",
+					"name": "is_read",
+					"datatype": "BOOL",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "02131213-1381-4a5d-8bf2-19c3de547ee3",
+					"name": "status",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "bb7ad7b1-4151-4318-8302-1913f5318b4e",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "55b40667-ea74-4bc8-a76c-a97c4e15d09f",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "de40f97c-2061-4707-8250-99cb0ac845ca",
+					"name": "sender_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"ace9c8f3-fd26-49cd-9707-2560465fce99"
+			],
+			"keys": [
+				{
+					"id": "819db8a5-ed0c-4c66-8fb4-877dbfc54549",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "e06cb6e4-5856-4df7-986f-52aaa90344ed",
+							"colid": "55b40667-ea74-4bc8-a76c-a97c4e15d09f"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "279c0008-ec72-447c-bef3-586be1410fa2",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_inquiry_sender_id_c0fb6212",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "b7293539-59df-4df0-a1de-8aed281e49f2",
+							"colid": "de40f97c-2061-4707-8250-99cb0ac845ca",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"586491a5-0abd-4c53-9316-2bbc8c6a7063": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "586491a5-0abd-4c53-9316-2bbc8c6a7063",
+			"name": "products_payment",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "e4ea426b-c889-42fa-af0b-08a46af45af0",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "8eda446d-219b-41a3-8f65-8c8c557a2dc3",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "becf00b2-8178-4741-b334-457bcf189d2b",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"5c7b67c5-a5a2-4e64-89b6-ec559f3e1d71"
+			],
+			"keys": [
+				{
+					"id": "2cf9f046-17f5-4a7a-87ee-75b4c615928b",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "e50192f7-d1dd-406c-85bf-a6d7e7044ef3",
+							"colid": "becf00b2-8178-4741-b334-457bcf189d2b"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"872bce28-ebaf-4e24-a9ef-47b78ee5bbed": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "872bce28-ebaf-4e24-a9ef-47b78ee5bbed",
+			"name": "products_review",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "48c10eed-8a1e-4afe-9d13-a5d333a8fc22",
+					"name": "body",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "8dd40226-5793-4f4b-a7f1-585c395d33e3",
+					"name": "value",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "ca1fc5ad-39e8-48f9-afbb-d926344b73c6",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "d81ccb9d-caef-4c5a-998e-abac6779c44c",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "51a16db7-9945-42ba-a016-b60f934cffc8",
+					"name": "owner_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "163d5abb-0bc8-4e43-aad2-33ec4f7ffe5a",
+					"name": "product_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"e4402274-a5ac-4d93-97ba-2e6c25726a51"
+			],
+			"keys": [
+				{
+					"id": "24ed2b6a-0a99-4d44-9f15-b2a8c24baad8",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "6cd0b471-87f0-4d27-931d-2def75c4f2b1",
+							"colid": "d81ccb9d-caef-4c5a-998e-abac6779c44c"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "3699b4bd-e2bd-46b5-aceb-b267e119ecc5",
+					"fulltext": false,
+					"unique": false,
+					"name": "products_review_owner_id_5a025f6a",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "7df23aee-c82d-47c2-aa83-e4bfe5326ed6",
+							"colid": "51a16db7-9945-42ba-a016-b60f934cffc8",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "10aef29d-6390-4fb0-b826-ed18ff6b7acb",
+					"fulltext": false,
+					"unique": false,
+					"name": "products_review_product_id_d933ffa7",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "e71a3b66-c8d1-47a0-babd-5512b3751a33",
+							"colid": "163d5abb-0bc8-4e43-aad2-33ec4f7ffe5a",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "4646cd75-5313-4597-97bd-72f1c9087edb",
+					"fulltext": false,
+					"unique": true,
+					"name": "products_review_owner_id_product_id_befe0726_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "deb7d855-c0f6-40e9-82c7-1349c0c9c908",
+							"colid": "51a16db7-9945-42ba-a016-b60f934cffc8",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "81a64930-7a10-4e20-aca1-a02a830d6045",
+							"colid": "163d5abb-0bc8-4e43-aad2-33ec4f7ffe5a",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"f2721d48-e11c-458c-9830-0071cf9827f3": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "f2721d48-e11c-458c-9830-0071cf9827f3",
+			"name": "products_product_payments",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "8fddea5f-c839-43ff-8469-590ca9990cab",
+					"name": "id",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": true
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "6d32a0cd-74bb-420e-adda-30def6eb4a7a",
+					"name": "product_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "65a1b516-4a86-4757-8f9d-8ed717be9556",
+					"name": "payment_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"5c7b67c5-a5a2-4e64-89b6-ec559f3e1d71"
+			],
+			"keys": [
+				{
+					"id": "9e308e17-111c-498f-b697-8f221c3f0ea8",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "148f6f4f-8c14-400a-9d86-9fb1ffac06ce",
+							"colid": "8fddea5f-c839-43ff-8469-590ca9990cab"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "59c33f33-e1e4-4df1-8a90-cc42b7d7dd60",
+					"fulltext": false,
+					"unique": true,
+					"name": "products_product_payments_product_id_payment_id_b2eabc57_uniq",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "881b54ea-5810-4e38-8040-a8b8c5bb6964",
+							"colid": "6d32a0cd-74bb-420e-adda-30def6eb4a7a",
+							"sqlite": {
+								"desc": false
+							}
+						},
+						{
+							"id": "f42c4be8-df5f-43d3-ba43-6f6d7b3658c4",
+							"colid": "65a1b516-4a86-4757-8f9d-8ed717be9556",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "3e0d9b9c-c528-4255-8a24-01f359e265e7",
+					"fulltext": false,
+					"unique": false,
+					"name": "products_product_payments_product_id_457e4b2e",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "da7577c5-7a5e-4e5d-84e7-f64f12d861ca",
+							"colid": "6d32a0cd-74bb-420e-adda-30def6eb4a7a",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				},
+				{
+					"id": "20f7455f-6f6e-4f21-b5eb-d28a75b08830",
+					"fulltext": false,
+					"unique": false,
+					"name": "products_product_payments_payment_id_a9ca4df0",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "ef90a1e4-fcf4-4f73-929b-898fc92555e7",
+							"colid": "65a1b516-4a86-4757-8f9d-8ed717be9556",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"5b73404a-89f4-4407-a184-815dfdfcc7c2": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "5b73404a-89f4-4407-a184-815dfdfcc7c2",
+			"name": "django_session",
+			"visible": false,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "0d12d240-8aa4-47da-a3da-d8c8f76d0635",
+					"name": "session_key",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "dcc211a8-b0ef-4d46-83a8-4b27f712123b",
+					"name": "session_data",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "de4ee3c8-a856-49ae-823c-3a859678e88b",
+					"name": "expire_date",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"keys": [
+				{
+					"id": "b095f760-5711-47c0-84ae-c3aae67e64df",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "ecec1009-5842-4836-83cd-fd812e8e4b7f",
+							"colid": "0d12d240-8aa4-47da-a3da-d8c8f76d0635"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "3a1921d8-e3e3-4095-8b71-548060daed1c",
+					"fulltext": false,
+					"unique": false,
+					"name": "django_session_expire_date_a5c62663",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "4b6ecedf-0ba4-4a65-946b-ffbc0d6e33f3",
+							"colid": "de4ee3c8-a856-49ae-823c-3a859678e88b",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"name": "users_profile",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "832c3d60-57a4-41c1-b0d0-6b5799d088a3",
+					"name": "name",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "28df29ee-501d-476c-8a6c-49a5c99f497b",
+					"name": "email",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "aef78297-167b-4d2b-9e96-a247e12465d0",
+					"name": "born",
+					"datatype": "DATE",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "911b1f99-e3c7-40db-a3a0-225ebf840771",
+					"name": "username",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "3a91e01b-3a8f-42cd-8b15-b9671b241b69",
+					"name": "location",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "bb277c27-5b04-4526-8a1e-560102e52c88",
+					"name": "bio",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "2b190303-1d3d-4233-a2b3-af35107d34f4",
+					"name": "profile_image",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "58699af0-c0d5-4976-9e7b-31279f262a9d",
+					"name": "account",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "932f4a99-f2cb-40db-bd6c-bce64e075d6e",
+					"name": "phone1",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "5bc8a5db-946d-45d5-b3b5-29499e082e89",
+					"name": "phone2",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "aaa9d592-72ac-4c22-b5cf-accf2eea991f",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "ad0245eb-eae7-48ce-be30-a18d1989baf3",
+					"name": "user_id",
+					"datatype": "BIGINT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "7d9acfb6-79f3-4f74-b3d2-16613b5004a6",
+					"name": "updated",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"97b83a95-0bac-4826-b776-140b4e40423a",
+				"b50c7496-cbcd-4399-b680-bf41ad3938cf",
+				"ace9c8f3-fd26-49cd-9707-2560465fce99",
+				"e4402274-a5ac-4d93-97ba-2e6c25726a51",
+				"77089e9f-bbec-46f7-b4f3-3be67f2db6be",
+				"7d6249e4-4d63-4116-8729-69bceb2795b8"
+			],
+			"keys": [
+				{
+					"id": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "951fce0a-0410-4332-bc7e-2c73b803a71a",
+							"colid": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e"
+						}
+					],
+					"using": ""
+				},
+				{
+					"id": "19cbf4a4-5e98-4c87-9242-a352e9c01571",
+					"isPk": false,
+					"name": "users_profile_key_1",
+					"cols": [
+						{
+							"id": "8f45c1ba-80d0-4f22-aa4a-295d57feaf84",
+							"colid": "ad0245eb-eae7-48ce-be30-a18d1989baf3"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"f376d616-5137-42a8-b6dc-79816c332154": {
+			"lines": [],
+			"tabletype": "na",
+			"collation": "",
+			"charset": "",
+			"rowformat": "na",
+			"paranoid": false,
+			"database": "",
+			"initautoinc": "",
+			"timestamps": false,
+			"version": false,
+			"embeddable": false,
+			"background": "#03a9f4",
+			"objectType": "table",
+			"generate": true,
+			"generateCustomCode": true,
+			"id": "f376d616-5137-42a8-b6dc-79816c332154",
+			"name": "users_training",
+			"visible": true,
+			"desc": "",
+			"cols": [
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "82072992-0b50-42d5-b1b6-1483365f79ae",
+					"name": "trainer",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "894553a8-20bb-4598-92c8-0e29b6a781e3",
+					"name": "certificate",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "c1636037-6e6f-4cf3-8764-f058a0532a31",
+					"name": "completed",
+					"datatype": "DATE",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "3cca934d-701a-42e2-84dd-c01b73cbef0e",
+					"name": "link",
+					"datatype": "VARCHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "fa684ce3-2607-4a8a-b792-c4092fac2f2e",
+					"name": "description",
+					"datatype": "TEXT",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": true,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "ca8cc710-89ac-423f-bccb-0f4afb08df82",
+					"name": "created",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "5fed9805-9095-46fe-a390-59796e8cbd7c",
+					"name": "id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "562882a7-283f-4f78-91c3-002481ac880d",
+					"name": "owner_id",
+					"datatype": "CHAR",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": true,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"autoinc": false,
+					"charset": "",
+					"enum": "",
+					"isHidden": false,
+					"unsigned": false,
+					"zerofill": false,
+					"id": "a885b378-13d0-43c0-ad7d-1c799bd4be2d",
+					"name": "updated",
+					"datatype": "DATETIME",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"comment": "",
+					"data": "",
+					"estimatedSize": "",
+					"fk": false,
+					"after": "",
+					"json": false,
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [
+				"7d6249e4-4d63-4116-8729-69bceb2795b8"
+			],
+			"keys": [
+				{
+					"id": "18d132d2-636d-4661-b3c5-d82959948889",
+					"isPk": true,
+					"name": "Primary key",
+					"cols": [
+						{
+							"id": "01ab0ecc-1ed1-4d29-ad06-0a4472d76304",
+							"colid": "5fed9805-9095-46fe-a390-59796e8cbd7c"
+						}
+					],
+					"using": ""
+				}
+			],
+			"indexes": [
+				{
+					"id": "687bdc9b-5d85-499a-96d8-8d885f7aae46",
+					"fulltext": false,
+					"unique": false,
+					"name": "users_training_owner_id_29a3005c",
+					"lockoption": "",
+					"cols": [
+						{
+							"id": "90c33f1c-6379-4f6f-a5e7-1c8e9268b5e1",
+							"colid": "562882a7-283f-4f78-91c3-002481ac880d",
+							"sqlite": {
+								"desc": false
+							}
+						}
+					],
+					"algorithm": "",
+					"sqlite": {
+						"expression": ""
+					}
+				}
+			],
+			"afterScript": " ",
+			"estimatedSize": "",
+			"sqlite": {
+				"withoutrowid": false
+			}
+		},
+		"8db4cd05-ad19-4eff-99c7-0ed89a666211": {
+			"id": "8db4cd05-ad19-4eff-99c7-0ed89a666211",
+			"visible": true,
+			"name": "products_product",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "1c709a35-0658-4ecc-af0f-c22a4d42ffaf",
+					"name": "id",
+					"datatype": "INTEGER",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				},
+				{
+					"id": "54a9b494-22db-4964-868e-1d6445582abb",
+					"name": "",
+					"datatype": "INTEGER",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"collation": "",
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"lines": [],
+			"keys": [
+				{
+					"id": "888a7797-a240-4e42-9543-4344df932db2",
+					"name": "Primary key",
+					"isPk": true,
+					"using": "na",
+					"cols": [
+						{
+							"id": "3bdfc324-3fbb-4971-a252-9538dd6c3348",
+							"colid": "1c709a35-0658-4ecc-af0f-c22a4d42ffaf"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"collation": "",
+			"objectType": "table",
+			"sqlite": {
+				"withoutrowid": false
+			},
+			"beforeScript": "CREATE TABLE \"products_product\" (\n\t\"description\"\ttext,\n\t\"featured_image\"\tvarchar(100),\n\t\"quantity\"\tinteger unsigned CHECK(\"quantity\" >= 0),\n\t\"location\"\tvarchar(100),\n\t\"instock\"\tbool,\n\t\"vote_total\"\tinteger,\n\t\"vote_ratio\"\tinteger,\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"name_id\"\tchar(32),\n\t\"owner_id\"\tchar(32),\n\t\"updated\"\tdatetime NOT NULL,\n\tPRIMARY KEY(\"id\"),\n\tFOREIGN KEY(\"name_id\") REFERENCES \"products_singleproduct\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tFOREIGN KEY(\"owner_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED\n);",
+			"customCode": "CREATE TABLE \"products_product\" (\n\t\"description\"\ttext,\n\t\"featured_image\"\tvarchar(100),\n\t\"quantity\"\tinteger unsigned CHECK(\"quantity\" >= 0),\n\t\"location\"\tvarchar(100),\n\t\"instock\"\tbool,\n\t\"vote_total\"\tinteger,\n\t\"vote_ratio\"\tinteger,\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"name_id\"\tchar(32),\n\t\"owner_id\"\tchar(32),\n\t\"updated\"\tdatetime NOT NULL,\n\tPRIMARY KEY(\"id\"),\n\tFOREIGN KEY(\"name_id\") REFERENCES \"products_singleproduct\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tFOREIGN KEY(\"owner_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED\n);",
+			"afterScript": "CREATE TABLE \"products_product\" (\n\t\"description\"\ttext,\n\t\"featured_image\"\tvarchar(100),\n\t\"quantity\"\tinteger unsigned CHECK(\"quantity\" >= 0),\n\t\"location\"\tvarchar(100),\n\t\"instock\"\tbool,\n\t\"vote_total\"\tinteger,\n\t\"vote_ratio\"\tinteger,\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"name_id\"\tchar(32),\n\t\"owner_id\"\tchar(32),\n\t\"updated\"\tdatetime NOT NULL,\n\tPRIMARY KEY(\"id\"),\n\tFOREIGN KEY(\"name_id\") REFERENCES \"products_singleproduct\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tFOREIGN KEY(\"owner_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED\n);"
+		},
+		"c15b9900-6b43-418a-9513-ddd6a9e06cfa": {
+			"id": "c15b9900-6b43-418a-9513-ddd6a9e06cfa",
+			"visible": true,
+			"name": "products_order",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "482cca1f-4634-4616-9259-3d0dd489a3ac",
+					"name": "id",
+					"datatype": "INTEGER",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"lines": [],
+			"keys": [
+				{
+					"id": "0b686869-84d3-4a64-be48-7ff246e63466",
+					"name": "Primary key",
+					"isPk": true,
+					"using": "na",
+					"cols": [
+						{
+							"id": "668566e7-f703-4b08-ac6d-a7237fe1ca6a",
+							"colid": "482cca1f-4634-4616-9259-3d0dd489a3ac"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": false,
+			"generateCustomCode": true,
+			"collation": "",
+			"objectType": "table",
+			"sqlite": {
+				"withoutrowid": false
+			},
+			"customCode": "CREATE TABLE \"products_order\" (\n\t\"productName\"\tvarchar(200),\n\t\"price\"\tinteger unsigned CHECK(\"price\" >= 0),\n\t\"status\"\tvarchar(200),\n\t\"unity\"\tvarchar(200),\n\t\"quantity\"\tinteger unsigned CHECK(\"quantity\" >= 0),\n\t\"location\"\tvarchar(200),\n\t\"request\"\ttext,\n\t\"response\"\ttext,\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"buyer_id\"\tchar(32),\n\t\"seller_id\"\tchar(32),\n\t\"ProductId\"\tvarchar(200),\n\tFOREIGN KEY(\"buyer_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tFOREIGN KEY(\"seller_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tPRIMARY KEY(\"id\")\n);",
+			"beforeScript": "CREATE TABLE \"products_order\" (\n\t\"productName\"\tvarchar(200),\n\t\"price\"\tinteger unsigned CHECK(\"price\" >= 0),\n\t\"status\"\tvarchar(200),\n\t\"unity\"\tvarchar(200),\n\t\"quantity\"\tinteger unsigned CHECK(\"quantity\" >= 0),\n\t\"location\"\tvarchar(200),\n\t\"request\"\ttext,\n\t\"response\"\ttext,\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"buyer_id\"\tchar(32),\n\t\"seller_id\"\tchar(32),\n\t\"ProductId\"\tvarchar(200),\n\tFOREIGN KEY(\"buyer_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tFOREIGN KEY(\"seller_id\") REFERENCES \"users_profile\"(\"id\") DEFERRABLE INITIALLY DEFERRED,\n\tPRIMARY KEY(\"id\")\n);"
+		},
+		"bde645ff-d70a-43a5-ae81-4e155c423e2d": {
+			"id": "bde645ff-d70a-43a5-ae81-4e155c423e2d",
+			"visible": true,
+			"name": "products_singleproduct",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "b19fa870-9f47-43d5-99d1-301f657c7981",
+					"name": "id",
+					"datatype": "INTEGER",
+					"pk": true,
+					"nn": true,
+					"comment": "",
+					"defaultvalue": "",
+					"data": "",
+					"after": "",
+					"sqlite": {
+						"autoincrement": false
+					}
+				}
+			],
+			"relations": [],
+			"lines": [],
+			"keys": [
+				{
+					"id": "e52683ea-69da-4152-9752-e788b1bee40f",
+					"name": "Primary key",
+					"isPk": true,
+					"using": "na",
+					"cols": [
+						{
+							"id": "13c88f6e-ea7c-487c-ac08-a61cf4129e1e",
+							"colid": "b19fa870-9f47-43d5-99d1-301f657c7981"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"collation": "",
+			"objectType": "table",
+			"sqlite": {
+				"withoutrowid": false
+			},
+			"beforeScript": "CREATE TABLE \"products_singleproduct\" (\n\t\"name\"\tvarchar(200),\n\t\"price\"\tinteger unsigned CHECK(\"price\" >= 0),\n\t\"unity\"\tvarchar(200),\n\t\"created\"\tdatetime NOT NULL,\n\t\"id\"\tchar(32) NOT NULL,\n\t\"updated\"\tdatetime NOT NULL,\n\tPRIMARY KEY(\"id\")\n);"
+		}
+	},
+	"relations": {
+		"338e1929-f31a-4f8e-9834-ac0ab82d08cc": {
+			"id": "338e1929-f31a-4f8e-9834-ac0ab82d08cc",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "333bba21-7fe5-470a-a93c-c92ec6f3cea9",
+					"parentcol": "6850a476-ce89-44c0-b71e-a63693e2a919",
+					"childcol": "07233741-a4d4-41c4-8fa0-d3021749c648"
+				}
+			],
+			"child": "5bb0e6c4-b97b-4fb7-80de-7e3787216df2",
+			"parent": "117b8747-cc01-4d53-9ea4-13399e1b5081",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "auth_permission_auth_group_permissions",
+			"visible": true,
+			"desc": "",
+			"parent_key": "fff82f62-a756-4021-a6f0-47ee3451fefb",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"163a883e-e47d-41b3-8d68-617ceceb909d": {
+			"id": "163a883e-e47d-41b3-8d68-617ceceb909d",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "72166605-cab9-4adb-9c2c-8f8138d92b09",
+					"parentcol": "7e83f384-8923-4a01-b5f2-306231beb39f",
+					"childcol": "49303385-40dc-44e9-b583-dc9e614f179a"
+				}
+			],
+			"child": "5bb0e6c4-b97b-4fb7-80de-7e3787216df2",
+			"parent": "1830bb1e-81d5-44c3-8b83-5ee4eacf032d",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "auth_group_auth_group_permissions",
+			"visible": true,
+			"desc": "",
+			"parent_key": "50df54bd-8b0a-4f11-aaf1-220465fe2727",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"22bf18a9-5d23-4933-b072-2599a2d93572": {
+			"id": "22bf18a9-5d23-4933-b072-2599a2d93572",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "e3cfe334-64c7-4706-b7c0-7b0a7e1952c0",
+					"parentcol": "aad48373-4ff8-4786-86d7-6381135dba36",
+					"childcol": "a5ee6357-2d9e-4817-8ca9-b323d0a611a2"
+				}
+			],
+			"child": "117b8747-cc01-4d53-9ea4-13399e1b5081",
+			"parent": "269e9317-7e7e-48d2-a93e-aed29fe29fa0",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "django_content_type_auth_permission",
+			"visible": true,
+			"desc": "",
+			"parent_key": "0c80f218-2186-43ab-a2f4-9093ce2045d1",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"121bffc3-23b6-4339-ba97-db40ec7b365e": {
+			"id": "121bffc3-23b6-4339-ba97-db40ec7b365e",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "d70b2ff7-3a46-48f9-91b1-cac3b0b83591",
+					"parentcol": "7e83f384-8923-4a01-b5f2-306231beb39f",
+					"childcol": "ccc60f93-ca34-46b8-b9a0-9a030b520af0"
+				}
+			],
+			"child": "027bf75e-bb63-4f5d-86c1-a6c5f170ab34",
+			"parent": "1830bb1e-81d5-44c3-8b83-5ee4eacf032d",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "auth_group_users_customuser_groups",
+			"visible": true,
+			"desc": "",
+			"parent_key": "50df54bd-8b0a-4f11-aaf1-220465fe2727",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"407c37a1-4217-4a83-aa7f-41c685dda152": {
+			"id": "407c37a1-4217-4a83-aa7f-41c685dda152",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "1b7bc778-a64f-42c5-b844-91379f98147f",
+					"parentcol": "003e7bda-4a50-4968-bb71-4a12d59c030d",
+					"childcol": "28652f93-c503-4f8c-bda2-3e4b3ed7b09e"
+				}
+			],
+			"child": "027bf75e-bb63-4f5d-86c1-a6c5f170ab34",
+			"parent": "75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_customuser_users_customuser_groups",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d65613c4-9603-415f-8494-7b8710d7d52f",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"d9d82193-6fef-465f-8bac-8d3121d527b7": {
+			"id": "d9d82193-6fef-465f-8bac-8d3121d527b7",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "ce707df2-4b2f-495c-aaad-a1b5494a9827",
+					"parentcol": "6850a476-ce89-44c0-b71e-a63693e2a919",
+					"childcol": "09eefba8-f24b-4f0a-8557-bf18bbcfa155"
+				}
+			],
+			"child": "c09a7fca-6c6f-42b8-b071-c0040620b44b",
+			"parent": "117b8747-cc01-4d53-9ea4-13399e1b5081",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "auth_permission_users_customuser_user_permissions",
+			"visible": true,
+			"desc": "",
+			"parent_key": "fff82f62-a756-4021-a6f0-47ee3451fefb",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"56ffb427-c813-4f2d-94b7-2cc3d7ce556e": {
+			"id": "56ffb427-c813-4f2d-94b7-2cc3d7ce556e",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "2f59e402-eea7-477c-bf82-2a90e9239528",
+					"parentcol": "003e7bda-4a50-4968-bb71-4a12d59c030d",
+					"childcol": "078c50f5-2d10-48d0-b712-05f18b3c93a1"
+				}
+			],
+			"child": "c09a7fca-6c6f-42b8-b071-c0040620b44b",
+			"parent": "75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_customuser_users_customuser_user_permissions",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d65613c4-9603-415f-8494-7b8710d7d52f",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"97b83a95-0bac-4826-b776-140b4e40423a": {
+			"id": "97b83a95-0bac-4826-b776-140b4e40423a",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "27532505-04e5-435a-b670-7cb3e49cb451",
+					"parentcol": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"childcol": "8ae7b81f-6aaf-4598-b0d2-055856537845"
+				}
+			],
+			"child": "98746a79-70cb-4aa5-a66f-756baba06e77",
+			"parent": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_profile_users_message",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"b50c7496-cbcd-4399-b680-bf41ad3938cf": {
+			"id": "b50c7496-cbcd-4399-b680-bf41ad3938cf",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "6691114d-8396-43ee-a3d2-d607acd1a8f5",
+					"parentcol": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"childcol": "6e23bcba-0331-477d-879a-717b062cdea8"
+				}
+			],
+			"child": "98746a79-70cb-4aa5-a66f-756baba06e77",
+			"parent": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_profile_users_message",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"ace9c8f3-fd26-49cd-9707-2560465fce99": {
+			"id": "ace9c8f3-fd26-49cd-9707-2560465fce99",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "f82b66d8-5380-4221-83ea-3b59d8e7d155",
+					"parentcol": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"childcol": "de40f97c-2061-4707-8250-99cb0ac845ca"
+				}
+			],
+			"child": "d0d111b0-d0fa-4dee-9920-0a9908cf4945",
+			"parent": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_profile_users_inquiry",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"e4402274-a5ac-4d93-97ba-2e6c25726a51": {
+			"id": "e4402274-a5ac-4d93-97ba-2e6c25726a51",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "2eb90d49-99c8-4b6c-80f3-7de67f17af80",
+					"parentcol": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"childcol": "51a16db7-9945-42ba-a016-b60f934cffc8"
+				}
+			],
+			"child": "872bce28-ebaf-4e24-a9ef-47b78ee5bbed",
+			"parent": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_profile_products_review",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"5c7b67c5-a5a2-4e64-89b6-ec559f3e1d71": {
+			"id": "5c7b67c5-a5a2-4e64-89b6-ec559f3e1d71",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "26518a2f-1cd4-45a5-9f4f-fe9ea5234684",
+					"parentcol": "becf00b2-8178-4741-b334-457bcf189d2b",
+					"childcol": "65a1b516-4a86-4757-8f9d-8ed717be9556"
+				}
+			],
+			"child": "f2721d48-e11c-458c-9830-0071cf9827f3",
+			"parent": "586491a5-0abd-4c53-9316-2bbc8c6a7063",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "products_payment_products_product_payments",
+			"visible": true,
+			"desc": "",
+			"parent_key": "2cf9f046-17f5-4a7a-87ee-75b4c615928b",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"77089e9f-bbec-46f7-b4f3-3be67f2db6be": {
+			"id": "77089e9f-bbec-46f7-b4f3-3be67f2db6be",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "61e615a2-d958-42a7-aaaf-838869328b93",
+					"parentcol": "003e7bda-4a50-4968-bb71-4a12d59c030d",
+					"childcol": "ad0245eb-eae7-48ce-be30-a18d1989baf3"
+				}
+			],
+			"child": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"parent": "75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "one",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_customuser_users_profile",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d65613c4-9603-415f-8494-7b8710d7d52f",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		},
+		"7d6249e4-4d63-4116-8729-69bceb2795b8": {
+			"id": "7d6249e4-4d63-4116-8729-69bceb2795b8",
+			"type": "identifying",
+			"cols": [
+				{
+					"id": "591dfec8-dcf2-456c-a24a-98f837ce1f3b",
+					"parentcol": "32b5a653-f2b9-4a75-b34b-1df8d025ae4e",
+					"childcol": "562882a7-283f-4f78-91c3-002481ac880d"
+				}
+			],
+			"child": "f376d616-5137-42a8-b6dc-79816c332154",
+			"parent": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+			"c_mp": "true",
+			"c_mch": "false",
+			"c_ch": "many",
+			"c_p": "one",
+			"c_cp": "",
+			"c_cch": "",
+			"name": "users_profile_users_training",
+			"visible": true,
+			"desc": "",
+			"parent_key": "d222fcec-f2b9-427d-ba9f-9f5eabc53983",
+			"ri_pd": "No action",
+			"ri_pu": "No action",
+			"generate": true,
+			"generateCustomCode": true
+		}
+	},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"connectionId": "728b4912-9b84-4126-b6aa-e5b63cf50cf4",
+		"activeDiagram": "388e07c1-060f-4717-ab42-ad90f2d75076",
+		"caseConvention": "under",
+		"color": "transparent",
+		"def_charset": "",
+		"def_collation": "",
+		"def_coltopk": true,
+		"def_rowformat": "na",
+		"def_tabletype": "na",
+		"desc": "",
+		"id": "2e4222b7-9637-4d9e-aed0-d5c1d498fd1f",
+		"isDirty": true,
+		"name": "DB",
+		"parentTableInFkCols": true,
+		"path": "",
+		"replaceSpace": "_",
+		"sideSelections": true,
+		"storedin": {
+			"major": 5,
+			"minor": 2,
+			"extra": 0
+		},
+		"type": "SQLITE",
+		"version": 1,
+		"def_others": "",
+		"lastSaved": "Mon Jan 23 2023 11:10:43 GMT+0200 (South Africa Standard Time)",
+		"cardinalityIsDisplayed": false,
+		"sqlSettings": {
+			"wrapLines": true,
+			"wrapOffset": 80,
+			"indent": true,
+			"indentationString": "spaces",
+			"indentationSize": 2,
+			"limitItemsOnLine": true,
+			"maxListItemsOnLine": 3,
+			"statementDelimiter": ";",
+			"routineDelimiter": ";",
+			"keywordCase": "upper",
+			"identiferCase": "original",
+			"includeSchema": "always",
+			"quotation": "if_needed"
+		},
+		"embeddedInParentsIsDisplayed": true,
+		"schemaContainerIsDisplayed": false,
+		"estimatedSizeIsDisplayed": false,
+		"writeFileParam": true,
+		"currentDisplayMode": "metadata",
+		"modelScriptFilePath": "C:\\Users\\ARISTO\\OneDrive\\Desktop\\DB.sql"
+	},
+	"otherObjects": {},
+	"diagrams": {
+		"388e07c1-060f-4717-ab42-ad90f2d75076": {
+			"id": "388e07c1-060f-4717-ab42-ad90f2d75076",
+			"lineColor": "transparent",
+			"description": "",
+			"diagramItems": {
+				"a8410862-3947-4e70-bfff-7b6f93a7276f": {
+					"x": 776,
+					"y": 857,
+					"gHeight": 99,
+					"gWidth": 195,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "a8410862-3947-4e70-bfff-7b6f93a7276f",
+					"resized": false,
+					"autoExpand": true
+				},
+				"269e9317-7e7e-48d2-a93e-aed29fe29fa0": {
+					"x": 401,
+					"y": 895,
+					"gHeight": 80,
+					"gWidth": 203,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "269e9317-7e7e-48d2-a93e-aed29fe29fa0",
+					"resized": false,
+					"autoExpand": true
+				},
+				"5bb0e6c4-b97b-4fb7-80de-7e3787216df2": {
+					"x": 146,
+					"y": 823,
+					"gHeight": 80,
+					"gWidth": 224,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "5bb0e6c4-b97b-4fb7-80de-7e3787216df2",
+					"resized": false,
+					"autoExpand": true
+				},
+				"117b8747-cc01-4d53-9ea4-13399e1b5081": {
+					"x": 559,
+					"y": 996,
+					"gHeight": 99,
+					"gWidth": 233,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "117b8747-cc01-4d53-9ea4-13399e1b5081",
+					"resized": false,
+					"autoExpand": true
+				},
+				"1830bb1e-81d5-44c3-8b83-5ee4eacf032d": {
+					"x": 616.5,
+					"y": 811,
+					"gHeight": 63,
+					"gWidth": 181,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "1830bb1e-81d5-44c3-8b83-5ee4eacf032d",
+					"resized": false,
+					"autoExpand": true
+				},
+				"75b7c678-ef9d-4c35-a202-fab8945ac4b1": {
+					"x": 182,
+					"y": 527,
+					"gHeight": 278,
+					"gWidth": 218,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+					"resized": false,
+					"autoExpand": true
+				},
+				"027bf75e-bb63-4f5d-86c1-a6c5f170ab34": {
+					"x": 197,
+					"y": 416,
+					"gHeight": 80,
+					"gWidth": 222,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "027bf75e-bb63-4f5d-86c1-a6c5f170ab34",
+					"resized": false,
+					"autoExpand": true
+				},
+				"c09a7fca-6c6f-42b8-b071-c0040620b44b": {
+					"x": 835,
+					"y": 940,
+					"gHeight": 80,
+					"gWidth": 295,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "c09a7fca-6c6f-42b8-b071-c0040620b44b",
+					"resized": false,
+					"autoExpand": true
+				},
+				"98746a79-70cb-4aa5-a66f-756baba06e77": {
+					"x": 679,
+					"y": 30,
+					"gHeight": 206,
+					"gWidth": 215,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "98746a79-70cb-4aa5-a66f-756baba06e77",
+					"resized": false,
+					"autoExpand": true
+				},
+				"d0d111b0-d0fa-4dee-9920-0a9908cf4945": {
+					"x": 1154,
+					"y": 49,
+					"gHeight": 224,
+					"gWidth": 215,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "d0d111b0-d0fa-4dee-9920-0a9908cf4945",
+					"resized": false,
+					"autoExpand": true
+				},
+				"586491a5-0abd-4c53-9316-2bbc8c6a7063": {
+					"x": 1037,
+					"y": 730,
+					"gHeight": 80,
+					"gWidth": 196,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "586491a5-0abd-4c53-9316-2bbc8c6a7063",
+					"resized": false,
+					"autoExpand": true
+				},
+				"872bce28-ebaf-4e24-a9ef-47b78ee5bbed": {
+					"x": 155,
+					"y": 243,
+					"gHeight": 134,
+					"gWidth": 196,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "872bce28-ebaf-4e24-a9ef-47b78ee5bbed",
+					"resized": false,
+					"autoExpand": true
+				},
+				"f2721d48-e11c-458c-9830-0071cf9827f3": {
+					"x": 810,
+					"y": 868,
+					"gHeight": 81,
+					"gWidth": 241,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "f2721d48-e11c-458c-9830-0071cf9827f3",
+					"resized": false,
+					"autoExpand": true
+				},
+				"5b73404a-89f4-4407-a184-815dfdfcc7c2": {
+					"x": 71,
+					"y": 1499,
+					"gHeight": 80,
+					"gWidth": 219,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "5b73404a-89f4-4407-a184-815dfdfcc7c2",
+					"resized": false,
+					"autoExpand": true
+				},
+				"9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85": {
+					"x": 672,
+					"y": 331,
+					"gHeight": 278,
+					"gWidth": 227,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+					"resized": false,
+					"autoExpand": true
+				},
+				"f376d616-5137-42a8-b6dc-79816c332154": {
+					"x": 1154,
+					"y": 447,
+					"gHeight": 188,
+					"gWidth": 205,
+					"background": "#03a9f4",
+					"color": "#ffffff",
+					"referencedItemId": "f376d616-5137-42a8-b6dc-79816c332154",
+					"resized": false,
+					"autoExpand": true
+				},
+				"8db4cd05-ad19-4eff-99c7-0ed89a666211": {
+					"referencedItemId": "8db4cd05-ad19-4eff-99c7-0ed89a666211",
+					"x": 413,
+					"y": 192,
+					"gHeight": 62,
+					"gWidth": 166,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true
+				},
+				"c15b9900-6b43-418a-9513-ddd6a9e06cfa": {
+					"referencedItemId": "c15b9900-6b43-418a-9513-ddd6a9e06cfa",
+					"x": 236,
+					"y": 149,
+					"gHeight": 44,
+					"gWidth": 156,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true
+				},
+				"bde645ff-d70a-43a5-ae81-4e155c423e2d": {
+					"referencedItemId": "bde645ff-d70a-43a5-ae81-4e155c423e2d",
+					"x": 556,
+					"y": 705,
+					"gHeight": 44,
+					"gWidth": 206,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true
+				}
+			},
+			"isOpen": true,
+			"main": true,
+			"name": "Main Diagram",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 1,
+			"background": "transparent",
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd"
+		}
+	},
+	"order": [
+		"1830bb1e-81d5-44c3-8b83-5ee4eacf032d",
+		"5bb0e6c4-b97b-4fb7-80de-7e3787216df2",
+		"117b8747-cc01-4d53-9ea4-13399e1b5081",
+		"269e9317-7e7e-48d2-a93e-aed29fe29fa0",
+		"a8410862-3947-4e70-bfff-7b6f93a7276f",
+		"5b73404a-89f4-4407-a184-815dfdfcc7c2",
+		"586491a5-0abd-4c53-9316-2bbc8c6a7063",
+		"f2721d48-e11c-458c-9830-0071cf9827f3",
+		"872bce28-ebaf-4e24-a9ef-47b78ee5bbed",
+		"75b7c678-ef9d-4c35-a202-fab8945ac4b1",
+		"027bf75e-bb63-4f5d-86c1-a6c5f170ab34",
+		"c09a7fca-6c6f-42b8-b071-c0040620b44b",
+		"d0d111b0-d0fa-4dee-9920-0a9908cf4945",
+		"98746a79-70cb-4aa5-a66f-756baba06e77",
+		"9ecf5b4b-025e-4ef1-936b-d1aff5ab6b85",
+		"f376d616-5137-42a8-b6dc-79816c332154",
+		"8db4cd05-ad19-4eff-99c7-0ed89a666211",
+		"c15b9900-6b43-418a-9513-ddd6a9e06cfa",
+		"bde645ff-d70a-43a5-ae81-4e155c423e2d",
+		"163a883e-e47d-41b3-8d68-617ceceb909d",
+		"121bffc3-23b6-4339-ba97-db40ec7b365e",
+		"338e1929-f31a-4f8e-9834-ac0ab82d08cc",
+		"d9d82193-6fef-465f-8bac-8d3121d527b7",
+		"22bf18a9-5d23-4933-b072-2599a2d93572",
+		"5c7b67c5-a5a2-4e64-89b6-ec559f3e1d71",
+		"407c37a1-4217-4a83-aa7f-41c685dda152",
+		"56ffb427-c813-4f2d-94b7-2cc3d7ce556e",
+		"77089e9f-bbec-46f7-b4f3-3be67f2db6be",
+		"e4402274-a5ac-4d93-97ba-2e6c25726a51",
+		"ace9c8f3-fd26-49cd-9707-2560465fce99",
+		"97b83a95-0bac-4826-b776-140b4e40423a",
+		"b50c7496-cbcd-4399-b680-bf41ad3938cf",
+		"7d6249e4-4d63-4116-8729-69bceb2795b8"
+	],
+	"collapsedTreeItems": []
+}

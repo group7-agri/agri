@@ -99,7 +99,7 @@ class SingleProduct(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = "Single Product"
+        verbose_name_plural = "Category"
 
 class Order(models.Model):
     STATUS = (

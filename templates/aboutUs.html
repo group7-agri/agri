@@ -1,0 +1,160 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+
+<style>
+    .layout{
+        line-height:1.3;
+    }
+    .layout > .column.column--1of2 {
+    flex-basis: 50%;
+}
+.formPage{
+    background-color:white;
+}
+.layout{
+    margin: 0rem 10px;
+}
+
+</style>
+    <div class="layout" >
+        <div class="column column--1of2">
+            
+
+        <main class="formPage my-xl" >
+        <div class="content-box">
+            <div class="formWrapper">
+                
+                <h2 class="text-center"> Yield Search</h2>
+                <hr>
+                <br>
+                <p style="justify-content: center; text-align: justify; line-height:1.6;">
+                    
+                <b>The Geo-Based Agricultural Products portal <i>(a.k.a: "YIELD SEARCH") </i> </b>is an innovative online platform that 
+                aims to connect farmers and consumers in more efficiente and sustainable way. 
+                The portal allows farmers to list their locally-grown agricultural products, 
+                such as fruits, vegetables, and meats, and for consumers to search for and purchase 
+                these products based on their location. The platform aims to promote sustainable and 
+                local agriculture by providing a direct link between farmers and consumers, reducing 
+                food waste, and supporting the local economy. 
+                </p>
+
+
+                <br>
+                <h5 class="text-center" style="text-decoration: underline;"><b> Team </b></h4>
+                <div class=" team text-center">
+                    
+                    <div class = "person">
+                    
+                         <img class="avatar avatar--lg" src="{% static 'images/profiles/289520310_353589586891506_7591645929999250421_n.jpg' %}" />
+
+                        <p>Names: Aristo </p>
+                          <p>Reg No: 219004381 </p>
+                          <p>Role: Developer </p>
+                      
+                         
+                    </div>
+                    <div class = "person">
+                    
+                
+                         <img class="avatar avatar--lg" src="{% static 'images/profiles/289520310_353589586891506_7591645929999250421_n.jpg' %}" />
+
+                         <p>Names: Aristo </p>
+                          <p>Reg No: 219004381 </p>
+                          <p>Role: Developer </p>
+                      
+                         
+
+                    </div>
+                    <div class = "person">
+                    
+                        <img class="avatar avatar--lg" src="{% static 'images/profiles/289520310_353589586891506_7591645929999250421_n.jpg' %}" />
+                        
+                        <p>Names: Aristo </p>
+                          <p>Reg No: 219004381 </p>
+                          <p>Role: Developer </p>
+                      
+                         
+
+                    </div>
+               
+
+
+                </div>
+               
+
+
+                <br>
+                <h5 class="text-center" style="text-decoration: underline;"><b> Keep in touch </b></h4>
+                    <div class="dev__social">
+
+                        <i class="icon-linkedin"></i> @agri-portal
+                        <i class="icon-facebook"></i> @agri-portal
+                        <i class="icon-youtube"></i> @agri-portal
+                        <i class="icon-instagram"></i> @agri-portal
+
+                    </div>
+
+            </div>
+        </div>
+    </main>
+
+        </div>
+
+        
+
+        <div class="column column--1of2" >
+            
+
+
+    <main class="formPage my-xl" >
+        <div class="content-box" style="border-left: 2px solid #000;">
+            <div class="formWrapper">
+                
+                <h3 class="text-center"> Leave an inquiry </h3>
+       
+               
+                <form class="form" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {% if request.user.is_authenticated == False %}
+                <div class="form__field">
+                    <label for="formInput#text">{{form.name.label}}</label>
+                    {{form.name}}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">{{form.email.label}}</label>
+                    {{form.email}}
+                </div>
+                {% endif %}
+
+                <div class="form__field">
+                    <label for="formInput#text">{{form.subject.label}}</label>
+                    {{form.subject}}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">Inquiry Description</label>
+                    {{form.body}}
+                </div>
+
+                <div class="form__field">
+                    <label for="formInput#text">Supporting Document</label>
+                    {{form.attachment}}
+                </div>
+
+                <input class="btn btn--sub btn--lg  my-md" type="submit" value="Send" />
+            </form>
+
+            </div>
+        </div>
+    </main>
+
+            
+        </div>
+    </div>
+
+
+
+{% endblock content %}

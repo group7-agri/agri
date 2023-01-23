@@ -44,7 +44,7 @@
                                 const myChart = new Chart(ctx, {
                                     type: 'line',
                                     data: {
-                                    labels: [{% for prod in singleProduct %} '{{ prod.name }}', {% endfor %}],
+                                    labels: [{% for prod in products %} '{{ prod.created|naturaltime }}', {% endfor %}],
                                     datasets: [{
                                         label: 'SEASON A',
                                         data: [ {% for prod in season_a %} {{ prod.quantity }}, {% endfor %}],
@@ -261,8 +261,8 @@
                                             <!-- Avatar -->
                                             <a href="#" class="avatar">
                                                 <img class="rounded" alt="Image placeholder" 
-                                                {% if user.user.profile_image.url %}
-                                                src="{{user.user.profile_image.url}}"
+                                                {% if user.profile.profile_image.url %}
+                                                src="{{user.profile.profile_image.url}}"
                                                 {% else %}
                                                 src="{% static 'images/profiles/user-default.png' %}" {% endif %}> 
                                             </a>

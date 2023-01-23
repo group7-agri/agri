@@ -3,14 +3,16 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from admin_volt import views
+from users.views import aboutUs
 from django.contrib.auth import views as auth_views
 
 
 urlpatterns = [
-    path('admin/', views.customIndex),
+    path('admin/', views.customIndex, name="adminlog"),
     path('admin/', admin.site.urls),
     path('products/', include('products.urls')),
     path('', include('users.urls')),
+    path('Yield-Search/',aboutUs,  name="aboutUs"),
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="reset_password.html"),
          name="reset_password"),
@@ -23,6 +25,8 @@ urlpatterns = [
 
     path('reset_password_complete/', auth_views.PasswordResetCompleteView.as_view(template_name="reset_password_complete.html"),
          name="password_reset_complete"),
+
+
 ]
 
 

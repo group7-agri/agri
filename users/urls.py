@@ -29,5 +29,5 @@ urlpatterns = [
     path('feedback/', views.Feedback, name="feedback"),
     path('feedback/inquiry/<str:pk>/', views.viewInquiry, name="inquiry"),
     path('feedback/solve-inquiry/<str:pk>/', views.markSolved, name="markSolved"),
-    path('feedback/create-inquiry/', views.createInquiry, name="create-inquiry"),
+   
 ]

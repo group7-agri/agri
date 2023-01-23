@@ -39,7 +39,6 @@ def loginUser(request):
 
         if user is not None:
             login(request, user)
-
             
             return redirect(request.GET['next'] if 'next' in request.GET else 'account')
 
@@ -302,7 +301,7 @@ def markSolved(request, pk):
     return redirect('feedback')
 
 
-def createInquiry(request):
+def aboutUs(request):
     form = InquiryForm()
 
     try:
@@ -322,10 +321,10 @@ def createInquiry(request):
             inquiry.save()
 
             messages.success(request, 'Your Inquiry was successfully sent!')
-            return redirect('feedback')
+            return redirect('profiles')
 
     context = {'form': form}
-    return render(request, 'users/inquiry_form.html', context)
+    return render(request, 'aboutUs.html', context)
 
 
 
@@ -369,3 +368,6 @@ def naturaltime(value):
 @register.filter
 def multiply(value, arg):
     return value * arg
+
+
+
