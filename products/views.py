@@ -307,6 +307,7 @@ def processOrder(request, pk):
                 messages.error(request, 'Error for inserting order')
                 return redirect('checkout-product', pk=productId)
 
+            #send sms message here
 
         elif needQuantity >= totalQuantity:
             messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
