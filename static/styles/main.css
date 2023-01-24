@@ -159,6 +159,11 @@ h5 .singleProject__subtitle{
   color: var(--color-text);
 }
 
+.project__thumbnail, .product__thumbnail{
+  height:2v;
+  width: 100%;
+}
+
 .logout-image{
   width: 35px;
   height: 35px;
