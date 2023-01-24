@@ -1,0 +1,819 @@
+/* my custom css */
+body{
+  font-size: 1.5rem;
+}
+.buy{
+    width:100%; 
+    text-align: center;
+}
+.disabled{
+  opacity: 0.65; 
+  cursor: not-allowed;
+}
+.header {
+ /*    position: sticky;
+    z-index: 111;
+    background-color: var(--color-sub); */
+    padding: 1rem 0;
+}
+.devlist .dev .dev__info {
+    margin: 1.5rem;
+    padding: 0rem 1.2rem;
+}
+.dev__skills{
+  padding: 0rem 1.2rem 1.2rem 1.2rem;
+}
+.devlist{
+  margin-top: 2rem;
+}
+p, span, strong {
+    font-size: 1.6rem;
+    color: var(--color-text);
+    font-weight: var(--font-regular);
+}
+.card__body, .card__header {
+    padding: 0.8rem 1.5rem;
+}
+.auth > .card {
+    padding: 1rem 4rem;
+    width: 95%;
+    max-width: 65rem;
+}
+/* .product__thumbnail {
+    height: auto;
+    object-fit: cover;
+    object-position: top center;
+} */
+
+/* .products{
+  padding: 0rem auto;
+} */
+.my-md {
+    margin: 1rem auto; 
+}
+:root{
+  --color-text: #373636;
+  --color-success: #000;
+  --color-sub-light:#0018e3;
+}
+.alert.alert--success,
+.alert.alert--success > .alert__message {
+  background-color: var(--color-success-bg);
+  color: #000;
+}
+
+.auth{
+  height: auto;
+  padding: 2vh;
+}
+@media screen and (min-width: 650px){
+  .auth > .card {
+      padding: 2rem 5rem;
+      width: 95%;
+      max-width: 65rem;
+  }
+}
+
+.my-xl {
+    margin: 2rem auto;
+}
+.product-image{
+  display:flex;
+  height: 4vw;
+  width: 4vw;
+  float: right;
+  right: 50%;
+}
+.state{
+  padding: 2px;
+
+}
+.here{
+    margin: 0;
+    padding: 2rem;
+}
+
+.shadow{
+  box-shadow:none; 
+  border:none;
+}
+.products > .hero-section {
+    background: var(--color-sub-lighter);
+    /* height: 22vh; */
+}
+.hero-section {
+    height: 58vh;
+}
+.stat{
+  background-color: #888;
+  padding: 2px;
+}
+.auth::after {
+  z-index: -1;
+  opacity: 0.3;
+}
+.settings__btn i{
+  font-size: 1.2rem;
+  padding-right: 2px;
+}
+
+.btn {
+  background-color: #263cff;
+}
+.auth__alternative a{
+  color: #000;
+  font-weight: bold;
+}
+ a .backButton{
+    cursor: pointer;
+    color: white;
+    align-self: center;
+}
+
+.backButton {
+  background: var(--color-main-light);
+  color: var(--color-main);
+ 
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.backButton i {
+  font-size: 1.6rem;
+}
+
+
+.grid {
+    display: flex;
+    flex-wrap: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.card {
+    border:2px solid #efebeb;
+    box-shadow: 0px 0px 9px #ccc;
+}
+h5 .singleProject__subtitle{
+  color: var(--color-text);
+}
+
+.project__thumbnail, .product__thumbnail{
+  height:2v;
+  width: 100%;
+}
+
+.logout-image{
+  width: 35px;
+  height: 35px;
+  display: inline;
+  border-radius: 50%;
+}
+.profile .card > .dev {
+    padding: 2rem; 
+}
+
+.message__body{
+  text-align: justify;
+  line-height: 1.6;
+  padding: 2rem;
+}
+#id_payments{
+  list-style: none;
+  margin-right: 2rem;
+}
+.avatar--xl {
+    height: 12rem;
+    width: 12rem;
+}
+.contact{
+  align-items:flex-start;
+  text-align: left;
+  padding-left: 2rem;
+  padding-top: 1rem;
+  color: #000;
+}
+.dev__name{
+  font-size: 1.9rem;
+}
+
+.input-search{
+  border-radius: 5px;
+  display: inline;
+  font-size: 1.6rem;
+  padding: .3rem 1rem;
+  border: none;
+  float: right;
+  color: black;
+
+}
+
+#no-result{
+  display: none;
+}
+
+#no-data, #no-result{
+  margin: 20px auto;
+  color: #000;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+.icon, .fa{
+  font-size: 1.8rem;
+}
+.badge, .notify{
+  display: inline;
+  color: white;
+  border-radius: 50%;
+  padding: 0rem 0.1rem;
+  background-color: var(--color-sub-light);
+  margin-left:.4rem ;
+  
+}
+
+.active{
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    border-bottom: .4rem solid var(--color-sub-light);
+}
+.mobile__menuItem{
+  padding: 1rem 2rem;
+  text-align: center;
+}
+.mobile__menu{
+  display: inline-flex;
+  align-items: center;
+}
+
+.header__nav ul{
+  display: inline-flex;
+}
+.mobile__menu{
+  display: none;
+}
+
+.log{
+  background-color: var(--color-sub-light);
+  color: white;
+  border-radius: 4px;
+}
+#bracket{
+  color: #000;
+}
+
+.mobile-logo{
+  display: none;
+}
+/* NOT USED */
+.mobile__menu a{
+  color: white;
+}
+.mobile__menu li{
+  padding: 1rem 1rem;
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 800px) {
+  .header__menu{
+    display: none;
+  }
+ .mobile__menu{
+    display: inline-block;
+  }
+  
+}
+
+@media screen and (max-width: 625px) {
+.mobile-logo{
+  display: inline;
+}
+.logo{
+  display: none;
+}
+}
+
+@media screen and (max-width: 418px) {
+.mobile__menuItem{
+    padding: 1rem 1rem;
+}
+.icon{
+  font-size: 2rem;
+}
+}
+
+#myChart, #myChart1{
+  width: 300px;
+  height: 400;
+}
+
+@media screen and (min-width: 1200px) {
+#trend1{
+    display: inline!important;
+}
+}
+
+
+@media screen and (min-width:1000px){
+  .charttable{
+  padding: 1rem 2rem;
+  
+  align-items: center;
+  width: 100%;
+}
+}
+
+ .charttable{
+  align-items: center;
+  width: 100%;
+}
+
+
+.charttable table {
+  border-collapse: collapse;
+  width: 100%;
+  
+    box-shadow: 0px 0px 9px #ccc;
+    border-radius: 4px;
+}
+
+.charttable th, .charttable td {
+  text-align: left;
+  padding: 8px 8px;
+}
+.charttable tr, .charttable table{
+  border: 2px solid #ccc;
+}
+
+.charttable tr:nth-child(even) {background-color: #f2f2f2;}
+
+.pagination .btn {
+    color: #000000;
+    font-weight: bold;
+}
+.border{
+  padding: 1rem 2rem;
+
+}
+.border tr:hover, .charttable tr:hover{
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.border table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.border th, .border td {
+  text-align: left;
+  padding: 4px 8px;
+  font-size: 1.3rem;
+}
+
+.border tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+
+@media screen and (max-width: 315px) {
+.mobile-logo{
+    width: 20px;
+    height: 5px;
+}
+.icon{
+  font-size: 1rem;
+}
+
+}
+
+#id_tags{
+  list-style: none;
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 3px 7px;
+    writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: fieldtext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    display: inline;
+    text-shadow: none;
+    text-align: start;
+    appearance: auto;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    background-color: field;
+    padding: 2px 3px;
+    border-width: 2px;
+    border-image: initial;
+}
+.project-tag{
+  display: inline;
+}
+.openfile{
+  padding-top: 2rem;
+  width: 7rem;
+  height: 9rem;
+}
+
+.form__label,
+.form__field > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+input, select, textarea{
+  color: #000;
+}
+
+textarea{
+  resize: none;
+  height: 10rem;
+ 
+}
+
+.black{
+  color: black;
+  font-style: italic;
+}
+.center{
+  
+  margin-left: 33%;
+}
+
+/* FOOTER */
+
+.notifications table {
+  border-collapse: collapse;
+  width: auto;
+  border-spacing: 0;
+  border: 1px solid rgb(15, 15, 15);
+}
+.notifications, .notifications .card{
+  padding: 2rem 4rem;
+
+}
+
+
+
+
+.notifications table{
+  margin-top: 2rem;
+  margin-bottom: 12rem;
+  margin-left: 2rem;
+}
+
+.notifications th, .notifications td {
+  text-align: left;
+  padding: 1rem 1.2rem!important;
+}
+.notifications .result:hover{
+  background-color: #f1f1f1;
+}
+
+.notifications tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+.notifications th{
+  min-width: 10%;
+}
+
+
+.Pending{
+  background-color: #e7e7e7; 
+  color: black;
+  padding: 1rem;
+}
+.Confirmed{
+  background-color: #4CAF50;
+  padding: 1rem;
+  color: white;
+}
+
+.Declined{
+  background-color: #f44336;
+  padding:1rem;
+  color: white;
+}
+.Delivered{
+  background-color: #008CBA;
+  padding:1rem;
+  color: white;
+}
+.icon-ok{
+  color: green;
+  cursor: pointer;
+}
+.icon-refresh{
+  color: #0018e3;
+  cursor: pointer;
+  font-size: 2rem;
+}
+.noti{
+  padding: 1rem;
+  border: 2px solid #ccc;
+  margin: 0rem 0.2rem;
+}
+.notif:hover{
+  background-color: #ccc;
+}
+.icon-remove{
+  color: red;
+  cursor: pointer;
+}
+
+.footer {
+  position: sticky;
+   left: 0;
+
+   bottom: 0!important;
+   width: 100%;
+   padding: 1.3rem;
+   /* background:rgb(45, 45, 57, 0.3); */
+   background-color: #2d2d39 ;
+   color: white!;
+   text-align: center;
+}
+.footer p{
+    color: white;
+    
+   padding: 1.3rem auto;
+}
+
+
+
+
+
+/* The Modal (background) */
+.modalForm {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-contentForm {
+  background-color: #fefefe;
+  margin: auto;
+  overflow: auto;
+  width: 50%;
+  padding: 4rem;
+  border: 1px solid #888;
+}
+
+/* The Close Button */
+.closeForm {
+  color: #aaaaaa;
+  float: right;
+  top: 0px;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeForm:hover,
+.closeForm:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.opacBg{
+  margin: 0;
+  padding: 1.2rem 0;
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.info input.input[type='text']{
+  padding-left: auto;
+  text-align: center;
+  padding-right: auto;
+  cursor:auto;
+  color: #000;
+  font-weight: bold;
+  width: 300px;
+  max-width: 100%;
+}
+
+/* MODAL IMAGE */
+
+#myModalImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.radio{
+  padding-left: 1.3rem;
+}
+#myModalImg:hover {opacity: 0.7;}
+/* The Modal (background) */
+.modalImage {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 8rem; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-contentImage {
+  margin-right: 40px;;
+  width: 80%;
+  float: right;
+  right: 3rem;
+}
+
+/* The Close Button */
+.closeImage {
+  color: #fff;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.closeImage:hover,
+.closeImage:focus {
+  color: rgb(205, 199, 199);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Caption of Modal Image */
+#captionImage {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  padding: 3px 0;
+  height: 150px;
+  font-size: large;
+}
+
+/* Add Animation */
+.modal-contentImage, #captionImage {  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-contentImage {
+    width: 100%;
+  }
+}
+
+/* The Modal (background) */
+.notifymodal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 30px; /* Location of the box */
+  left: 0;
+  top: 0;
+  transition: all 0.3s ease-in-out;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(170, 170, 170,0.7); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.notifymodal-content {
+  margin: auto;
+  
+  width: 100%;
+  height: 100%;
+}
+
+/* The Close Button */
+.notifyclose {
+  
+  float: right;
+  top: 0;
+  cursor: pointer;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.notifyclose:hover,
+.notifyclose:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.center .danger:hover{
+  background-color: #f44336;
+  
+}
+.center .danger{
+  border : 2px solid #f44336;
+}
+.center .safe{
+  border : 2px solid #4CAF50;;
+}
+
+.center .safe:hover{
+ background-color: #4CAF50;
+  
+}
+
+.notifymodal-content .form__field .input {
+  background-color: #f3f3f3;
+  display: inline;
+  
+}
+.notifymodal-content .form__field .form__label {
+  text-align: center;
+}
+
+.centerme{
+   
+  padding: 0rem 0rem 1.3rem 33%;
+  
+   border-bottom: 2px solid #000;
+ 
+  margin-bottom: 1.2rem;
+}
+.hr .layout > .column {
+    margin-bottom: 0rem; 
+}
+
+
+.hr .layout .column #formInput#text{
+  background-color: #000;
+}
+
+.hr{
+  font-size: 1.3rem;
+}
+
+.column--1of2 textarea{
+  height: 9vh;
+  background-color: rgb(212, 212, 212);
+}
+.danger, .safe{
+  padding: 0.5rem 2rem;
+}
+.safe{
+  margin-left: 1rem;
+}
+
+.team{
+  display:inline-block;
+
+  margin: 10px auto ;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+}
+.person{
+  display: inline-block;
+  width: 30%;
+  margin: 5px;
+  padding: 10px 20px;
+  box-shadow: 0px 0px 2px #ccc;
+}
+.person p{
+  text-align: start;
+}
+
+.dev__social i{
+  display: inline;
+  font-size: 3rem;
+}
