@@ -13,6 +13,8 @@ from django.db.models import Q
 from users.models import Profile
 from django.utils.timesince import timesince
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from django.conf import settings
 
 def products(request):
     if request.user.is_staff:
@@ -226,6 +228,10 @@ def processOrder(request, pk):
     productId = ''
     SingleId = ''
 
+
+    
+    
+
     
 
     if request.method == 'POST':
@@ -270,6 +276,18 @@ def processOrder(request, pk):
             # Save the changes to the database
             order.save()
             orderId = order.id
+                         #send sms message here
+            subject = 'Dear {} you received new Order'.format(seller.name)
+            message = 'One of your products got ordered check out via :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/'
+
+            send_mail(
+                subject,
+                message,
+                settings.EMAIL_HOST_USER,
+                [seller.email],
+                fail_silently=False,
+            )
+            print("message sent")
 
             if choice == 'Resell':
                 newProd = Product.objects.create(
@@ -307,7 +325,8 @@ def processOrder(request, pk):
                 messages.error(request, 'Error for inserting order')
                 return redirect('checkout-product', pk=productId)
 
-            #send sms message here
+
+       
 
         elif needQuantity >= totalQuantity:
             messages.error(request, 'Quantity can not exceed  {}'.format(totalQuantity))
@@ -352,8 +371,7 @@ def confirmation(request):
         #prod = Product.objects.filter(id=order_id) #for delete to work make it get and consuming to work
         prod = Product.objects.get(id=order_id) # for resell to work and delete to work
         prod2 = Product.objects.filter(id=order_id)
-        if prod:
-            print(prod)
+        
         order = Order.objects.get(id=order_id)
         
         updateProd = Product.objects.get(id=order.ProductId)
@@ -368,6 +386,19 @@ def confirmation(request):
             order.status = 'Confirmed'
             order.response = response
             order.save()
+                            #send sms message here
+            subject1 = 'Dear {} your order confirmed'.format(order.buyer)
+            message1 = 'One of your products got responded check out via :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/'
+
+            send_mail(
+                subject1,
+                message1,
+                settings.EMAIL_HOST_USER,
+                [order.buyer.email],
+                fail_silently=False,
+            )
+            
+
         elif Delete:
             if not prod2  == None:
                 prod2.delete()
@@ -396,6 +427,7 @@ def confirmation(request):
             order.save()
         else:
             pass
+       
 
         messages.success(request, 'Done Successfully')
         return redirect('notification')
