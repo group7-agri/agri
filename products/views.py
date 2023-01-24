@@ -9,6 +9,7 @@ from .forms import ProductForm, ReviewForm, TraderProductForm
 from .utils import searchProducts, paginateProducts
 from django.views.decorators.csrf import csrf_exempt
 from django import template
+from django.db.models import Q
 from users.models import Profile
 from django.utils.timesince import timesince
 from django.views.decorators.csrf import csrf_exempt
@@ -132,7 +133,7 @@ def updateProduct(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
     profile = request.user.profile
-    product = profile.product_set.get(id=pk)
+    product = profile.owner.get(id=pk)
     form = ProductForm(instance=product)
 
     if request.method == 'POST':
@@ -156,7 +157,7 @@ def traderUpdate(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
     profile = request.user.profile
-    product = profile.product_set.get(id=pk)
+    product = profile.owner.get(id=pk)
     form = TraderProductForm(instance=product)
     
     qty = 0,
@@ -204,7 +205,7 @@ def deleteProduct(request, pk):
     if request.user.is_staff:
         return redirect('/admin/')
     profile = request.user.profile
-    product = profile.product_set.get(id=pk)
+    product = profile.owner.get(id=pk)
     if request.method == 'POST':
         product.delete()
         return redirect('products')
@@ -287,6 +288,17 @@ def processOrder(request, pk):
                 return redirect('notification')
                 
             elif choice == "Consuming":
+                newProd = Product.objects.create(
+                    id = orderId,
+                    owner=buyer,
+                    name=identity,
+                    instock=None,
+                    featured_image = prod.featured_image,
+                    description=prod.description,
+                    quantity=needQuantity,
+                    location=location
+                )
+                newProd.save()
                 prod.save()
                 order.save()
                 messages.success(request, 'Your order sent successfully!')
@@ -336,8 +348,9 @@ def confirmation(request):
         
         
         
-        prod = Product.objects.filter(id=order_id)
-       
+        #prod = Product.objects.filter(id=order_id) #for delete to work make it get and consuming to work
+        prod = Product.objects.get(id=order_id) # for resell to work and delete to work
+        prod2 = Product.objects.filter(id=order_id)
         if prod:
             print(prod)
         order = Order.objects.get(id=order_id)
@@ -345,7 +358,7 @@ def confirmation(request):
         updateProd = Product.objects.get(id=order.ProductId)
 
         if Confirm :
-            if not prod =='none' :
+            if prod:
                 prod.instock = False
                 prod.save()
             else:
@@ -355,8 +368,8 @@ def confirmation(request):
             order.response = response
             order.save()
         elif Delete:
-            if prod :
-                prod.delete()
+            if not prod2  == None:
+                prod2.delete()
             else:
                 pass
             if updateProd:
@@ -368,8 +381,8 @@ def confirmation(request):
             order.delete()
         elif Decline:
             
-            if  not prod =='none' :
-                prod.delete()
+            if  not prod2 == None :
+                prod2.delete()
             else:
                 pass
             if updateProd:
