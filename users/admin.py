@@ -150,7 +150,7 @@ admin.site.site_header =  'Yield Administration'
 
  #Profile, Training, Message, Inquiry, CustomUser
 class ProfileAdmin(admin.ModelAdmin):
-    search_fields = ('user', 'name', 'email', 'account', 'location')
+    search_fields = ('user__first_name','nid','name', 'email', 'account', 'location')
     ordering = ('user', 'name', 'email', 'account', 'location')
     filter_horizontal = ()
     list_display = ('user', 'name', 'email', 'account', 'location','born')
@@ -166,7 +166,7 @@ admin.site.register(Profile, ProfileAdmin)
 
 #  #Profile, Training, Message, Inquiry, CustomUser
 class TrainingAdmin(admin.ModelAdmin):
-    search_fields = ('owner', 'trainer', 'completed', 'created')
+    search_fields = ('owner__name', 'trainer', 'completed', 'created')
     ordering = ('owner', 'trainer', 'completed', 'created')
     filter_horizontal = ()
     list_display = ('owner', 'trainer', 'completed', 'created')

@@ -7,6 +7,25 @@
   <div class="content-box">
     <div class="message">
       <a class="backButton" href="{% url 'inbox' %}"><i class="fa icon-chevron-left"></i></a>
+
+              {% if message.sender %} <img src="{{message.sender.imageURL}}" alt="{{message.sender.name}}" class="product-image" id="myModalImg" >
+            
+            
+                        <!-- The Modal -->
+                        <div id="myModalImage" class="modalImage">
+
+                        <!-- Modal content -->
+                        <div class="modal-contentImage">
+                            <span class="closeImage">&times;</span>
+                            <p> <img class="modal-contentImage" id="productImage"></p>
+                            <div id="captionImage"></div>
+                        </div>
+
+                        </div>
+
+            
+            {% endif %}
+            
       <h2 class="message__subject">{{message.subject}}</h4>
         {% if message.sender %}
         <a href="{% url 'user-profile' message.sender.id  %}" class="message__author">{{message.name}}</a>
@@ -20,8 +39,24 @@
          
                 <a href="{{message.attachment.url}}" ><img src="{% static 'images/Messages/openmessage.png' %}" class="openfile" alt="View Attachment" title="view Attachment"/></a>
             {% endif %}
-    </div>
-  </div>
+   
+    <br>
+    <hr>
+    Contact info : {{message.email}} 
+    {% if message.sender %}
+     {% if message.sender.phone1  %}
+     |{{message.sender.phone1}}
+     {% endif %}
+     {% if message.sender.phone2  %}
+     |{{message.sender.phone2}}
+     {% endif %}
+
+      {% if message.sender.user.phone  %}
+     |{{message.sender.user.phone}}
+     {% endif %}
+
+    {% endif %}
+  </div> </div>
 </main>
 {% endblock content %}
 

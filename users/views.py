@@ -128,7 +128,7 @@ def userAccount(request):
     profile = request.user.profile
     
     trainings = profile.training_set.all()
-    products = profile.product_set.all().exclude(instock=None)
+    products = profile.owner.all().exclude(instock=None)
 
     if profile.bio == '':
         messages.info(request, "Complete Profile to be found")

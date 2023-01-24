@@ -16,7 +16,13 @@ body{
     background-color: var(--color-sub); */
     padding: 1rem 0;
 }
-
+.devlist .dev .dev__info {
+    margin: 1.5rem;
+    padding: 0rem 1.2rem;
+}
+.dev__skills{
+  padding: 0rem 1.2rem 1.2rem 1.2rem;
+}
 .devlist{
   margin-top: 2rem;
 }
@@ -112,7 +118,7 @@ p, span, strong {
 }
 
 .btn {
-  background-color: #1927a3;
+  background-color: #263cff;
 }
 .auth__alternative a{
   color: #000;
@@ -337,7 +343,10 @@ h5 .singleProject__subtitle{
 
 .charttable tr:nth-child(even) {background-color: #f2f2f2;}
 
-
+.pagination .btn {
+    color: #000000;
+    font-weight: bold;
+}
 .border{
   padding: 1rem 2rem;
 
@@ -611,7 +620,7 @@ textarea{
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  padding-top: 5rem; /* Location of the box */
+  padding-top: 8rem; /* Location of the box */
   left: 0;
   top: 0;
   width: 100%; /* Full width */

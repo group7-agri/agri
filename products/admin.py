@@ -6,14 +6,14 @@ from .models import *
 
 class ProductAdmin(admin.ModelAdmin):
     list_filter = ('created',)
-    search_fields = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
+    search_fields = ('name__name','owner__name', 'quantity', 'location', 'instock', 'created')
     ordering = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
     list_display = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
 
 admin.site.register(Product, ProductAdmin)
 
 class ReviewAdmin(admin.ModelAdmin):
-    search_fields = ('owner', 'product', 'value', 'created')
+    search_fields = ( 'owner__name','value', 'created')
     ordering = ('owner', 'product', 'value', 'created')
     list_display = ('owner', 'product', 'value', 'created')
 
@@ -49,7 +49,7 @@ admin.site.register(SingleProduct, SingleProductAdmin)
 class OrderAdmin(admin.ModelAdmin):
     list_filter = ('created','quantity')
     
-    search_fields = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
+    search_fields = ('id','seller__name','buyer__name', 'price', 'status', 'quantity', 'location', 'created')
     ordering = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created')
     list_display = ('seller', 'buyer', 'productName', 'price', 'status', 'quantity', 'location', 'created', 'ProductId')
     

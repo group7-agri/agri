@@ -62,7 +62,7 @@
             </div>
             <div class="column column--2of3">
                 <div class="devInfo">
-                    <h3 class="devInfo__title">About Me</h3>
+                    <h3 class="devInfo__title">About {{profile.name}}</h3>
                     <p class="devInfo__about">{{profile.bio}}</p>
                 </div>
               
@@ -100,14 +100,14 @@
                 <div class="devInfo">
                     <h3 class="devInfo__title">Products</h3>
                     <div class="grid grid--two">
-                        {% for product in profile.product_set.all %}
+                        {% for product in profile.owner.all %}
                         <div class="column">
                             <div class="card project">
                                 <a href="{% url 'product' product.id %}" class="project">
                                     <img class="project__thumbnail" style="height:20vh;" src="{{product.imageURL}}"
                                         alt="project thumbnail" />
-                                    <div class="card__body">
-                                        <h3 class="project__title">{{product.name.name}}</h3>
+                                    <div class="card__body" style="padding:0rem 2rem 2rem 2rem;">
+                                        <h4 class="project__title">{{product.name.name}}</h4>
                                         <p><a class="project__author"
                                                 href="{% url 'user-profile' product.owner.id %}">By
                                                 {{product.owner.name}}</a>
@@ -123,9 +123,18 @@
                                                 <small>{{payment}}</small>
                                             </span>
                                             {% endfor %}
-
-                                        </div>
-                                    </div>
+                                            </div>
+                                             </div>
+                                      {% if product.quantity > 0 %}
+                                    <button class="btn btn--sub  buy" style="cursor:pointer;" onclick="window.location.href='{% url 'checkout-product' product.id %}'">
+                                        <small>Negotiate</small>
+                                        </button>
+                                    
+                                    {% else %}
+                                    <button class="btn btn--sub btn--lg buy" disabled><small>OUT OF STOCK</small></button>
+                                    {% endif %}
+                                      
+                                   
                                 </a>
                             </div>
                         </div>

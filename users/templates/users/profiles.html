@@ -43,7 +43,7 @@
                 <div class="dev__profile">
                   <img class="avatar avatar--md" src="{{ profile.imageURL }}" alt="image" />
                   <div class="dev__meta">
-                    <h3>{{profile.name}}</h3>
+                    <h3>{{profile.name|lower|capfirst}}</h3>
                     <h5>I am a {{profile.account|slice:"60"}}</h5>
                   </div>
                 </div>
@@ -52,7 +52,7 @@
                 <div class="dev__skills">
                   
 
-                    {% for product in profile.product_set.all|slice:"5" %}
+                    {% for product in profile.owner.all|slice:"5" %}
                             
                         <span class="tag tag--pill tag--main" title="{{product.name.name}}" onclick = "window.location.href='{% url 'view-product' product.name %}'; return false;">
                             <small>{{product.name.name}}</small>

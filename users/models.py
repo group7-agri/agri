@@ -46,6 +46,7 @@ class Profile(models.Model):
     born = models.DateField(max_length=200, null=True, verbose_name="Date of Birth") 
     username = models.CharField(max_length=200, blank=True, null=True)
     location = models.CharField(max_length=200, blank=True, null=True)
+    nid = models.PositiveIntegerField(max_length=16, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     profile_image = models.ImageField(
         null=True, blank=True, upload_to='profiles/', default="profiles/user-default.png")

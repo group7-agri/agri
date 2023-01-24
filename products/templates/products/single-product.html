@@ -33,7 +33,20 @@
                      <br><br>
                    <h6 class="singleProject__subtitle">Quantity Available: &nbsp; <b>{{product.quantity}} {{product.name.unity}}</b> </h6>
  <h6 class="singleProject__subtitle">Last Updated: &nbsp; <b>{{product.updated|naturaltime}}</b> </h6>
+                              {% if product.owner.username  == request.user.username %}
+                                    <button class="btn btn--sub  buy">
+                                        <small><a style="color:#fff;" href=" {% url 'account' %}">Your own</a></small>
+                                        </button>
 
+                                    {% elif product.quantity > 0 %}
+                                    <button class="btn btn--sub  buy" style="cursor:pointer;" onclick="window.location.href='{% url 'checkout-product' product.id %}'">
+                                        <small>Negotiate</small>
+                                        </button>
+                                    
+                                    {% else %}
+                                    <button class="btn btn--sub btn--lg buy" disabled><small>OUT OF STOCK</small></button>
+                                    {% endif %}
+                                        
                 </div>
 
 

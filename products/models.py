@@ -7,7 +7,7 @@ from users.models import Profile
 
 
 class Product(models.Model):
-    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE)
+    owner = models.ForeignKey(Profile, null=True, blank=True, on_delete=models.CASCADE, related_name='owner')
     name = models.ForeignKey('SingleProduct', default=uuid.uuid4, on_delete=models.CASCADE, null=True, related_name = 'product')
     description = models.TextField(null=True, blank=True)
     featured_image = models.ImageField(null=True, blank=True, default="default.jpg")

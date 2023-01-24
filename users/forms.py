@@ -48,12 +48,14 @@ class CustomUserCreationForm(UserCreationForm):
 class ProfileForm(ModelForm):
     class Meta:
         model = Profile
-        fields = ['name', 'email', 'username',
+        fields = ['name', 'email', 'username','nid',
                   'location', 'bio', 'profile_image', 
                   'phone1','phone2', 'born']
         widgets = {
             
             'phone1': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX', 'minlength': 10}),
+            
+            'nid': forms.TextInput(attrs={'placeholder': 'Your National Id','required': 'required', 'minlength': 16, 'maxlength': 16}),
             'phone2': forms.TextInput(attrs={'placeholder': '+2507XXXXXXXX', 'minlength': 10}),
             'email': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
             'name': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
@@ -69,6 +71,7 @@ class ProfileForm(ModelForm):
             'born': 'Date of Birth (18+)',
             'name': 'Full Name',
             'phone1': 'Second Number ',
+            'nid': 'National ID',
             'phone2': 'Other Number',
 
         }
