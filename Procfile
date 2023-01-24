@@ -1,1 +1,1 @@
-web: gunicorn ayieldsearch.wsgi --log-file
+web: gunicorn 'ayieldsearch.wsgi'
