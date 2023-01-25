@@ -60,7 +60,7 @@ class ProfileForm(ModelForm):
             'email': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
             'name': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
             'username': forms.TextInput(attrs={'required': 'required', 'minlength': 6}),
-            'location': forms.TextInput(attrs={'required': 'required', 'minlength': 10}),
+            'location': forms.TextInput(attrs={'placeholder': 'eg: Kigali, Nyarugenge','required': 'required', 'minlength': 10}),
             'bio': forms.Textarea(attrs={'required': 'required', 'minlength': 20}),
             
             'born': forms.DateInput(attrs={'required': 'required'}),

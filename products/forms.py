@@ -22,7 +22,7 @@ class ProductForm(ModelForm):
             'featured_image': forms.FileInput(attrs = {'required': 'required'}),
             'description': forms.Textarea(attrs = {'required': 'required','minlength': 20}),
             'quantity': forms.TextInput(attrs = {'required': 'required'}),
-            'location': forms.TextInput(attrs = {'required': 'required'}),
+            'location': forms.TextInput(attrs = { 'placeholder': 'eg: Kigali, Nyarugenge', 'required': 'required'}),
         }
     
     exclude_fields = {'payments'}
@@ -59,6 +59,7 @@ class TraderProductForm(ModelForm):
         widgets = {
             # 'payments': forms.CheckboxSelectMultiple(),
             'payments': forms.CheckboxSelectMultiple(attrs = {'class': 'input input--checkbox'}),
+            'location': forms.TextInput(attrs = {'required': 'required', 'placeholder': 'eg: Kigali, Nyarugenge'}),
         }
     exclude_fields = {'payments'}
     
