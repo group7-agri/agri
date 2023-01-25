@@ -75,6 +75,9 @@ class ProfileForm(ModelForm):
             'phone2': 'Other Number',
 
         }
+        widgets = {
+             'born': forms.DateInput(attrs={'Placeholder': 'Year-Month-Day', 'type': 'date'}),
+        }
 
 
     def clean_date_of_birth(self):
@@ -102,6 +105,9 @@ class TrainingForm(ModelForm):
        
         labels = {
         'completed': 'Completion Time (Before Today)',
+        }
+        widgets = {
+             'completed': forms.DateInput(attrs={'Placeholder': 'Year-Month-Day', 'type': 'date'}),,
         }
 
     def clean(self):
