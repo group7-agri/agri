@@ -51,7 +51,7 @@ def createProfile(sender, instance, created, **kwargs):
 
             data={
                     'recipients':'{}'.format(user.phone),
-                    'message':'Dear {} Thank you for registration keep up with us through \n visit :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/notification/ '.format(user.first_name),
+                    'message':'Dear {} Thank you for registration keep up with us through \n visit :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/ '.format(user.first_name),
                     'sender':'+250786344674'
                 }
 

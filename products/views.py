@@ -368,6 +368,7 @@ def confirmation(request):
         order_id = request.POST.get('order_id')
         
         weight = request.POST.get('weight')
+        orderResponse = ''
 
         response = request.POST.get('response')
         Decline = request.POST.get('decline')
@@ -395,7 +396,7 @@ def confirmation(request):
             order.response = response
             order.save()
             
-
+            orderResponse = 'Confirmed'
         elif Delete:
             if not prod2  == None:
                 prod2.delete()
@@ -408,6 +409,7 @@ def confirmation(request):
             updateProd.save()
             
             order.delete()
+            orderResponse = 'Deleted'
         elif Decline:
             
             if  not prod2 == None :
@@ -422,13 +424,14 @@ def confirmation(request):
             order.status = 'Declined'
             order.response = response
             order.save()
+            orderResponse = 'Declined'
         else:
             pass
             
         
         data={
                 'recipients':'{}'.format(order.buyer.user.phone),
-                'message':'Dear {} Your order of {} received response visit :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/ '.format(*(order.buyer, order.productName)),
+                'message':'Dear {} Your order of {} received response \n it was {} visit :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/ '.format(*(order.buyer, order.productName, orderResponse)),
                 'sender':'+250786344674'
             }
 
