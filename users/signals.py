@@ -7,6 +7,7 @@ from django.contrib.auth.models import Permission, Group
 from django.core.mail import send_mail
 from django.conf import settings
 from .models import *
+import requests
 
 # @receiver(post_save, sender=Profile)
 User = settings.AUTH_USER_MODEL
@@ -34,18 +35,33 @@ def createProfile(sender, instance, created, **kwargs):
                 email=user.email,
                 account=user.status,
                 name=user.first_name,
+                phone1=user.phone,
             )
 
-            subject = 'Welcome to YieldSearch'
-            message = 'Hello {} We are glad you are here!'.format(user.first_name)
+            # subject = 'Welcome to YieldSearch'
+            # message = 'Hello {} We are glad you are here!'.format(user.first_name)
 
-            send_mail(
-                subject,
-                message,
-                settings.EMAIL_HOST_USER,
-                [profile.email],
-                fail_silently=False,
-            )
+            # send_mail(
+            #     subject,
+            #     message,
+            #     settings.EMAIL_HOST_USER,
+            #     [profile.email],
+            #     fail_silently=False,
+            # )
+
+            data={
+                    'recipients':'{}'.format(user.phone),
+                    'message':'Dear {} Thank you for registration keep up with us through \n visit :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/notification/ '.format(user.first_name),
+                    'sender':'+250786344674'
+                }
+
+            r=requests.post(
+                'https://www.intouchsms.co.rw/api/sendsms/.json',
+                data,
+                auth=('ared123','Ared123?')
+                )
+            print (r.json(), r.status_code)
+
         elif user.role=='Admin':
             user.is_staff = True
             user.is_superuser= True
@@ -96,6 +112,7 @@ def updateUser(sender, instance, created, **kwargs):
             user.username = profile.username
             user.email = profile.email
             user.status = profile.account
+            user.phone = profile.phone1
             user.save()
     else:
         pass

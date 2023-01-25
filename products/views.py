@@ -15,6 +15,7 @@ from django.utils.timesince import timesince
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from django.conf import settings
+import requests
 
 def products(request):
     if request.user.is_staff:
@@ -273,21 +274,28 @@ def processOrder(request, pk):
             # Update the field values of the model instance
             prod.quantity = quantity
 
-            # Save the changes to the database
+             # # Save the changes to the database
             order.save()
             orderId = order.id
-                         #send sms message here
-            subject = 'Dear {} you received new Order'.format(seller.name)
-            message = 'One of your products got ordered check out via :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/'
+            #              #send sms message here
+            # subject = 'Dear {} you received new Order'.format(seller.name)
+            # message = 'One of your products got ordered check out via :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/'
 
-            send_mail(
-                subject,
-                message,
-                settings.EMAIL_HOST_USER,
-                [seller.email],
-                fail_silently=False,
-            )
-            print("message sent")
+            # print(seller.user.phone)
+            # print(seller.name)
+            # print(productName)
+            data={
+                    'recipients':'{}'.format(seller.user.phone),
+                    'message':'Dear {} Your Product {} got new order visit :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/ '.format(*(seller.name, productName)),
+                    'sender':'+250786344674'
+                }
+
+            r=requests.post(
+                'https://www.intouchsms.co.rw/api/sendsms/.json',
+                data,
+                auth=('ared123','Ared123?')
+                )
+            print (r.json(), r.status_code)
 
             if choice == 'Resell':
                 newProd = Product.objects.create(
@@ -386,17 +394,6 @@ def confirmation(request):
             order.status = 'Confirmed'
             order.response = response
             order.save()
-                            #send sms message here
-            subject1 = 'Dear {} your order confirmed'.format(order.buyer)
-            message1 = 'One of your products got responded check out via :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/'
-
-            send_mail(
-                subject1,
-                message1,
-                settings.EMAIL_HOST_USER,
-                [order.buyer.email],
-                fail_silently=False,
-            )
             
 
         elif Delete:
@@ -427,7 +424,20 @@ def confirmation(request):
             order.save()
         else:
             pass
-       
+            
+        
+        data={
+                'recipients':'{}'.format(order.buyer.user.phone),
+                'message':'Dear {} Your order of {} received response visit :\n http://192.168.43.119:8000/notification/ or https://agri-portal.up.railway.app/notification/ '.format(*(order.buyer, order.productName)),
+                'sender':'+250786344674'
+            }
+
+        r=requests.post(
+            'https://www.intouchsms.co.rw/api/sendsms/.json',
+            data,
+            auth=('ared123','Ared123?')
+            )
+        print (r.json(), r.status_code)
 
         messages.success(request, 'Done Successfully')
         return redirect('notification')

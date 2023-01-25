@@ -70,7 +70,7 @@ class ProfileForm(ModelForm):
         labels = {
             'born': 'Date of Birth (18+)',
             'name': 'Full Name',
-            'phone1': 'Second Number ',
+            'phone1': 'Personal Number ',
             'nid': 'National ID',
             'phone2': 'Other Number',
 
@@ -139,6 +139,15 @@ class InquiryForm(ModelForm):
     class Meta:
         model = Inquiry
         fields = ['name', 'email', 'subject','attachment', 'body']
+
+        
+        labels = {
+        'email': 'Your personal email for communication',
+        }
+        widgets = {
+            'body': forms.Textarea(attrs={'placeholder': 'Kindly describe the problem you encountered'}),
+            'subject': forms.TextInput(attrs={'placeholder': 'What went wrong'}),
+        }
 
     def __init__(self, *args, **kwargs):
         super(InquiryForm, self).__init__(*args, **kwargs)

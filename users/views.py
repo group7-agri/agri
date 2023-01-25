@@ -17,6 +17,9 @@ from products.models import Order, Product, SingleProduct
 from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import send_mail
 from django.conf import settings
+import requests
+
+
 
 User = settings.AUTH_USER_MODEL
 
@@ -311,7 +314,7 @@ def viewInquiry(request, pk):
         inquiry.save()
                     #send sms message here
         subject = 'Dear {} your inquiry received response'.format(inquiry.name)
-        message = 'We are sorry you didnt find it smooth \n\n your inquiry ({}) \n {} a :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/'.format(inquiry.subject, inquiry.reply)
+        message = 'We are sorry you didnt find it smooth \n\n your inquiry: ({}) \n {} a :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/'.format(inquiry.subject, inquiry.reply)
 
         send_mail(
             subject,
