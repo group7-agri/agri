@@ -15,6 +15,8 @@ from .utils import searchProfiles, paginateProfiles,searchOrders
 from django.http import JsonResponse
 from products.models import Order, Product, SingleProduct
 from django.views.decorators.csrf import csrf_exempt
+from django.core.mail import send_mail
+from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
 
@@ -302,6 +304,23 @@ def viewInquiry(request, pk):
     if not request.user.is_staff:
         return redirect('/')
     inquiry = Inquiry.objects.get(id=pk)
+
+    if request.method == 'POST':
+        reply = request.POST['message']
+        inquiry.reply = reply
+        inquiry.save()
+                    #send sms message here
+        subject = 'Dear {} your inquiry received response'.format(inquiry.name)
+        message = 'We are sorry you didnt find it smooth \n\n your inquiry ({}) \n {} a :\n http://192.168.43.119:8000/ or https://agri-portal.up.railway.app/'.format(inquiry.subject, inquiry.reply)
+
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [inquiry.email],
+            fail_silently=False,
+        )
+
     if inquiry.is_read == False:
         inquiry.is_read = True
         inquiry.save()
