@@ -107,7 +107,7 @@ class TrainingForm(ModelForm):
         'completed': 'Completion Time (Before Today)',
         }
         widgets = {
-             'completed': forms.DateInput(attrs={'Placeholder': 'Year-Month-Day', 'type': 'date'}),,
+             'completed': forms.DateInput(attrs={'Placeholder': 'Year-Month-Day', 'type': 'date'}),
         }
 
     def clean(self):
