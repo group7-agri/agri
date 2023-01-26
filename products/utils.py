@@ -54,6 +54,7 @@ def searchProducts(request):
     products = Product.objects.distinct().filter((
         Q(name__name__icontains=search_query) |
         Q(description__icontains=search_query) |
+        Q(location__icontains=search_query) |
         Q(owner__name__icontains=search_query) |
         Q(payments__in=payments)) &
         Q(instock=True)

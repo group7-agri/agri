@@ -44,6 +44,7 @@ def searchProfiles(request):
     profiles = Profile.objects.distinct().filter(
         Q(name__icontains=search_query) |
         Q(account__icontains=search_query) |
+        Q(location__icontains=search_query) |
         Q(bio__icontains=search_query) |
         Q(training__in=trainings)  & 
         ~Q(user=request.user.id)

@@ -17,7 +17,7 @@
                                 <p><a href="{% url 'user-profile' product.owner.id %}">By
                                         {{product.owner.name}}</a>
                                 </p>
-                                <span class="product__author"> Updated: {{product.updated|naturaltime }} </span>
+                                <span class="product__author"> Updated: {{product.updated|naturaltime }}, <span style="cursor:pointer;" onclick="window.location.href='https://www.google.com/maps/place/{{product.location}}/'"><b>{{product.location}} </b></span> </span>
                                 
                                 <table class="table">
                                     <tr>
