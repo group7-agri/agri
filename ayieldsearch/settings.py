@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     #PHONE NUMBER…
     'phonenumber_field',
     'phone_field',
+     'rangefilter',
+     #'csp', just for alternative in case you want to use content security policy
 
     #VOLT TEMPLATE
     'admin_volt.apps.AdminVoltConfig',
