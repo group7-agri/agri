@@ -1,11 +1,27 @@
 from django.contrib import admin
+from rangefilter.filters import DateRangeFilter, DateTimeRangeFilter
 
 # Register your models here.
 from .models import *
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_filter = ('created',)
+    # list_filter = ('created',DateRangeFilter)
+    list_filter = (
+        ('created', DateRangeFilter),
+    )
+
+    # # If you would like to add a default range filter
+    # # method pattern "get_rangefilter_{field_name}_default"
+    # def get_rangefilter_created_at_default(self, request):
+    #     return (datetime.date.today, datetime.date.today)
+
+    # # If you would like to change a title range filter
+    # # method pattern "get_rangefilter_{field_name}_title"
+    # def get_rangefilter_created_at_title(self, request, field_path):
+    #     return 'custom title'
+
+
     search_fields = ('name__name','owner__name', 'quantity', 'location', 'instock', 'created')
     ordering = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
     list_display = ('owner', 'name', 'quantity', 'location', 'instock', 'created')
